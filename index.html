@@ -238,6 +238,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/06/用Java写脚本的机会来了（2）/" itemprop="url">
+                  用Java写脚本的机会来了（2）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-06T20:31:37+08:00" content="2016-08-06">
+              2016-08-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/06/用Java写脚本的机会来了（2）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/用Java写脚本的机会来了（2）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、脚本进行"><a href="#一、脚本进行" class="headerlink" title="一、脚本进行"></a>一、脚本进行</h1><p>周五，准备写脚本了。看哪些地方该替换属性。基本就是顺藤摸瓜找调用的方法的过程。原来配置文件不需要改，原来只是要对其中一个app发送指令类的方法里面的参数进行修改。</p>
+<p>于是硬着头皮看主要的方法调用了哪些方法，一层一层地找。</p>
+<p>开始老大说设备不校验参数，于是试着只替换已有的3个参数，调试运行，不行；</p>
+<p>再问，又说是全量下发，也就是说所有属性都要传参数。于是又改，把所有参数都补上，再把方法里调用的json对象生成方法也全部更新成目标设备的参数，再试，不行；</p>
+<p>原来是方法里增加了参数，但调用时没有带参数；修改，也不行；</p>
+<p>干脆，不调用参数，改传固定参数。这下可好了，服务端查到的日志里，显示一大堆的杂乱无章的字符串，充满了整个屏幕。不过，在这一大堆字符串里，我发现10个参数里，前面的3个参数传上去了。</p>
+<p>折腾了一下午，终于弄明白了，原来10个参数里，有4个参数是Json格式，而我传的是一个简单的字符串。格式不匹配，难怪呢。而这个Json格式又是这个设备所特有的，所以我用原来的方法生成json对象不行。老大说周一来指导下，那就等周一了。今天还是有进步的，起码有30%的参数传成功了，哈哈。</p>
+<h1 id="二、-饭局"><a href="#二、-饭局" class="headerlink" title="二、 饭局"></a>二、 饭局</h1><p>我们客户公司的一个开发同事晋升了，晚上请吃饭，叫了我们团队的两个人，开始我并不想去，后来听说晋升就答应去了。我们俩提前下班，先随他先去定位置。聚餐的大多数人是客户自己公司的同事，他们来得晚，迟到了一个小时，吃完后聊些我听不懂的前期开发事项，呆着很无趣，到九点多才散，弄得晚上回家很晚。至少浪费了4个小时，第二天精神萎靡不振。希望下次能够礼貌而又坚决的拒绝这些饭局。</p>
+<h1 id="三、-重建博客"><a href="#三、-重建博客" class="headerlink" title="三、 重建博客"></a>三、 重建博客</h1><p>晚上又想把统计功能弄出来，试过百度统计、Google统计、腾讯统计，始终不能显示。倒腾了2小时，结果出了点问题。我干脆把本地整个文件夹删掉了。因为以前有过类似经验，删掉后，再从github上克隆下来，也可以恢复原状。不过这次可惨了，删掉后再克隆，然后生成部署，一切都烟消云散了：3篇博文、修改过的站点配置文件、主题配置文件全没了。</p>
+<p>一招回到解放前。</p>
+<p>于是又从头开始部署、修改。不过这次比以前顺利多了。这次不再去找那些教程了，直接上Hexo、Next网站上看指导文档，按说明操作，感觉比那些教程要清晰、全面多了。附上链接：</p>
+<p><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a><br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a></p>
+<p>统计显示仍然没解决，算了放弃吧。不过，把头像给显示出来了，还是有点小成就的。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/04/用Java写脚本的机会来了/" itemprop="url">
                   用Java写脚本的机会来了
                 </a>
@@ -288,7 +401,7 @@
 
       
         
-          <p>用Java写脚本的机会来了<br>发表于 2016-08-04   |<br>今天老大突然问：</p>
+          <p>今天老大突然问：</p>
 <blockquote>
 <p>你现在会写脚本吗？</p>
 </blockquote>
@@ -497,7 +610,7 @@
 
       
         
-          <p>发表于 2016-07-29   |<br>date: 2016-07-29 05:09:40 version 1.0</p>
+          <p>version 1.0<br>date: 2016-07-29 05:09:40</p>
 <ul>
 <li><p>Feel Terriblely Good In New World.</p>
 </li>
@@ -506,13 +619,11 @@
 <li><p>Wait me back.</p>
 </li>
 </ul>
-<p>date: 2016-07-30 09:37:00 version 2.0</p>
+<p>version 2.0<br>date: 2016-07-30 09:37:00</p>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li>概述</li>
 <li>我遇到的坑</li>
-<li>总结<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1>我在学习用hexo＋github搭建之前，对hexo、linux指令、iterm、atom、nvm、npm、node js等一无所知，搭建成功后，变为知之甚少，经历了从0到1的重大突破。</li>
-</ul>
-<h2 id="原则："><a href="#原则：" class="headerlink" title="原则："></a>原则：</h2><p>无知无畏、狼吞虎咽、勇往直前、不惜鼓励、坚信能够达成目标、放弃不重要问题。<br>
+<li>总结<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1>我在学习用hexo＋github搭建之前，对hexo、linux指令、iterm、atom、nvm、npm、node js等一无所知，搭建成功后，变为知之甚少，经历了从0到1的重大突破。
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/07/29/用Github＋Hexo搭建个人博客过程笔记/#more" rel="contents">
               阅读全文 &raquo;
@@ -585,7 +696,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
