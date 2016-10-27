@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="Getting Started with Python: Kaggle’s Titanic Competition使用Python完成Kaggle’s Titanic Competition说明
-Recapping our work with Excel: we have been able to successfully download the competition data and sub">
+<meta name="description" content="原文地址：https://www.kaggle.com/c/titanic/details/getting-started-with-python
+Getting Started with Python: Kaggle’s Titanic Competition使用Python完成Kaggle’s Titanic Competition说明
+Recapping our work with Exce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="翻译 | Getting Started With Python">
 <meta property="og:url" content="http://yoursite.com/2016/10/26/翻译-Getting-Started-With-Python/index.html">
 <meta property="og:site_name" content="ProgramLife">
-<meta property="og:description" content="Getting Started with Python: Kaggle’s Titanic Competition使用Python完成Kaggle’s Titanic Competition说明
-Recapping our work with Excel: we have been able to successfully download the competition data and sub">
-<meta property="og:updated_time" content="2016-10-26T12:15:42.000Z">
+<meta property="og:description" content="原文地址：https://www.kaggle.com/c/titanic/details/getting-started-with-python
+Getting Started with Python: Kaggle’s Titanic Competition使用Python完成Kaggle’s Titanic Competition说明
+Recapping our work with Exce">
+<meta property="og:updated_time" content="2016-10-26T12:35:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="翻译 | Getting Started With Python">
-<meta name="twitter:description" content="Getting Started with Python: Kaggle’s Titanic Competition使用Python完成Kaggle’s Titanic Competition说明
-Recapping our work with Excel: we have been able to successfully download the competition data and sub">
+<meta name="twitter:description" content="原文地址：https://www.kaggle.com/c/titanic/details/getting-started-with-python
+Getting Started with Python: Kaggle’s Titanic Competition使用Python完成Kaggle’s Titanic Competition说明
+Recapping our work with Exce">
 
 
 
@@ -286,7 +289,8 @@ Recapping our work with Excel: we have been able to successfully download the co
       
 
       
-        <p>Getting Started with Python: Kaggle’s Titanic Competition<br>使用Python完成Kaggle’s Titanic Competition说明</p>
+        <p>原文地址：<a href="https://www.kaggle.com/c/titanic/details/getting-started-with-python" target="_blank" rel="external">https://www.kaggle.com/c/titanic/details/getting-started-with-python</a></p>
+<p>Getting Started with Python: Kaggle’s Titanic Competition<br>使用Python完成Kaggle’s Titanic Competition说明</p>
 <p>Recapping our work with Excel: we have been able to successfully download the competition data and submit 2 models: one based on just the gender and another on the gender, class, and price of ticket. This is good for an initial submission, however problems arise when we move to slightly more complicated models and the time taken to formulate approaches in Excel takes longer. What do you do if you want to make a more complicated model but don’t have the time to manually find the proportion of survivors for a given variable? We should make the computer do the hard work for us!<br>重述我们用Excel工作的要点：我们已经能够成功地下载竞赛数据和提交2模型：一个基于性别另一个基于性别、阶层、票价。这对于初始提交来说很好，然而当我们往略微复杂的模型靠时问题就出现了，Excel里的公式实现的时间也更长。如果你想要做一个更复杂的模型，但是没有时间手工查找已给定变量的幸存者比例怎么办？我们应该让计算机为我们更加努力工作！</p>
 <p>I want to add more variables but it takes so much time!<br>我想增加更多变量，但它太花时间了！</p>
 <p>Programming scripts are a great way to speed up your calculations and avoid the arduous task of manually calculating the pivot table ratios. There are many languages out there, each with its own advantages and disadvantages. Here we are going to use Python version 2.7, which is an easy to use scripting language. If you do not have this installed, please visit the Python web site and folllow the instructions there – or, you could install one specific distribution of Python called Anaconda that already bundles the most useful libraries for data science. (Another advantage of Anaconda is that it includes iPython (Interactive Python) which makes the interface easier for stepping through lines of programming one by one.)<br>脚本程序是加速计算的很好方法，也避免了手工计算关键表比例。这里有许多种语言，每种都有优劣。我们将使用Python 2.7，一种很容易使用的脚本语言。如果你没有安装，请访问Python网站，按照那里的说明安装。或者你可以安装Python的一个specific distribution叫Anaconda，它已经捆绑了数据科学中最有用的库。（Anaconda的另一个优势是它包含了iPython（交互式Python），这让单步调试程序的交互更加容易。）</p>
@@ -295,7 +299,7 @@ Recapping our work with Excel: we have been able to successfully download the co
 <p>One of the great advantages of Python is its packages. Of these packages, the most useful (for Kaggle competitions) are the Numpy, Scipy, Pandas, matplotlib and csv package. In order to check whether you have these, just go to your python command line and type  import numpy  (and so on). If you don’t you will need them! This tutorial is going to guide you through making the same submissions as before, only this time using Python.<br>Python一个主要优势在于它的包。所有包里，最有用的（对Kaggle竞赛而言）是Numpy，Scipy，Pandas，matplotlib and csv package。为了检查你是否有这些包，只需去你的python命令行输入 import numpy（等等）。如果你不能你就需要它们！这个教程将引导你像从前一样提交，只是这次使用Python。</p>
 <p>Python: Reading in your train.csv<br>Python：阅读你的train.csv</p>
 <p>Python has a nice csv reader, which reads each line of a file into memory. You can read in each row and just append a list. From there, you can quickly turn it into an array.<br>Python有一个很好的csv阅读器，能够把文件的每一行都读到内存。你能读每行，并添加一个列表。然后，你可以快速将它转化为数组。</p>
-<p>``# The first thing to do is to import the relevant packages<br>第一件是是导入相关的包。</p>
+<p>`# The first thing to do is to import the relevant packages<br>第一件是是导入相关的包。</p>
 <h1 id="that-I-will-need-for-my-script"><a href="#that-I-will-need-for-my-script" class="headerlink" title="that I will need for my script,"></a>that I will need for my script,</h1><p>哪些我在脚本中需要的</p>
 <h1 id="these-include-the-Numpy-for-maths-and-arrays"><a href="#these-include-the-Numpy-for-maths-and-arrays" class="headerlink" title="these include the Numpy (for maths and arrays)"></a>these include the Numpy (for maths and arrays)</h1><p>包含了Numpy（为maths和数组）</p>
 <h1 id="and-csv-for-reading-and-writing-csv-files"><a href="#and-csv-for-reading-and-writing-csv-files" class="headerlink" title="and csv for reading and writing csv files"></a>and csv for reading and writing csv files</h1><p>以及csv，为读写csv文件</p>
@@ -306,7 +310,7 @@ Recapping our work with Excel: we have been able to successfully download the co
 <pre><code># first line which is a header
 </code></pre><p>data=[]                          # Create a variable called ‘data’.<br>for row in csv_file_object:      # Run through each row in the csv file,<br>    data.append(row)             # adding each row to the data variable<br>data = np.array(data)              # Then convert from a list to an array</p>
 <pre><code># Be aware that each item is currently
-            # a string in this format``
+            # a string in this format`
 </code></pre><p>Although you’ve seen this data before in Excel, just to be sure let’s look at how it is stored now in Python.  Type  print data  and the output should be something like<br>尽管你已经在Excel中看了这个数据，仍要确认，让我们看下它在Python里是如何存放的。输入print data 输出将是这样的：</p>
 <p><code>[[&#39;1&#39; &#39;0&#39; &#39;3&#39; ..., &#39;7.25&#39; &#39;&#39; &#39;S&#39;]
  [&#39;2&#39; &#39;1&#39; &#39;1&#39; ..., &#39;71.2833&#39; &#39;C85&#39; &#39;C&#39;]
@@ -321,19 +325,19 @@ Recapping our work with Excel: we have been able to successfully download the co
 <p><code>Braund, Mr. Owen Harris</code></p>
 <p>I have my data now I want to play with it<br>我现在有数据了，我想开始玩了。</p>
 <p>Now if you want to call a specific column of data, say, the gender column, I can just type data[0::,4], remembering that “0::” means all (from start to end), and Python starts indices from 0 (not 1). You should be aware that the csv reader works by default with strings, so you will need to convert to floats in order to do numerical calculations. For example, you can turn the Pclass variable into floats by using data[0::,2].astype(np.float). Using this, we can calculate the proportion of survivors on the Titanic:<br>现在如果你想调用数据中的某个特定列，比如，性别列，我能输入data [0::,4]，记住”0::” 意味着全部（从头到尾），Python的索引从0开始而不是1.你应该知道，csv阅读器默认处理字符串，所以你将需要将之转化为浮点型来做数值计算。例如，你能使用data[0::,2].astype(np.float)将Pclass变量转为浮点型。使用这个，我们能计算Titanic上的幸存者比例。</p>
-<p>``# The size() function counts how many elements are in</p>
-<h1 id="in-the-array-and-sum-as-you-would-expects-sums-up"><a href="#in-the-array-and-sum-as-you-would-expects-sums-up" class="headerlink" title="in the array and sum() (as you would expects) sums up"></a>in the array and sum() (as you would expects) sums up</h1><h1 id="the-elements-in-the-array"><a href="#the-elements-in-the-array" class="headerlink" title="the elements in the array."></a>the elements in the array.</h1><p>number_passengers = np.size(data[0::,1].astype(np.float))<br>number_survived = np.sum(data[0::,1].astype(np.float))<br>proportion_survivors = number_survived / number_passengers``</p>
+<p>`# The size() function counts how many elements are in</p>
+<h1 id="in-the-array-and-sum-as-you-would-expects-sums-up"><a href="#in-the-array-and-sum-as-you-would-expects-sums-up" class="headerlink" title="in the array and sum() (as you would expects) sums up"></a>in the array and sum() (as you would expects) sums up</h1><h1 id="the-elements-in-the-array"><a href="#the-elements-in-the-array" class="headerlink" title="the elements in the array."></a>the elements in the array.</h1><p>number_passengers = np.size(data[0::,1].astype(np.float))<br>number_survived = np.sum(data[0::,1].astype(np.float))<br>proportion_survivors = number_survived / number_passengers`</p>
 <p>Numpy has some lovely functions. For example, we can search the gender column, find where any elements equal female (and for males, ‘do not equal female’), and then use this to determine the number of females and males that survived:<br>Numpy有些迷人的功能。例如，我们能搜索性别列，找到哪些元素等于女性（对于男性，即“不等于女性”），使用这个确定幸存女性和男性的数量：</p>
-<p>``women_only_stats = data[0::,4] == “female” # This finds where all</p>
+<p>`women_only_stats = data[0::,4] == “female” # This finds where all</p>
 <pre><code># the elements in the gender
 # column that equals “female”
 </code></pre><p>men_only_stats = data[0::,4] != “female”   # This finds where all the</p>
 <pre><code># elements do not equal
-# female (i.e. male)``
+# female (i.e. male)`
 </code></pre><p>We use these two new variables as a “mask” on our original train data, so we can select only those women, and only those men on board, then calculate the proportion of those who survived:<br>我们使用这两个新变量作为我们原始训练数据的“mask”，所以我们可以仅选择甲板上的那些女人，或者仅选择男人，然后计算这些人的幸存比例。</p>
-<p>``# Using the index from above we select the females and males separately<br>women_onboard = data[women_only_stats,1].astype(np.float)<br>men_onboard = data[men_only_stats,1].astype(np.float)</p>
+<p>`# Using the index from above we select the females and males separately<br>women_onboard = data[women_only_stats,1].astype(np.float)<br>men_onboard = data[men_only_stats,1].astype(np.float)</p>
 <h1 id="Then-we-finds-the-proportions-of-them-that-survived"><a href="#Then-we-finds-the-proportions-of-them-that-survived" class="headerlink" title="Then we finds the proportions of them that survived"></a>Then we finds the proportions of them that survived</h1><p>proportion_women_survived = \<br>                       np.sum(women_onboard) / np.size(women_onboard)<br>proportion_men_survived = \<br>                       np.sum(men_onboard) / np.size(men_onboard)</p>
-<h1 id="and-then-print-it-out"><a href="#and-then-print-it-out" class="headerlink" title="and then print it out"></a>and then print it out</h1><p>print ‘Proportion of women who survived is %s’ % proportion_women_survived<br>print ‘Proportion of men who survived is %s’ % proportion_men_survived``</p>
+<h1 id="and-then-print-it-out"><a href="#and-then-print-it-out" class="headerlink" title="and then print it out"></a>and then print it out</h1><p>print ‘Proportion of women who survived is %s’ % proportion_women_survived<br>print ‘Proportion of men who survived is %s’ % proportion_men_survived`</p>
 <p>Now that I have my indication that women were much more likely to survive, I am done with the training set.<br>现在我已经有了女人更容易存活的指示，训练集也完成了。</p>
 <p>Reading the test data and writing the gender model as a csv<br>读测试数据并用csv格式写性别模型</p>
 <p>As before, we need to read in the test file by opening a python object to read and another to write. First, we read in the test.csv file and skip the header line:<br>就像从前，我们需要打开两个个python object，一个读测试文件，一个写。首先，我们在test.csv里读和跳过表头行：</p>
@@ -358,14 +362,14 @@ prediction_file.close()</code></p>
 <p>By now you have created your first python submission. Let’s complicate things and try and submit the same submission as before, binning up the ticket price into the four bins and modeling the outcome on class, gender, and ticket price. This part assumes that you have completed the section ‘Reading in your train.csv’ and you have a data array as before.  On the Data page you will find a python script named ‘genderclassmodel.py’ to follow along… but be sure to type (or paste) each line of code yourself, to help you learn what is happening.<br>到现在你已经创建了你的第一个python提交。让我们把事情变复杂一点，试图像从前一样提交同样的东西。把票价也扔进那四个容器中，把结果按阶层、性别、票价建模。这部分假设你已经完成了“在train.csv里读”的部分，以及你之前已经有一个数组。在Data也你将找到一个名字为’genderclassmodel.py’的python脚本来学习。但是确保是自己输入（或者粘贴）每一行代码，来帮助自己学习了解什么即将发生。</p>
 <p>The idea is to create an table which contains just 1’s and 0’s. The array will be a survival reference table, whereby you read in the test data, find out passenger attributes, look them up in the survival table, and determine if they should be predicted to survive or not. In the case of a model that uses gender, class, and ticket price, you will need an array of 2x3x4 ( [female/male] , [1st / 2nd / 3rd class], [4 bins of prices] ).<br>这个主意是创建一个表格，包含1‘s和0’s。数组将是一个存活参考表格，通过你读测试数据，找到乘客属性，在幸存者表格里查找，然后确定他们是否应当被预测幸存或者不能幸存。在一个模型的例子中，使用性别、阶层和票价，你将需要2<em>3</em>4（男／女，一／二／三等，价格的4bin）。</p>
 <p>The script will systematically will loop through each combination and use the ‘where’ function in python to search the passengers that fit that combination of variables. Just like before, you can ask what indices in your data equals female, 1st class, and paid more than $30. The problem is that looping through requires bins of equal sizes, i.e. $0-9,  $10-19,  $20-29,  $30-39.  For the sake of binning let’s say everything equal to and above 40 “equals” 39 so it falls in this bin. So then you can set the bins:<br>这个脚本将系统的循环每个结合，并使用python的where功能来搜索那些适用于变量组合的乘客。就像从前，你能问你数据中的哪个索引等于女性，一等，付费超过30美元。问题是，循环需要在相等规模大小的bins里进行，例如$0-9,  $10-19,  $20-29,  $30-39. 为了binning让我们假设所有大于或等于40的东西“equals”39，这样，它就落入这个bin。所以你就能够设置bin：</p>
-<p>``# So we add a ceiling<br>fare_ceiling = 40</p>
+<p>`# So we add a ceiling<br>fare_ceiling = 40</p>
 <h1 id="then-modify-the-data-in-the-Fare-column-to-39-if-it-is-greater-or-equal-to-the-ceiling"><a href="#then-modify-the-data-in-the-Fare-column-to-39-if-it-is-greater-or-equal-to-the-ceiling" class="headerlink" title="then modify the data in the Fare column to = 39, if it is greater or equal to the ceiling"></a>then modify the data in the Fare column to = 39, if it is greater or equal to the ceiling</h1><p>data[ data[0::,9].astype(np.float) &gt;= fare_ceiling, 9 ] = fare_ceiling - 1.0</p>
 <p>fare_bracket_size = 10<br>number_of_price_brackets = fare_ceiling / fare_bracket_size</p>
 <h1 id="I-know-there-were-1st-2nd-and-3rd-classes-on-board"><a href="#I-know-there-were-1st-2nd-and-3rd-classes-on-board" class="headerlink" title="I know there were 1st, 2nd and 3rd classes on board"></a>I know there were 1st, 2nd and 3rd classes on board</h1><p>number_of_classes = 3</p>
 <h1 id="But-it’s-better-practice-to-calculate-this-from-the-data-directly"><a href="#But-it’s-better-practice-to-calculate-this-from-the-data-directly" class="headerlink" title="But it’s better practice to calculate this from the data directly"></a>But it’s better practice to calculate this from the data directly</h1><h1 id="Take-the-length-of-an-array-of-unique-values-in-column-index-2"><a href="#Take-the-length-of-an-array-of-unique-values-in-column-index-2" class="headerlink" title="Take the length of an array of unique values in column index 2"></a>Take the length of an array of unique values in column index 2</h1><p>number_of_classes = len(np.unique(data[0::,2]))</p>
-<h1 id="Initialize-the-survival-table-with-all-zeros"><a href="#Initialize-the-survival-table-with-all-zeros" class="headerlink" title="Initialize the survival table with all zeros"></a>Initialize the survival table with all zeros</h1><p>survival_table = np.zeros((2, number_of_classes, number_of_price_brackets))``</p>
+<h1 id="Initialize-the-survival-table-with-all-zeros"><a href="#Initialize-the-survival-table-with-all-zeros" class="headerlink" title="Initialize the survival table with all zeros"></a>Initialize the survival table with all zeros</h1><p>survival_table = np.zeros((2, number_of_classes, number_of_price_brackets))<br>`</p>
 <p>Now that these are set up, you can loop through each variable and find all those passengers that agree with the statements:<br>这些建立后，你就能在每个变量里循环一遍，找到所有那些满足条件的乘客：</p>
-<p>``for i in xrange(number_of_classes):       #loop through each class<br>  for j in xrange(number_of_price_brackets):   #loop through each price bin</p>
+<p>`for i in xrange(number_of_classes):       #loop through each class<br>  for j in xrange(number_of_price_brackets):   #loop through each price bin</p>
 <pre><code>women_only_stats = data[                          \#Which element           
                      (data[0::,4] == &quot;female&quot;)    \#is a female
                    &amp;(data[0::,2].astype(np.float) \#and was ith class
@@ -386,7 +390,7 @@ men_only_stats = data[                            \#Which element
                         &gt;= j*fare_bracket_size)   \#than this bin              
                    &amp;(data[0:,9].astype(np.float)  \#and less than
                         &lt; (j+1)*fare_bracket_size)\#the next bin    
-                      , 1] ``
+                      , 1] `
 </code></pre><p>Notice that  data[ where function, 1]  means it is finding the Survived column for the conditional criteria which is being called. As the loop starts with i=0 and j=0, the first loop will return the Survived values for all the 1st-class females (i + 1) who paid less than 10 ((j+1) * fare_bracket_size) and similarly all the 1st-class males who paid less than 10.  Before resetting to the top of the loop, we can calculate the proportion of survivors for this particular combination of criteria and record it to our survival table:<br>注意data[ where function, 1]意味着它在按调用的条件标准寻找幸存者列。当循环从i=0和j=0开始，第一个循环返回所有支付少于10的第一等级女性的幸存值，类似所有第一等级支付少于10的男性。在重置循环顶端，我们能计算这个特定标准结合的幸存者比例，并记录到我们的幸存者表格中。</p>
 <p>  <code>survival_table[0,i,j] = np.mean(women_only_stats.astype(np.float))
   survival_table[1,i,j] = np.mean(men_only_stats.astype(np.float))</code></p>
@@ -479,6 +483,10 @@ if row[8] &gt;= j * fare_bracket_size\
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/10/27/翻译-Getting-Started-With-Python-II/" rel="prev" title="翻译 | Getting Started With Python II">
+                翻译 | Getting Started With Python II <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -549,7 +557,7 @@ if row[8] &gt;= j * fare_bracket_size\
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
