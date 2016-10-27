@@ -297,233 +297,324 @@
 <p>Ready? If you have it installed, this would be a great time to utilize  ipython  or ipython notebook. Otherwise, run  python.<br>准备好了吗？你已经安装了它，这将有很多时间使用ipython或者ipython notebook。否则，使用python。</p>
 <p>Numpy Arrays<br>Numpy数组</p>
 <p>Let’s review what our train.csv data looked like in python up to this point. Run the following to load the data again:<br>到此为止，让我们回顾下我们train.csv在python里看起来是怎么样的。运行下列指令来重新装载数据：</p>
-<blockquote>
-<p>import csv as csv<br>import numpy as np</p>
-</blockquote>
-<p>csv_file_object = csv.reader(open(‘../csv/train.csv’, ‘rb’))<br>header = csv_file_object.next()<br>data=[]</p>
-<p>for row in csv_file_object:<br>    data.append(row)<br>data = np.array(data)</p>
-<p>Now type  print data<br>现在输入 print data</p>
-<blockquote>
-<p>[[‘1’ ‘0’ ‘3’ …, ‘7.25’ ‘’ ‘S’]<br> [‘2’ ‘1’ ‘1’ …, ‘71.2833’ ‘C85’ ‘C’]<br> [‘3’ ‘1’ ‘3’ …, ‘7.925’ ‘’ ‘S’]<br> …,<br> [‘889’ ‘0’ ‘3’ …, ‘23.45’ ‘’ ‘S’]<br> [‘890’ ‘1’ ‘1’ …, ‘30’ ‘C148’ ‘C’]<br> [‘891’ ‘0’ ‘3’ …, ‘7.75’ ‘’ ‘Q’]]</p>
-</blockquote>
-<p>This is familiar… an array of strings that the csv package was able to read.<br>这是类似的，一个csv包能够读的字符串数组。<br>Look at the first 15 rows of the Age column:   data[0:15,5]<br>看看年龄列的前15行：  data[0:15,5]</p>
-<blockquote>
-<p>array([‘22’, ‘38’, ‘26’, ‘35’, ‘35’, ‘’, ‘54’, ‘2’, ‘27’, ‘14’, ‘4’, ‘58’, ‘20’, ‘39’, ‘14’],<br> dtype=’|S82’)</p>
-</blockquote>
-<p>Great, that command gives just the ages, and they are still stored as strings. What type of object is this whole column, though?<br>很好，这些指令只给了年龄，它们仍是以字符串的形式存储。然而，整列的object类型是什么？</p>
+<pre><code>import csv as csv
+import numpy as np
+
+csv_file_object = csv.reader(open(&apos;../csv/train.csv&apos;, &apos;rb&apos;))
+header = csv_file_object.next()
+data=[]
+
+for row in csv_file_object:
+    data.append(row)
+data = np.array(data)
+</code></pre><p>Now type  print data<br>现在输入 print data</p>
+<pre><code>[[&apos;1&apos; &apos;0&apos; &apos;3&apos; ..., &apos;7.25&apos; &apos;&apos; &apos;S&apos;]
+[&apos;2&apos; &apos;1&apos; &apos;1&apos; ..., &apos;71.2833&apos; &apos;C85&apos; &apos;C&apos;]
+[&apos;3&apos; &apos;1&apos; &apos;3&apos; ..., &apos;7.925&apos; &apos;&apos; &apos;S&apos;]
+...,
+[&apos;889&apos; &apos;0&apos; &apos;3&apos; ..., &apos;23.45&apos; &apos;&apos; &apos;S&apos;]
+[&apos;890&apos; &apos;1&apos; &apos;1&apos; ..., &apos;30&apos; &apos;C148&apos; &apos;C&apos;]
+[&apos;891&apos; &apos;0&apos; &apos;3&apos; ..., &apos;7.75&apos; &apos;&apos; &apos;Q&apos;]]
+</code></pre><p>This is familiar… an array of strings that the csv package was able to read.<br>这是类似的，一个csv包能够读的字符串数组。<br>Look at the first 15 rows of the Age column:   data[0:15,5]<br>看看年龄列的前15行：  data[0:15,5]</p>
+<pre><code>array([&apos;22&apos;, &apos;38&apos;, &apos;26&apos;, &apos;35&apos;, &apos;35&apos;, &apos;&apos;, &apos;54&apos;, &apos;2&apos;, &apos;27&apos;, &apos;14&apos;, &apos;4&apos;, &apos;58&apos;, &apos;20&apos;, &apos;39&apos;, &apos;14&apos;],
+dtype=&apos;|S82&apos;)
+</code></pre><p>Great, that command gives just the ages, and they are still stored as strings. What type of object is this whole column, though?<br>很好，这些指令只给了年龄，它们仍是以字符串的形式存储。然而，整列的object类型是什么？</p>
 <p> type(data[0::,5])</p>
-<blockquote>
-<p>numpy.ndarray</p>
-</blockquote>
-<p>So, any slice we take from the data is still a Numpy array. Now let’s see if we can take the mean of the passenger ages. They will need to be floats instead of strings, so set this up as:<br>所以，我们从这个data上取下的任意小份仍是Numpy 数组。现在让我们看看是否能够取得乘客年龄的平均值。它们应当是浮点型而非字符型，所以设置：</p>
+<pre><code>numpy.ndarray
+</code></pre><p>So, any slice we take from the data is still a Numpy array. Now let’s see if we can take the mean of the passenger ages. They will need to be floats instead of strings, so set this up as:<br>所以，我们从这个data上取下的任意小份仍是Numpy 数组。现在让我们看看是否能够取得乘客年龄的平均值。它们应当是浮点型而非字符型，所以设置：</p>
 <p>  ages_onboard = data[0::,5].astype(np.float)</p>
-<blockquote>
-<p>ValueError: could not convert string to float:</p>
-</blockquote>
-<p>Hmm. This seemed to be working for the first few rows, but then produced an error when numpy got to the missing value ‘ ‘ in the 6th row. There is surely a way to use Python to filter out the missing values, then convert to float, then take the mean – but this isn’t sounding easy anymore. So let’s try again with Pandas.<br>嗯，这看起来对前几行有用，但当numpy在第六行得到缺失值时产生了一个错误。当然有办法是：使用Python过滤缺失值，然后转换为浮点型，再找均值——但这听起来不再那么容易。所以让我们用Pandas试试。</p>
+<pre><code>ValueError: could not convert string to float:
+</code></pre><p>Hmm. This seemed to be working for the first few rows, but then produced an error when numpy got to the missing value ‘ ‘ in the 6th row. There is surely a way to use Python to filter out the missing values, then convert to float, then take the mean – but this isn’t sounding easy anymore. So let’s try again with Pandas.<br>嗯，这看起来对前几行有用，但当numpy在第六行得到缺失值时产生了一个错误。当然有办法是：使用Python过滤缺失值，然后转换为浮点型，再找均值——但这听起来不再那么容易。所以让我们用Pandas试试。</p>
 <p>Pandas DataFrame</p>
 <p>The first thing we have to do is import the Pandas package. It turns out that Pandas has its own functions to read or write a .csv file, so we are no longer actually using the csv package in the commands below. Let’s create a new object called ‘df’ for storing the pandas version of train.csv. (This means you can still refer to the original ‘data’ numpy array for the rest of this tutorial anytime you want to compare and contrast.)<br>第一件事我们必须做的，就是导入Pandas包。Pandas有它自己读和写.csv文件的功能，所以我们不再在以下指令中实际使用csv包。让我们创建一个新的object叫“df”来存储train.csv的pandas版本（这意味着在剩下的教程里，在任何你想比较和对比时，你仍能够参考初始的‘data’ numpy数组。）</p>
-<blockquote>
-<p>import pandas as pd<br>import numpy as np</p>
-<p>/# For .read_csv, always use header=0 when you know row 0 is the header row<br>df = pd.read_csv(‘train.csv’, header=0)</p>
-</blockquote>
-<p>Now look at what’s there by typing:<br>现在输入df看看那里有什么：</p>
+<pre><code>import pandas as pd
+import numpy as np
+
+# For .read_csv, always use header=0 when you know row 0 is the header row
+df = pd.read_csv(&apos;train.csv&apos;, header=0)
+</code></pre><p>Now look at what’s there by typing:<br>现在输入df看看那里有什么：</p>
 <p> df</p>
-<blockquote>
-<p>(…long list of stuff…!)<br>…<br>…<br>…<br>891 rows × 12 columns</p>
-</blockquote>
-<p>That wasn’t so helpful. So let’s look at just the first few rows:<br>这没有帮助，所以让我们仅看前面几行：</p>
+<pre><code>(...long list of stuff...!)
+...
+...
+...
+891 rows × 12 columns
+</code></pre><p>That wasn’t so helpful. So let’s look at just the first few rows:<br>这没有帮助，所以让我们仅看前面几行：</p>
 <p> df.head(3)</p>
-<blockquote>
-<p>·(a short list of stuff!)<br>…<br>3 rows × 12 columns</p>
-</blockquote>
-<p>You notice it has column names, and it has the index of rows labelled down the side. (Note: you can also try  df.tail(3) and you can feed it any number of rows.) Now, compared to the original data array, what kind of object is this?<br>你注意到它有列名字，有杭索引标在旁边（注意：你也可以试下df.tail(3),你能够用任何行数来填充）。现在对比下原始数据组，它的类型是什么？</p>
+<pre><code>·(a short list of stuff!)
+...
+3 rows × 12 columns
+</code></pre><p>You notice it has column names, and it has the index of rows labelled down the side. (Note: you can also try  df.tail(3) and you can feed it any number of rows.) Now, compared to the original data array, what kind of object is this?<br>你注意到它有列名字，有杭索引标在旁边（注意：你也可以试下df.tail(3),你能够用任何行数来填充）。现在对比下原始数据组，它的类型是什么？</p>
 <p>type(df)</p>
-<blockquote>
-<p>pandas.core.frame.DataFrame</p>
-</blockquote>
-<p>Recall that using the csv package before, every value was interpreted as a string. But how does Pandas interpret them using its own csv reader?<br>回想下从前使用csv包，每个值都翻译为一个字符串。但是Pandas如何使用自己的csv 阅读器翻译它们？</p>
+<pre><code>pandas.core.frame.DataFrame
+</code></pre><p>Recall that using the csv package before, every value was interpreted as a string. But how does Pandas interpret them using its own csv reader?<br>回想下从前使用csv包，每个值都翻译为一个字符串。但是Pandas如何使用自己的csv 阅读器翻译它们？</p>
 <p> df.dtypes</p>
-<blockquote>
-<p>PassengerId  int64<br>Survived     int64<br>Pclass       int64<br>Name        object<br>Sex         object<br>Age        float64<br>SibSp        int64<br>Parch        int64<br>Ticket      object<br>Fare       float64<br>Cabin       object<br>Embarked    object<br>dtype: object</p>
-</blockquote>
-<p>Pandas is able to infer numerical types whenever it can detect them. So we have values already stored as integers. When it detected the existing decimal points somewhere in Age and Fare, it converted those columns to float. There are two more very valuable commands to learn on a dataframe:<br>无论什么时候检测到数值类型，Pandas都能推断出来。所以我们的数值已经被保存为整型了。当它检测到年龄和票价中已存在的十进制小数点，它能把这些列转化为浮点型。在dataframe里有2个以上的值指令可以学习：</p>
+<pre><code>PassengerId  int64
+Survived     int64
+Pclass       int64
+Name        object
+Sex         object
+Age        float64
+SibSp        int64
+Parch        int64
+Ticket      object
+Fare       float64
+Cabin       object
+Embarked    object
+dtype: object
+</code></pre><p>Pandas is able to infer numerical types whenever it can detect them. So we have values already stored as integers. When it detected the existing decimal points somewhere in Age and Fare, it converted those columns to float. There are two more very valuable commands to learn on a dataframe:<br>无论什么时候检测到数值类型，Pandas都能推断出来。所以我们的数值已经被保存为整型了。当它检测到年龄和票价中已存在的十进制小数点，它能把这些列转化为浮点型。在dataframe里有2个以上的值指令可以学习：</p>
 <p> df.info()</p>
-<blockquote>
-<p><class 'pandas.core.frame.dataframe'=""><br>Int64Index: 891 entries, 0 to 890<br>Data columns (total 12 columns):<br>PassengerId    891 non-null int64<br>Survived       891 non-null int64<br>Pclass         891 non-null int64<br>Name           891 non-null object<br>Sex            891 non-null object<br>Age            714 non-null float64<br>SibSp          891 non-null int64<br>Parch          891 non-null int64<br>Ticket         891 non-null object<br>Fare           891 non-null float64<br>Cabin          204 non-null object<br>Embarked       889 non-null object<br>dtypes: float64(2), int64(5), object(5)</class></p>
-</blockquote>
-<p>There’s a lot of useful info there! You can see immediately we have 891 entries (rows), and for most of the variables we have complete values (891 are non-null). But not for Age, or Cabin, or Embarked – those have nulls somewhere. Now try:<br>这里有许多有用的信息！你能立刻看到我们有891个记录（行），并且对大多数变量，我们有完整的值（891就是没有缺损的）。但是对于年龄或者客舱，或者上船点，这些有很多空值。现在试下：</p>
+<pre><code>&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+Int64Index: 891 entries, 0 to 890
+Data columns (total 12 columns):
+PassengerId    891 non-null int64
+Survived       891 non-null int64
+Pclass         891 non-null int64
+Name           891 non-null object
+Sex            891 non-null object
+Age            714 non-null float64
+SibSp          891 non-null int64
+Parch          891 non-null int64
+Ticket         891 non-null object
+Fare           891 non-null float64
+Cabin          204 non-null object
+Embarked       889 non-null object
+dtypes: float64(2), int64(5), object(5)
+</code></pre><p>There’s a lot of useful info there! You can see immediately we have 891 entries (rows), and for most of the variables we have complete values (891 are non-null). But not for Age, or Cabin, or Embarked – those have nulls somewhere. Now try:<br>这里有许多有用的信息！你能立刻看到我们有891个记录（行），并且对大多数变量，我们有完整的值（891就是没有缺损的）。但是对于年龄或者客舱，或者上船点，这些有很多空值。现在试下：</p>
 <p> df.describe()</p>
-<blockquote>
-<pre><code>PassengerId    Survived      Pclass         Age  ...
-</code></pre><p>count  891.000000  891.000000  891.000000  714.000000  …<br>mean   446.000000    0.383838    2.308642   29.699118  …<br>std    257.353842    0.486592    0.836071   14.526497  …<br>min      1.000000    0.000000    1.000000    0.420000  …<br>25%    223.500000    0.000000    2.000000   20.125000  …<br>50%    446.000000    0.000000    3.000000   28.000000  …<br>75%    668.500000    1.000000    3.000000   38.000000  …<br>max    891.000000    1.000000    3.000000   80.000000  …</p>
-</blockquote>
-<p>This is also very useful: pandas has taken all of the numerical columns and quickly calculated the mean, std, minimum and maximum value. Convenient! But also a word of caution: we know there are a lot of missing values in Age, for example. How did pandas deal with that? It must have left out any nulls from the calculation. So if we start quoting the “average age on the Titanic” we need to caveat how we derived that number.<br>这同样非常有用：pandas带了所有的数值列，快速计算均值，标准差，最小最大值。多方便！但是有一个警告：我们指导这里有很多年龄的缺失值，例如，pandas如何应对这些问题？它一定从计算里忽略了这些空值。所以如果我们开始引用“Titanic的平均年龄”时，我们需要附加说明数值的来源。</p>
+<pre><code>     PassengerId    Survived      Pclass         Age  ...
+count  891.000000  891.000000  891.000000  714.000000  ...
+mean   446.000000    0.383838    2.308642   29.699118  ...
+std    257.353842    0.486592    0.836071   14.526497  ...
+min      1.000000    0.000000    1.000000    0.420000  ...
+25%    223.500000    0.000000    2.000000   20.125000  ...
+50%    446.000000    0.000000    3.000000   28.000000  ...
+75%    668.500000    1.000000    3.000000   38.000000  ...
+max    891.000000    1.000000    3.000000   80.000000  ...
+</code></pre><p>This is also very useful: pandas has taken all of the numerical columns and quickly calculated the mean, std, minimum and maximum value. Convenient! But also a word of caution: we know there are a lot of missing values in Age, for example. How did pandas deal with that? It must have left out any nulls from the calculation. So if we start quoting the “average age on the Titanic” we need to caveat how we derived that number.<br>这同样非常有用：pandas带了所有的数值列，快速计算均值，标准差，最小最大值。多方便！但是有一个警告：我们指导这里有很多年龄的缺失值，例如，pandas如何应对这些问题？它一定从计算里忽略了这些空值。所以如果我们开始引用“Titanic的平均年龄”时，我们需要附加说明数值的来源。</p>
 <p>Data Munging<br>Data绿豆？</p>
 <p>One step in any data analysis is the data cleaning. Thankfully pandas makes things easier to filter, manipulate, drop out, fill in, transform and replace values inside the dataframe. Below we also learn the syntax that pandas allows for referring to specific columns.<br>在任意数据分析的中都有一步数据清洗。感谢pandas让过滤、处理、丢弃、填充、转换和替代在dataframe里变得容易。下面我们同样学习pandas关于具体列的语法。</p>
 <p>Referencing and filtering<br>引用和过滤</p>
 <p>Let’s acquire the first 10 rows of the Age column. In pandas this is<br>让我们要求前10行的年龄列，在pandas这是：</p>
 <p>df[‘Age’][0:10]</p>
-<blockquote>
-<p>0 22<br>1 38<br>2 26<br>3 35<br>4 35<br>5 NaN<br>6 54<br>7 2<br>8 27<br>9 14<br>Name: Age, dtype: float64</p>
-</blockquote>
-<p>–&gt; And try this alternative syntax:  df.Age[0:10]<br>试试这个另一个语法：</p>
+<pre><code>0 22
+1 38
+2 26
+3 35
+4 35
+5 NaN
+6 54
+7 2
+8 27
+9 14
+Name: Age, dtype: float64
+</code></pre><p>–&gt; And try this alternative syntax:  df.Age[0:10]<br>试试这个另一个语法：</p>
 <p>–&gt; Without counting indices, can you show the Cabin column now?<br>不数索引，你能显示客舱列吗？</p>
 <p>Similar to before, let’s understand what kind of object is this. Type:<br>与从前一样，让我们了解下这个object的类型是什么，输入：</p>
 <p> type(df[‘Age’])</p>
-<blockquote>
-<p>pandas.core.series.Series</p>
-</blockquote>
-<p>A single column is neither an numpy array, nor a pandas dataframe – but rather a pandas-specific object called a data Series.<br>一单列既不是numpy数组，也不是pandas dataframe——而是一个pandas-specific object叫做data Series</p>
+<pre><code>pandas.core.series.Series
+</code></pre><p>A single column is neither an numpy array, nor a pandas dataframe – but rather a pandas-specific object called a data Series.<br>一单列既不是numpy数组，也不是pandas dataframe——而是一个pandas-specific object叫做data Series</p>
 <p>At this point, we’d really like to get than mean value:<br>在这点，我们真正想要得到平均值：</p>
 <p> df[‘Age’].mean()</p>
-<blockquote>
-<p>29.69911764705882</p>
-</blockquote>
-<p>That matches what was reported in df.describe().<br>这个与df.describe()相匹配。</p>
+<pre><code>29.69911764705882
+</code></pre><p>That matches what was reported in df.describe().<br>这个与df.describe()相匹配。</p>
 <p>–&gt; See if you can obtain the .median of Age as well.<br>看看你是否能同样获得年龄的中位数。</p>
 <p>The next thing we’d like to do is look at more specific subsets of the dataframe. Again pandas makes this very convenient to write. Pass it a [ list ] of the columns desired:<br>我们想做的下一件事是，查看dataframe更多具体子集。同样，pandas让这些变得易写。传给它一个所需列的【list】：</p>
 <p> df[ [‘Sex’, ‘Pclass’, ‘Age’] ]</p>
-<blockquote>
-<p> Sex    Pclass Age</p>
-</blockquote>
-<p>0 male   3      22.0<br>1 female 1      38.0<br>2 female 3      26.0<br>3 female 1      35.0<br>4 male   3      35.0<br>5 male   3       NaN<br>  …    …    …<br>  …    …    …</p>
-<p>[891 rows x 3 columns]</p>
-<p>Filtering data is another important tool if we are investigating the data by hand. The .describe() command had indicated that the maximum age was 80. What do the older passengers look like in this data set? This is written by passing the criteria of df as a where clause into df:<br>过滤数据是另一个重要的方法，如果我们想要手动调查数据。.describe()指令表示最大年龄是80. 老年乘客在数据集里是什么样子的呢？这可以通过把df的标准当作一个where从句传递给df写下来。</p>
-<blockquote>
-<p>df[df[‘Age’] &gt; 60]</p>
-<p>(a medium list of stuff!)<br>…<br>…<br>22 rows × 12 columns</p>
-</blockquote>
-<p>If you were most interested in the mix of the gender and Passenger class of these older people, you would want to combine the two skills you just learned and get only a few columns for the same where filter:<br>如果你对这些老年人的性别和乘客类别的组合感兴趣，你将想要结合这两个刚学到的技能，获得几列同样的where过滤器：</p>
+<pre><code>  Sex    Pclass Age
+
+
+0 male   3      22.0
+1 female 1      38.0
+2 female 3      26.0
+3 female 1      35.0
+4 male   3      35.0
+5 male   3       NaN
+  ...    ...    ...
+  ...    ...    ...
+
+[891 rows x 3 columns]
+</code></pre><p>Filtering data is another important tool if we are investigating the data by hand. The .describe() command had indicated that the maximum age was 80. What do the older passengers look like in this data set? This is written by passing the criteria of df as a where clause into df:<br>过滤数据是另一个重要的方法，如果我们想要手动调查数据。.describe()指令表示最大年龄是80. 老年乘客在数据集里是什么样子的呢？这可以通过把df的标准当作一个where从句传递给df写下来。</p>
+<pre><code> df[df[&apos;Age&apos;] &gt; 60]
+
+(a medium list of stuff!)
+...
+...
+22 rows × 12 columns
+</code></pre><p>If you were most interested in the mix of the gender and Passenger class of these older people, you would want to combine the two skills you just learned and get only a few columns for the same where filter:<br>如果你对这些老年人的性别和乘客类别的组合感兴趣，你将想要结合这两个刚学到的技能，获得几列同样的where过滤器：</p>
 <p> df[df[‘Age’] &gt; 60][[‘Sex’, ‘Pclass’, ‘Age’, ‘Survived’]]</p>
-<blockquote>
-<p>   Sex    Pclass Age   Survived<br>33  male   2      66.0  0<br>54  male   1      65.0  0<br>96  male   1      71.0  0<br>116 male   3      70.5  0<br>170 male   1      61.0  0<br>252 male   1      62.0  0<br>275 female 1      63.0  1<br>280 male   3      65.0  0<br>    …    …    …   …<br>    …    …    …   …<br>[22 rows x 4 columns]</p>
-</blockquote>
-<p>From visual examination of all 22 cases, it seems they were mostly men, mostly(?) 1st class, and mostly perished.<br>从可视化的所有22个考试题中，看起来，他们更多的是男人、一等，死亡。</p>
+<pre><code>    Sex    Pclass Age   Survived
+33  male   2      66.0  0
+54  male   1      65.0  0
+96  male   1      71.0  0
+116 male   3      70.5  0
+170 male   1      61.0  0
+252 male   1      62.0  0
+275 female 1      63.0  1
+280 male   3      65.0  0
+...    ...    ...   ...
+...    ...    ...   ...
+[22 rows x 4 columns]
+</code></pre><p>From visual examination of all 22 cases, it seems they were mostly men, mostly(?) 1st class, and mostly perished.<br>从可视化的所有22个考试题中，看起来，他们更多的是男人、一等，死亡。</p>
 <p>Now it’s time to investigate all of those missing Age values, because we will need to address them in our model if we hope to use all the data for more advanced algorithms. To filter for missing values, use<br>现在是时候调查所有这些缺失的年龄值了。因为如果希望为更先进的算法使用所有的数据，我们将需要在模型里强调它们。。为了过滤缺失值，使用：</p>
 <p> df[df[‘Age’].isnull()][[‘Sex’, ‘Pclass’, ‘Age’]]</p>
-<blockquote>
-<p>(a long list of stuff!)<br>…<br>…<br>…<br>177 rows × 3 columns</p>
-</blockquote>
-<p>Here the only thing we did was print all 177 cases, but the same syntax can be used later if we take action on them.<br>这里我们唯一做的东西就是打印出所有177条记录。但是如果我们在上面操作，也可以使用同样的语法。</p>
+<pre><code>(a long list of stuff!)
+...
+...
+...
+177 rows × 3 columns
+</code></pre><p>Here the only thing we did was print all 177 cases, but the same syntax can be used later if we take action on them.<br>这里我们唯一做的东西就是打印出所有177条记录。但是如果我们在上面操作，也可以使用同样的语法。</p>
 <p>It will also be useful to combine multiple criteria (joined by the syntax &amp;). To practice even more functionality in the same line of code, let’s take a count of the males in each class.<br>结合多重标准（用&amp;）也很有用。为练习同一样代码的更多功能，让我们拿一个男性的count到每个类中。</p>
-<blockquote>
-<p>for i in range(1,4):<br>    print i, len(df[ (df[‘Sex’] == ‘male’) &amp; (df[‘Pclass’] == i) ])<br>1 122<br>2 108<br>3 347</p>
-</blockquote>
-<p>Before we finish the initial investigation by hand, let’s use one other convenience function of pandas to derive a histogram of any numerical column. The histogram function is really a shortcut to the more powerful features of the matplotlib/pylab packages, so let’s be sure that’s imported. Type the following:<br>在我们结束最初的手工研究之前，让我们使用pandas里另一个方便的功能来获得任意数值列的直方图。这个直方图功能其实是到matplotlib/pylab包更有力的特征一个捷径，所以让我们确认那是导入的，输入下面的：</p>
-<blockquote>
-<p>import pylab as P<br>df[‘Age’].hist()<br>P.show()</p>
-</blockquote>
-<p>histogram output 1</p>
+<pre><code>for i in range(1,4):
+    print i, len(df[ (df[&apos;Sex&apos;] == &apos;male&apos;) &amp; (df[&apos;Pclass&apos;] == i) ])
+1 122
+2 108
+3 347
+</code></pre><p>Before we finish the initial investigation by hand, let’s use one other convenience function of pandas to derive a histogram of any numerical column. The histogram function is really a shortcut to the more powerful features of the matplotlib/pylab packages, so let’s be sure that’s imported. Type the following:<br>在我们结束最初的手工研究之前，让我们使用pandas里另一个方便的功能来获得任意数值列的直方图。这个直方图功能其实是到matplotlib/pylab包更有力的特征一个捷径，所以让我们确认那是导入的，输入下面的：</p>
+<pre><code>import pylab as P
+df[&apos;Age&apos;].hist()
+P.show()
+</code></pre><p>histogram output 1</p>
 <p>Inside the parentheses of .hist(), you can also be more explicit about options of this function. Before you invoke it, you can also be explicit that you are dropping the missing values of Age:<br>在 .hist()的圆括号里，你也能更明确这个功能的选项。在你调用它之前，你也可以具体化为，你在丢弃年龄缺失值：</p>
-<blockquote>
-<p>df[‘Age’].dropna().hist(bins=16, range=(0,80), alpha = .5)<br>P.show()<br>histogram output 2</p>
-</blockquote>
+<pre><code>df[&apos;Age&apos;].dropna().hist(bins=16, range=(0,80), alpha = .5)
+P.show()
+</code></pre><p>histogram output 2</p>
 <p>Cleaning the data<br>数据清洗</p>
 <p>Ok now that we are comfortable with the syntax, we are ready to begin transforming the values in the dataframe into the shape we need for machine learning. First of all, it’s hard to run analysis on the string values of “male” and “female”. Let’s practice transforming it in three ways – twice for fun and once to make it useful. We’ll store our transformation in a new column, so the original Sex isn’t changed.<br>既然我们了解了语法，我们准备好把dataframe里的数值转化为机器学习的形状。首先，对于字符型“male”和“female”很难运行分析。让我们练习三种转换方式——2次是好玩，1次有用。我们将把转换值存储一个新列，这样原始性别就不会改变了。</p>
 <p>In Pandas, adding a column is as easy as naming it and passing it new values.<br>在Pandas，增加一列跟重命名和传递新值一样简单。</p>
-<blockquote>
-<p>df[‘Gender’] = 4</p>
-</blockquote>
-<p>Show some .head() rows of the dataframe to see what we just accomplished. Well, now let’s make it mean something that’s actually derived from the Sex column.<br>显示dataframe的一些.head()行，来看看我们完成了什么。让我们给这个实际从性别列得来的东西赋予意义。</p>
-<blockquote>
-<p>df[‘Gender’] = df[‘Sex’].map( lambda x: x[0].upper() )</p>
-</blockquote>
-<p>Iambda x is an built-in function of python for generating an anonymous function in the moment, at runtime. Remember that x[0] of any string returns its first character.<br>Iambda x是一个python的内置函数，产生运行当前时间的一个匿名函数。记住任何字符的x[0]都返回它的第一个字符。</p>
+<pre><code>df[&apos;Gender&apos;] = 4
+</code></pre><p>Show some .head() rows of the dataframe to see what we just accomplished. Well, now let’s make it mean something that’s actually derived from the Sex column.<br>显示dataframe的一些.head()行，来看看我们完成了什么。让我们给这个实际从性别列得来的东西赋予意义。</p>
+<pre><code>df[&apos;Gender&apos;] = df[&apos;Sex&apos;].map( lambda x: x[0].upper() )
+</code></pre><p>Iambda x is an built-in function of python for generating an anonymous function in the moment, at runtime. Remember that x[0] of any string returns its first character.<br>Iambda x是一个python的内置函数，产生运行当前时间的一个匿名函数。记住任何字符的x[0]都返回它的第一个字符。</p>
 <p>What do the .head() rows of the dataframe look like now?<br>dataframe的.head() 行长什么样？</p>
 <p>But of course what we really need is a binary integer for female and male, similar to the way Survived is stored. As a matter of consistency, let’s also make Gender into values of 0 and 1’s. We have a precedent of analyzing the women first in all of our previous arrays, so let’s decide female = 0 and male = 1.  So, for real this time:<br>但是当然我们实际需要的是一个femal和male的二进制整数，类似于Survived存储方式。作为连续性因素，让我们也把Gender变为0和1.我们有在前面数组分析女性的先例，所以可以让femal=0，male=1. 这样，实际上：</p>
-<blockquote>
-<p>df[‘Gender’] = df[‘Sex’].map( {‘female’: 0, ‘male’: 1} ).astype(int)</p>
-</blockquote>
-<p>See what the .head() rows of the dataframe look like now.<br>现在看看dataframe的.head() 行长什么样。</p>
+<pre><code>df[&apos;Gender&apos;] = df[&apos;Sex&apos;].map( {&apos;female&apos;: 0, &apos;male&apos;: 1} ).astype(int)
+</code></pre><p>See what the .head() rows of the dataframe look like now.<br>现在看看dataframe的.head() 行长什么样。</p>
 <p>–&gt; Can you make a new column to do something similar for the Embarked values?<br>你能对the Embarked值制作一个新的列来做点类似的事情吗？</p>
 <p>Now it’s time to deal with the missing values of Age, because most machine learning will need a complete set of values in that column to use it. By filling it in with guesses, we’ll be introducing some noise into a model, but if we can keep our guesses reasonable, some of them should be close to the historical truth (whatever it was…), and the overall predictive power of Age might still make a better model than before.  We know the average [known] age of all passengers is 29.6991176 – we could fill in the null values with that. But maybe the median would be better? (to reduce the influence of a few rare 70- and 80-year olds?) The Age histogram did seem positively skewed. These are the kind of decisions you make as you create your models in a Kaggle competition.<br>现在是时候对付年龄的缺失值了。因为大多数机器学习将需要一个完成的列值集合来使用。通过猜数填充，我们将介绍一些噪声到一个模型中。但如果我们能保持我们猜测得合理，一些将与历史的真实接近。年龄的总体预测能力将生成一个比过去更好的模型。我们知道已知平均年龄是29.6991176——我们能把它填充到空值中去。但也许中位值更好？（为了降低一些极少70-和80-多岁人的影响？）年龄直方图确实看起来正偏。这些就是你在Kaggle竞赛中创建自己模型时需要做的决定。</p>
 <p>For now let’s decide to be more sophisticated, that we want to use the age that was typical in each passenger class. And decide that the median might be better. Let’s build another reference table to calculate what each of these medians are:<br>从现在开始让我们更复杂一点。我们想用每个乘客等级里最典型的年龄。决定那个中值更好。让我们建立另一个参考表格来计算每个中值的值。</p>
-<blockquote>
-<p>median_ages = np.zeros((2,3))<br>median_ages</p>
-</blockquote>
-<p>yields:</p>
-<blockquote>
-<p>array([[ 0., 0., 0.],<br>       [ 0., 0., 0.]])</p>
-</blockquote>
-<p>And then populating the array,</p>
-<blockquote>
-<p>for i in range(0, 2):<br>    for j in range(0, 3):<br>        median_ages[i,j] = df[(df[‘Gender’] == i) &amp; \<br>                              (df[‘Pclass’] == j+1)][‘Age’].dropna().median()</p>
-<p>median_ages</p>
-</blockquote>
-<p>yields:</p>
-<blockquote>
-<p>array([[ 35. , 28. , 21.5],<br>       [ 40. , 30. , 25. ]])</p>
-</blockquote>
-<p>We could fill in the missing ages directly into the Age column. But to be extra cautious and not lose the state of the original data, a more formal way would be to create a new column, AgeFill, and even record which ones were originally null (and thus artificially guessed).<br>我们能直接把这些缺失年龄值填入到年龄列。但是为了谨慎期间，不丢失原始数据的状态，一个更加正式的方式是创建新列，AgeFill，甚至记录哪些是原始空值（因此人工猜测）。</p>
+<pre><code>median_ages = np.zeros((2,3))
+median_ages
+</code></pre><p>yields:</p>
+<pre><code>array([[ 0., 0., 0.],
+   [ 0., 0., 0.]])
+</code></pre><p>And then populating the array,</p>
+<pre><code>for i in range(0, 2):
+    for j in range(0, 3):
+        median_ages[i,j] = df[(df[&apos;Gender&apos;] == i) &amp; \
+                              (df[&apos;Pclass&apos;] == j+1)][&apos;Age&apos;].dropna().median()
+
+median_ages
+</code></pre><p>yields:</p>
+<pre><code>array([[ 35. , 28. , 21.5],
+       [ 40. , 30. , 25. ]])
+</code></pre><p>We could fill in the missing ages directly into the Age column. But to be extra cautious and not lose the state of the original data, a more formal way would be to create a new column, AgeFill, and even record which ones were originally null (and thus artificially guessed).<br>我们能直接把这些缺失年龄值填入到年龄列。但是为了谨慎期间，不丢失原始数据的状态，一个更加正式的方式是创建新列，AgeFill，甚至记录哪些是原始空值（因此人工猜测）。</p>
 <p>Make a copy of Age:<br>复制Age列：</p>
-<blockquote>
-<p>df[‘AgeFill’] = df[‘Age’]</p>
-<p>df.head()</p>
-</blockquote>
-<p>Take a look at just the rows with missing values, and limit it to the columns important to us right now:<br>看看那些有缺失值的列，把它限制到现在对我们重要的列里：</p>
-<blockquote>
-<p>df[ df[‘Age’].isnull() ][[‘Gender’,’Pclass’,’Age’,’AgeFill’]].head(10)<br>   Gender Pclass Age AgeFill<br>5  1      3      NaN     NaN<br>17 1      2      NaN     NaN<br>19 0      3      NaN     NaN<br>26 1      3      NaN     NaN<br>28 0      3      NaN     NaN<br>29 1      3      NaN     NaN<br>31 0      1      NaN     NaN<br>32 0      3      NaN     NaN<br>36 1      3      NaN     NaN<br>42 1      3      NaN     NaN</p>
-</blockquote>
-<p>Use some code to fill in AgeFill based on our median_ages table. Here we happen to use the alternate syntax for referring to an existing column, like df.Age rather than df[‘Age’].  There’s a where clause on df and referencing its column AgeFill, then assigning it an appropriate value out of median_ages.<br>基于我们的median_ages表格，使用一些代码，填充到AgeFill里。这里我们碰巧参照现有列使用alternate语法，比如df.Age而非df[‘Age’]。这里有一个where从句在df和参考它的列AgeFill，然后在median_ages里分配给它一个合适值。</p>
-<blockquote>
-<p>for i in range(0, 2):<br>    for j in range(0, 3):<br>        df.loc[ (df.Age.isnull()) &amp; (df.Gender == i) &amp; (df.Pclass == j+1),\<br>                ‘AgeFill’] = median_ages[i,j]</p>
-</blockquote>
-<p>View the exact same 10 rows we just looked at:<br>查看我们刚才看的同样的10行，</p>
-<blockquote>
-<p>df[ df[‘Age’].isnull() ][[‘Gender’,’Pclass’,’Age’,’AgeFill’]].head(10)<br>   Gender Pclass Age AgeFill<br>5  1      3      NaN    25.0<br>17 1      2      NaN    30.0<br>19 0      3      NaN    21.5<br>26 1      3      NaN    25.0<br>28 0      3      NaN    21.5<br>29 1      3      NaN    25.0<br>31 0      1      NaN    35.0<br>32 0      3      NaN    21.5<br>36 1      3      NaN    25.0<br>42 1      3      NaN    25.0</p>
-</blockquote>
-<p>This confirms we accomplished exactly what we wanted.<br>这确认了我们达成了预期。</p>
+<pre><code>df[&apos;AgeFill&apos;] = df[&apos;Age&apos;]
+
+df.head()
+</code></pre><p>Take a look at just the rows with missing values, and limit it to the columns important to us right now:<br>看看那些有缺失值的列，把它限制到现在对我们重要的列里：</p>
+<pre><code>df[ df[&apos;Age&apos;].isnull() ][[&apos;Gender&apos;,&apos;Pclass&apos;,&apos;Age&apos;,&apos;AgeFill&apos;]].head(10)
+   Gender Pclass Age AgeFill
+5  1      3      NaN     NaN
+17 1      2      NaN     NaN
+19 0      3      NaN     NaN
+26 1      3      NaN     NaN
+28 0      3      NaN     NaN
+29 1      3      NaN     NaN
+31 0      1      NaN     NaN
+32 0      3      NaN     NaN
+36 1      3      NaN     NaN
+42 1      3      NaN     NaN
+</code></pre><p>Use some code to fill in AgeFill based on our median_ages table. Here we happen to use the alternate syntax for referring to an existing column, like df.Age rather than df[‘Age’].  There’s a where clause on df and referencing its column AgeFill, then assigning it an appropriate value out of median_ages.<br>基于我们的median_ages表格，使用一些代码，填充到AgeFill里。这里我们碰巧参照现有列使用alternate语法，比如df.Age而非df[‘Age’]。这里有一个where从句在df和参考它的列AgeFill，然后在median_ages里分配给它一个合适值。</p>
+<pre><code>for i in range(0, 2):
+    for j in range(0, 3):
+        df.loc[ (df.Age.isnull()) &amp; (df.Gender == i) &amp; (df.Pclass == j+1),\
+                &apos;AgeFill&apos;] = median_ages[i,j]
+</code></pre><p>View the exact same 10 rows we just looked at:<br>查看我们刚才看的同样的10行，</p>
+<pre><code>df[ df[&apos;Age&apos;].isnull() ][[&apos;Gender&apos;,&apos;Pclass&apos;,&apos;Age&apos;,&apos;AgeFill&apos;]].head(10)
+   Gender Pclass Age AgeFill
+5  1      3      NaN    25.0
+17 1      2      NaN    30.0
+19 0      3      NaN    21.5
+26 1      3      NaN    25.0
+28 0      3      NaN    21.5
+29 1      3      NaN    25.0
+31 0      1      NaN    35.0
+32 0      3      NaN    21.5
+36 1      3      NaN    25.0
+42 1      3      NaN    25.0
+</code></pre><p>This confirms we accomplished exactly what we wanted.<br>这确认了我们达成了预期。</p>
 <p>Let’s also create a feature that records whether the Age was originally missing. This is relatively simple by allowing pandas to use the integer conversion of the True/False evaluation of its built-in function, pandas.isnull()<br>让我们同样创建一个特征值，记录年龄列是否原始缺失。这相对简单。可以通过允许pandas使用内置函数pandas.isnull()的True/False估计的整数变换。</p>
-<blockquote>
-<p>df[‘AgeIsNull’] = pd.isnull(df.Age).astype(int)</p>
-</blockquote>
-<p>Now that we have 3 new numerical columns, Gender, AgeFill, AgeIsNull… perhaps you want to run df.describe() to see the summary statistics of the whole dataframe again.<br>既然我们有了3个新数值列，Gender，AgeFill，AgeIsNull，也许你想运行df.describe()再看看dataframe的总统计。</p>
+<pre><code>df[&apos;AgeIsNull&apos;] = pd.isnull(df.Age).astype(int)
+</code></pre><p>Now that we have 3 new numerical columns, Gender, AgeFill, AgeIsNull… perhaps you want to run df.describe() to see the summary statistics of the whole dataframe again.<br>既然我们有了3个新数值列，Gender，AgeFill，AgeIsNull，也许你想运行df.describe()再看看dataframe的总统计。</p>
 <p>Feature Engineering<br>特征工程</p>
 <p>Let’s create a couple of other features, this time using simple math on existing columns. Since we know that Parch is the number of parents or children onboard, and SibSp is the number of siblings or spouses, we could collect those together as a FamilySize:<br>让我们创建几个其他特征。这次在已存在列上使用简单数学。因为我们知道Parch是船上父母或者儿童的数量，SibSp是兄弟姐妹或者配偶的数量，我们能收集这些作为一个家庭规模。</p>
-<blockquote>
-<p>df[‘FamilySize’] = df[‘SibSp’] + df[‘Parch’]</p>
-</blockquote>
-<p>We can also create artificial features if we think it may be advantageous to a machine learning algorithm – of course, it might not. For example, we know Pclass had a large effect on survival, and it’s possible Age will too. One artificial feature could incorporate whatever predictive power might be available from both Age and Pclass by multiplying them. This amplifies 3rd class (3 is a higher multiplier) at the same time it amplifies older ages. Both of these were less likely to survive, so in theory this could be useful.<br>我们能创建人工特征，如果我们认为它也许对于机器学习算法有好处。当然，它也许没有。例如，我们知道Pclass对存活有一个很大的作用，Age也可能是。无论什么预测能力从Age乘以Pclass中获得，这个人工特征都不恰当。它放大了第三等级（3是一个高乘数），同时也放大了老龄。这两者都更不容易存活，所以理论上它应当是有用的。</p>
-<blockquote>
-<p>df[‘Age<em>Class’] = df.AgeFill </em> df.Pclass</p>
-</blockquote>
-<p>We could make some histograms of our new columns to understand them better. Go back and find the .hist() commands above.<br>我们能做一些新列的直方图来更好地理解它们。回去找到.hist()指令。</p>
+<pre><code>df[&apos;FamilySize&apos;] = df[&apos;SibSp&apos;] + df[&apos;Parch&apos;]
+</code></pre><p>We can also create artificial features if we think it may be advantageous to a machine learning algorithm – of course, it might not. For example, we know Pclass had a large effect on survival, and it’s possible Age will too. One artificial feature could incorporate whatever predictive power might be available from both Age and Pclass by multiplying them. This amplifies 3rd class (3 is a higher multiplier) at the same time it amplifies older ages. Both of these were less likely to survive, so in theory this could be useful.<br>我们能创建人工特征，如果我们认为它也许对于机器学习算法有好处。当然，它也许没有。例如，我们知道Pclass对存活有一个很大的作用，Age也可能是。无论什么预测能力从Age乘以Pclass中获得，这个人工特征都不恰当。它放大了第三等级（3是一个高乘数），同时也放大了老龄。这两者都更不容易存活，所以理论上它应当是有用的。</p>
+<pre><code>df[&apos;Age*Class&apos;] = df.AgeFill * df.Pclass
+</code></pre><p>We could make some histograms of our new columns to understand them better. Go back and find the .hist() commands above.<br>我们能做一些新列的直方图来更好地理解它们。回去找到.hist()指令。</p>
 <p>We know we’d like to have better predictive power for the men, so you might be wishing you could pull out more information from the Name column – for example the honorary or pedestrian title of the men? We won’t accomplish that in this tutorial, but you may find ideas in the Kaggle forums.<br>我们知道我们最好对男人有更好的预测能力。这样你也许希望你能从姓名列拉出更多的信息，比如，男性中有荣誉的头衔或者平凡的头衔，我们不会在这篇教程里完成，但是也许你能在Kaggle论坛里找到一些启发。</p>
 <p>Final preparation<br>最后准备</p>
 <p>We have our data almost ready for machine learning. But most basic ML techniques will not work on strings, and in python they almost always require the data to be an array– the implementations we will see in the sklearn package are not written to use a pandas dataframe. So the last two things we need to do are (1) determine what columns we have left which are not numeric, and (2) send our pandas.DataFrame back to a numpy.array.<br>我们已经为机器学习准备了数据。但是大多数基本的ML技术不会在字符型上工作。python里他们几乎总是需要数据变为数组。sklearn包里的实施，不会被写到使用pandas dataframe。所以最后两件事我们需要做的是（1）决定什么非数值列我们已经丢下了；（2）把我们的pandas.DataFrame发回到a numpy.array。</p>
 <p>In pandas you could always see the column types from the .info() method. You can also see them directly:<br>在pandas你能用.info()方法看到列类型，你也可以直接看：</p>
-<blockquote>
-<p>df.dtypes<br>PassengerId   int64<br>Survived      int64<br>Pclass        int64<br>Name         object<br>Sex          object<br>Age         float64<br>SibSp         int64<br>Parch         int64<br>Ticket       object<br>Fare        float64<br>Cabin        object<br>Embarked     object<br>Gender        int64<br>AgeFill     float64<br>AgeIsNull     int64<br>FamilySize    int64<br>Age*Class   float64<br>dtype: object</p>
-</blockquote>
-<p>With a little manipulation, we can require .dtypes to show only the columns which are ‘object’, which for pandas means it has strings:<br>做一点改动，我们需要.dtypes 来显示’object’的列。对pandas来说它有字符。</p>
-<blockquote>
-<p>df.dtypes[df.dtypes.map(lambda x: x==’object’)]<br>Name        object<br>Sex         object<br>Ticket      object<br>Cabin       object<br>Embarked    object<br>dtype: object</p>
-</blockquote>
-<p>(You may already have already transformed ‘Embarked’ in your own work above.)<br>你可能已经在上面的工作中已经把’Embarked’转换过了。</p>
+<pre><code>df.dtypes
+PassengerId   int64
+Survived      int64
+Pclass        int64
+Name         object
+Sex          object
+Age         float64
+SibSp         int64
+Parch         int64
+Ticket       object
+Fare        float64
+Cabin        object
+Embarked     object
+Gender        int64
+AgeFill     float64
+AgeIsNull     int64
+FamilySize    int64
+Age*Class   float64
+dtype: object
+</code></pre><p>With a little manipulation, we can require .dtypes to show only the columns which are ‘object’, which for pandas means it has strings:<br>做一点改动，我们需要.dtypes 来显示’object’的列。对pandas来说它有字符。</p>
+<pre><code>df.dtypes[df.dtypes.map(lambda x: x==&apos;object&apos;)]
+Name        object
+Sex         object
+Ticket      object
+Cabin       object
+Embarked    object
+dtype: object
+</code></pre><p>(You may already have already transformed ‘Embarked’ in your own work above.)<br>你可能已经在上面的工作中已经把’Embarked’转换过了。</p>
 <p>The next step is to drop the columns which we will not use:<br>下一步是丢下我们不用的列：</p>
-<blockquote>
-<p>df = df.drop([‘Name’, ‘Sex’, ‘Ticket’, ‘Cabin’, ‘Embarked’], axis=1)</p>
-</blockquote>
-<p>We can also drop ‘Age’ even though it is numeric, since we copied and filled that to a better column AgeFill. The original ‘Age’ still has the missing values which won’t work well in our future model.<br>我们已经丢下了Age列，尽管它是数值。因为我们复制和填充了一个更好的列AgeFill。原始Age列仍然有缺失值，它在我们未来的模型中不能好好工作。</p>
-<blockquote>
-<p>df = df.drop([‘Age’], axis=1)</p>
-</blockquote>
-<p>An alternate command is to drop any rows which still have missing values:<br>一个alternate命令式，丢弃有缺失值的任意行，</p>
-<blockquote>
-<p>df = df.dropna()</p>
-</blockquote>
-<p>But remember that .dropna() removes an observation from df even if it only has 1 NaN, anywhere, in any of its columns. It could delete most of your dataset if you aren’t careful with the state of missing values in other columns!<br>但是记住.dropna() 去除了任何地方任何列的一个observation from df，即使只有一个NaN。它会删除你数据集里的大多数东西，如果你不小心注意其他列的缺失值。</p>
+<pre><code>df = df.drop([&apos;Name&apos;, &apos;Sex&apos;, &apos;Ticket&apos;, &apos;Cabin&apos;, &apos;Embarked&apos;], axis=1)
+</code></pre><p>We can also drop ‘Age’ even though it is numeric, since we copied and filled that to a better column AgeFill. The original ‘Age’ still has the missing values which won’t work well in our future model.<br>我们已经丢下了Age列，尽管它是数值。因为我们复制和填充了一个更好的列AgeFill。原始Age列仍然有缺失值，它在我们未来的模型中不能好好工作。</p>
+<pre><code>df = df.drop([&apos;Age&apos;], axis=1)
+</code></pre><p>An alternate command is to drop any rows which still have missing values:<br>一个alternate命令式，丢弃有缺失值的任意行，</p>
+<pre><code>df = df.dropna()
+</code></pre><p>But remember that .dropna() removes an observation from df even if it only has 1 NaN, anywhere, in any of its columns. It could delete most of your dataset if you aren’t careful with the state of missing values in other columns!<br>但是记住.dropna() 去除了任何地方任何列的一个observation from df，即使只有一个NaN。它会删除你数据集里的大多数东西，如果你不小心注意其他列的缺失值。</p>
 <p>Now we have a clean and tidy dataset that is ready for analysis.<br>现在我们有了一个清楚干净的数据集，可以分析了。</p>
 <p>The final step is to convert it into a Numpy array. Pandas can always send back an array using the .values method. Assign to a new variable, train_data:<br>最后一步是把它转换为Numpy数组。Pandas能使用.values方法返回一个数组。布置一个新变量，train_data:</p>
-<blockquote>
-<p>train_data = df.values<br>train_data<br>array([[ 1. , 0. , 3. , …, 0. , 1. , 66. ],<br>       [ 2. , 1. , 1. , …, 0. , 1. , 38. ],<br>       [ 3. , 1. , 3. , …, 0. , 0. , 78. ],<br>       …,<br>       [ 889. , 0. , 3. , …, 1. , 3. , 64.5],<br>       [ 890. , 1. , 1. , …, 0. , 0. , 26. ],<br>       [ 891. , 0. , 3. , …, 0. , 0. , 96. ]])</p>
-</blockquote>
-<p>Compare that to the original array we used in the last tutorial! Type:<br>把那与我们在最后教程里的原始数组相比较！输入：</p>
-<blockquote>
-<p>data<br> array([[‘1’ ‘0’ ‘3’ …, ‘7.25’ ‘’ ‘S’]<br>        [‘2’ ‘1’ ‘1’ …, ‘71.2833’ ‘C85’ ‘C’]<br>        [‘3’ ‘1’ ‘3’ …, ‘7.925’ ‘’ ‘S’]<br>        …,<br>        [‘889’ ‘0’ ‘3’ …, ‘23.45’ ‘’ ‘S’]<br>        [‘890’ ‘1’ ‘1’ …, ‘30’ ‘C148’ ‘C’]<br>        [‘891’ ‘0’ ‘3’ …, ‘7.75’ ‘’ ‘Q’]],<br>      dtype=’|S82’)</p>
-</blockquote>
-<p>Conclusion<br>结论</p>
+<pre><code>train_data = df.values
+train_data
+array([[ 1. , 0. , 3. , ..., 0. , 1. , 66. ],
+       [ 2. , 1. , 1. , ..., 0. , 1. , 38. ],
+       [ 3. , 1. , 3. , ..., 0. , 0. , 78. ],
+       ...,
+       [ 889. , 0. , 3. , ..., 1. , 3. , 64.5],
+       [ 890. , 1. , 1. , ..., 0. , 0. , 26. ],
+       [ 891. , 0. , 3. , ..., 0. , 0. , 96. ]])
+</code></pre><p>Compare that to the original array we used in the last tutorial! Type:<br>把那与我们在最后教程里的原始数组相比较！输入：</p>
+<pre><code>data
+ array([[&apos;1&apos; &apos;0&apos; &apos;3&apos; ..., &apos;7.25&apos; &apos;&apos; &apos;S&apos;]
+        [&apos;2&apos; &apos;1&apos; &apos;1&apos; ..., &apos;71.2833&apos; &apos;C85&apos; &apos;C&apos;]
+        [&apos;3&apos; &apos;1&apos; &apos;3&apos; ..., &apos;7.925&apos; &apos;&apos; &apos;S&apos;]
+        ...,
+        [&apos;889&apos; &apos;0&apos; &apos;3&apos; ..., &apos;23.45&apos; &apos;&apos; &apos;S&apos;]
+        [&apos;890&apos; &apos;1&apos; &apos;1&apos; ..., &apos;30&apos; &apos;C148&apos; &apos;C&apos;]
+        [&apos;891&apos; &apos;0&apos; &apos;3&apos; ..., &apos;7.75&apos; &apos;&apos; &apos;Q&apos;]],
+      dtype=&apos;|S82&apos;)
+</code></pre><p>Conclusion<br>结论</p>
 <p>Here we used Pandas as a much easier tool to access the data in a csv file and manipulate it.<br>这里我们使用Pandas作为一个更容易的工具来获取csv文件的数据并处理它。</p>
 <p>If you found this tutorial helpful but would like more practice, you could re-do the previous Python tutorial, but this time write your script using pandas. (In fact, one Kaggler did just that in the forums. At the very least, you should be able to read and understand his script.)<br>如果你发现这些教程有用，但希望更实用。你可以重新做之前教程，但是这次实用pandas写下你的脚本。（实际上，一个Kaggler在论坛里就是这样做的。至少，你应当能够读和理解他的脚本。）</p>
 <p>In the next tutorial we will take advantage of your new skills with python, in order to apply Machine Learning on this data for the first time.<br>在下一个教程里，我们将利用你的python新技能，为了第一次在这个data上应用机器学习。</p>
@@ -637,142 +728,204 @@
 <p>One of the great advantages of Python is its packages. Of these packages, the most useful (for Kaggle competitions) are the Numpy, Scipy, Pandas, matplotlib and csv package. In order to check whether you have these, just go to your python command line and type  import numpy  (and so on). If you don’t you will need them! This tutorial is going to guide you through making the same submissions as before, only this time using Python.<br>Python一个主要优势在于它的包。所有包里，最有用的（对Kaggle竞赛而言）是Numpy，Scipy，Pandas，matplotlib and csv package。为了检查你是否有这些包，只需去你的python命令行输入 import numpy（等等）。如果你不能你就需要它们！这个教程将引导你像从前一样提交，只是这次使用Python。</p>
 <p>Python: Reading in your train.csv<br>Python：阅读你的train.csv</p>
 <p>Python has a nice csv reader, which reads each line of a file into memory. You can read in each row and just append a list. From there, you can quickly turn it into an array.<br>Python有一个很好的csv阅读器，能够把文件的每一行都读到内存。你能读每行，并添加一个列表。然后，你可以快速将它转化为数组。</p>
-<p>`/# The first thing to do is to import the relevant packages<br>第一件是是导入相关的包。<br>/# that I will need for my script,<br>哪些我在脚本中需要的<br>/# these include the Numpy (for maths and arrays)<br>包含了Numpy（为maths和数组）<br>/# and csv for reading and writing csv files<br>以及csv，为读写csv文件<br>/# If i want to use something from this I need to call<br>如果我想从这里使用某些东西，我需要先调用<br>/# csv.[function] or np.[function] first<br>csv.函数或者np.函数</p>
-<p>import csv as csv<br>import numpy as np</p>
-<p>/# Open up the csv file in to a Python object<br>打开csv文件in to 一个Python object<br>csv_file_object = csv.reader(open(‘../csv/train.csv’, ‘rb’))<br>header = csv_file_object.next()  # The next() command just skips the</p>
-<pre><code># first line which is a header
-</code></pre><p>data=[]                          # Create a variable called ‘data’.<br>for row in csv_file_object:      # Run through each row in the csv file,<br>    data.append(row)             # adding each row to the data variable<br>data = np.array(data)              # Then convert from a list to an array</p>
-<pre><code># Be aware that each item is currently
-            # a string in this format`
+<pre><code># The first thing to do is to import the relevant packages
+第一件是是导入相关的包。
+#that I will need for my script,
+哪些我在脚本中需要的
+#these include the Numpy (for maths and arrays)
+包含了Numpy（为maths和数组）
+#and csv for reading and writing csv files
+以及csv，为读写csv文件
+#If i want to use something from this I need to call
+如果我想从这里使用某些东西，我需要先调用
+#csv.[function] or np.[function] first
+csv.函数或者np.函数`
+
+import csv as csv
+import numpy as np`
+
+#Open up the csv file in to a Python object
+打开csv文件in to 一个Python object
+csv_file_object = csv.reader(open(&apos;../csv/train.csv&apos;, &apos;rb&apos;))
+header = csv_file_object.next()  # The next() command just skips the
+                             # first line which is a header
+data=[]                          # Create a variable called &apos;data&apos;.
+for row in csv_file_object:      # Run through each row in the csv file,
+data.append(row)             # adding each row to the data variable
+data = np.array(data)              # Then convert from a list to an array
+                 # Be aware that each item is currently
+                             # a string in this format`
 </code></pre><p>Although you’ve seen this data before in Excel, just to be sure let’s look at how it is stored now in Python.  Type  print data  and the output should be something like<br>尽管你已经在Excel中看了这个数据，仍要确认，让我们看下它在Python里是如何存放的。输入print data 输出将是这样的：</p>
-<p><code>[[&#39;1&#39; &#39;0&#39; &#39;3&#39; ..., &#39;7.25&#39; &#39;&#39; &#39;S&#39;]
- [&#39;2&#39; &#39;1&#39; &#39;1&#39; ..., &#39;71.2833&#39; &#39;C85&#39; &#39;C&#39;]
- [&#39;3&#39; &#39;1&#39; &#39;3&#39; ..., &#39;7.925&#39; &#39;&#39; &#39;S&#39;]
+<pre><code>[[&apos;1&apos; &apos;0&apos; &apos;3&apos; ..., &apos;7.25&apos; &apos;&apos; &apos;S&apos;]
+ [&apos;2&apos; &apos;1&apos; &apos;1&apos; ..., &apos;71.2833&apos; &apos;C85&apos; &apos;C&apos;]
+ [&apos;3&apos; &apos;1&apos; &apos;3&apos; ..., &apos;7.925&apos; &apos;&apos; &apos;S&apos;]
  ...,
- [&#39;889&#39; &#39;0&#39; &#39;3&#39; ..., &#39;23.45&#39; &#39;&#39; &#39;S&#39;]
- [&#39;890&#39; &#39;1&#39; &#39;1&#39; ..., &#39;30&#39; &#39;C148&#39; &#39;C&#39;]
- [&#39;891&#39; &#39;0&#39; &#39;3&#39; ..., &#39;7.75&#39; &#39;&#39; &#39;Q&#39;]]</code></p>
-<p>You can see this is an array with just values (no descriptive header). And you can see that each value is being shown in quotes, which means it is stored as a string. Unfortunately in the output above, the full set of columns is being obscured with “…,” so let’s print the first row to see it clearly.  Type  print data[0]<br>你可以看到这是一个数组，有一些值（没有描述性的表头）。你能看到每个值在引号中显示，这意味着它以字符串的格式存储。不幸的是，在上面的输出中，列的整集，被“。。。”给掩盖了，所以让我们打印第一行，这样看的更清楚。输入 print data【0】</p>
-<p><code>[&#39;1&#39; &#39;0&#39; &#39;3&#39; &#39;Braund, Mr. Owen Harris&#39; &#39;male&#39; &#39;22&#39; &#39;1&#39; &#39;0&#39; &#39;A/5 21171&#39; &#39;7.25&#39; &#39;&#39; &#39;S&#39;]</code><br>and to see the last row, type  print data[-1]<br>想看最后一行，输入 print data【-1】</p>
-<p><code>[&#39;891&#39; &#39;0&#39; &#39;3&#39; &#39;Dooley, Mr. Patrick&#39; &#39;male&#39; &#39;32&#39; &#39;0&#39; &#39;0&#39; &#39;370376&#39; &#39;7.75&#39; &#39;&#39; &#39;Q&#39;]</code><br>and to see the 1st row, 4th column, type  print data[0,3]<br>想看第一行第四列，输入print data【0，3】</p>
-<p><code>Braund, Mr. Owen Harris</code></p>
-<p>I have my data now I want to play with it<br>我现在有数据了，我想开始玩了。</p>
+ [&apos;889&apos; &apos;0&apos; &apos;3&apos; ..., &apos;23.45&apos; &apos;&apos; &apos;S&apos;]
+ [&apos;890&apos; &apos;1&apos; &apos;1&apos; ..., &apos;30&apos; &apos;C148&apos; &apos;C&apos;]
+ [&apos;891&apos; &apos;0&apos; &apos;3&apos; ..., &apos;7.75&apos; &apos;&apos; &apos;Q&apos;]]`
+</code></pre><p>You can see this is an array with just values (no descriptive header). And you can see that each value is being shown in quotes, which means it is stored as a string. Unfortunately in the output above, the full set of columns is being obscured with “…,” so let’s print the first row to see it clearly.  Type  print data[0]<br>你可以看到这是一个数组，有一些值（没有描述性的表头）。你能看到每个值在引号中显示，这意味着它以字符串的格式存储。不幸的是，在上面的输出中，列的整集，被“。。。”给掩盖了，所以让我们打印第一行，这样看的更清楚。输入 print data【0】</p>
+<pre><code>[&apos;1&apos; &apos;0&apos; &apos;3&apos; &apos;Braund, Mr. Owen Harris&apos; &apos;male&apos; &apos;22&apos; &apos;1&apos; &apos;0&apos; &apos;A/5 21171&apos; &apos;7.25&apos; &apos;&apos; &apos;S&apos;]`
+</code></pre><p>and to see the last row, type  print data[-1]<br>想看最后一行，输入 print data【-1】</p>
+<pre><code>[&apos;891&apos; &apos;0&apos; &apos;3&apos; &apos;Dooley, Mr. Patrick&apos; &apos;male&apos; &apos;32&apos; &apos;0&apos; &apos;0&apos; &apos;370376&apos; &apos;7.75&apos; &apos;&apos; &apos;Q&apos;]`
+</code></pre><p>and to see the 1st row, 4th column, type  print data[0,3]<br>想看第一行第四列，输入print data【0，3】</p>
+<pre><code>Braund, Mr. Owen Harris`
+</code></pre><p>I have my data now I want to play with it<br>我现在有数据了，我想开始玩了。</p>
 <p>Now if you want to call a specific column of data, say, the gender column, I can just type data[0::,4], remembering that “0::” means all (from start to end), and Python starts indices from 0 (not 1). You should be aware that the csv reader works by default with strings, so you will need to convert to floats in order to do numerical calculations. For example, you can turn the Pclass variable into floats by using data[0::,2].astype(np.float). Using this, we can calculate the proportion of survivors on the Titanic:<br>现在如果你想调用数据中的某个特定列，比如，性别列，我能输入data [0::,4]，记住”0::” 意味着全部（从头到尾），Python的索引从0开始而不是1.你应该知道，csv阅读器默认处理字符串，所以你将需要将之转化为浮点型来做数值计算。例如，你能使用data[0::,2].astype(np.float)将Pclass变量转为浮点型。使用这个，我们能计算Titanic上的幸存者比例。</p>
-<p>`# The size() function counts how many elements are in</p>
-<h1 id="in-the-array-and-sum-as-you-would-expects-sums-up"><a href="#in-the-array-and-sum-as-you-would-expects-sums-up" class="headerlink" title="in the array and sum() (as you would expects) sums up"></a>in the array and sum() (as you would expects) sums up</h1><h1 id="the-elements-in-the-array"><a href="#the-elements-in-the-array" class="headerlink" title="the elements in the array."></a>the elements in the array.</h1><p>number_passengers = np.size(data[0::,1].astype(np.float))<br>number_survived = np.sum(data[0::,1].astype(np.float))<br>proportion_survivors = number_survived / number_passengers`</p>
+<pre><code># The size() function counts how many elements are in
+# in the array and sum() (as you would expects) sums up
+# the elements in the array.
+</code></pre><p>number_passengers = np.size(data[0::,1].astype(np.float))<br>number_survived = np.sum(data[0::,1].astype(np.float))<br>proportion_survivors = number_survived / number_passengers`</p>
 <p>Numpy has some lovely functions. For example, we can search the gender column, find where any elements equal female (and for males, ‘do not equal female’), and then use this to determine the number of females and males that survived:<br>Numpy有些迷人的功能。例如，我们能搜索性别列，找到哪些元素等于女性（对于男性，即“不等于女性”），使用这个确定幸存女性和男性的数量：</p>
-<p>`women_only_stats = data[0::,4] == “female” # This finds where all</p>
-<pre><code># the elements in the gender
-# column that equals “female”
-</code></pre><p>men_only_stats = data[0::,4] != “female”   # This finds where all the</p>
-<pre><code># elements do not equal
-# female (i.e. male)`
+<pre><code>women_only_stats = data[0::,4] == &quot;female&quot; # This finds where all
+                                       # the elements in the gender
+                                       # column that equals “female”
+men_only_stats = data[0::,4] != &quot;female&quot;   # This finds where all the
+                                       # elements do not equal
+                                       # female (i.e. male)`
 </code></pre><p>We use these two new variables as a “mask” on our original train data, so we can select only those women, and only those men on board, then calculate the proportion of those who survived:<br>我们使用这两个新变量作为我们原始训练数据的“mask”，所以我们可以仅选择甲板上的那些女人，或者仅选择男人，然后计算这些人的幸存比例。</p>
-<p>`# Using the index from above we select the females and males separately<br>women_onboard = data[women_only_stats,1].astype(np.float)<br>men_onboard = data[men_only_stats,1].astype(np.float)</p>
-<h1 id="Then-we-finds-the-proportions-of-them-that-survived"><a href="#Then-we-finds-the-proportions-of-them-that-survived" class="headerlink" title="Then we finds the proportions of them that survived"></a>Then we finds the proportions of them that survived</h1><p>proportion_women_survived = \<br>                       np.sum(women_onboard) / np.size(women_onboard)<br>proportion_men_survived = \<br>                       np.sum(men_onboard) / np.size(men_onboard)</p>
-<h1 id="and-then-print-it-out"><a href="#and-then-print-it-out" class="headerlink" title="and then print it out"></a>and then print it out</h1><p>print ‘Proportion of women who survived is %s’ % proportion_women_survived<br>print ‘Proportion of men who survived is %s’ % proportion_men_survived`</p>
-<p>Now that I have my indication that women were much more likely to survive, I am done with the training set.<br>现在我已经有了女人更容易存活的指示，训练集也完成了。</p>
+<pre><code># Using the index from above we select the females and males separately
+women_onboard = data[women_only_stats,1].astype(np.float)     
+men_onboard = data[men_only_stats,1].astype(np.float)
+
+# Then we finds the proportions of them that survived
+proportion_women_survived = \
+                   np.sum(women_onboard) / np.size(women_onboard)  
+proportion_men_survived = \
+                   np.sum(men_onboard) / np.size(men_onboard)
+
+# and then print it out
+print &apos;Proportion of women who survived is %s&apos; % proportion_women_survived
+print &apos;Proportion of men who survived is %s&apos; % proportion_men_survived`
+</code></pre><p>Now that I have my indication that women were much more likely to survive, I am done with the training set.<br>现在我已经有了女人更容易存活的指示，训练集也完成了。</p>
 <p>Reading the test data and writing the gender model as a csv<br>读测试数据并用csv格式写性别模型</p>
 <p>As before, we need to read in the test file by opening a python object to read and another to write. First, we read in the test.csv file and skip the header line:<br>就像从前，我们需要打开两个个python object，一个读测试文件，一个写。首先，我们在test.csv里读和跳过表头行：</p>
-<p><code>test_file = open(&#39;../csv/test.csv&#39;, &#39;rb&#39;)
+<pre><code>test_file = open(&apos;../csv/test.csv&apos;, &apos;rb&apos;)
 test_file_object = csv.reader(test_file)
-header = test_file_object.next()</code></p>
-<p>Now, let’s open a pointer to a new file so we can write to it (this file does not exist yet). Call it something descriptive so that it is recognizable when we upload it:<br>现在，让我们打开一个新文件的指针，让我们能够写它（这个文件并不存在）。用描述性的语言调用它，这样当我们上传的时候它就是可识别的。</p>
-<p><code>prediction_file = open(&quot;genderbasedmodel.csv&quot;, &quot;wb&quot;)
-prediction_file_object = csv.writer(prediction_file)</code></p>
-<p>We now want to read in the test file row by row, see if it is female or male, and write our survival prediction to a new file.<br>我们现在想要在测试文档里一行一行地读，看看是男性还是女性，并把我们的幸存者预测写到一个新文件中。</p>
-<p><code>prediction_file_object.writerow([&quot;PassengerId&quot;, &quot;Survived&quot;])
+header = test_file_object.next()`
+</code></pre><p>Now, let’s open a pointer to a new file so we can write to it (this file does not exist yet). Call it something descriptive so that it is recognizable when we upload it:<br>现在，让我们打开一个新文件的指针，让我们能够写它（这个文件并不存在）。用描述性的语言调用它，这样当我们上传的时候它就是可识别的。</p>
+<pre><code>prediction_file = open(&quot;genderbasedmodel.csv&quot;, &quot;wb&quot;)
+prediction_file_object = csv.writer(prediction_file)`
+</code></pre><p>We now want to read in the test file row by row, see if it is female or male, and write our survival prediction to a new file.<br>我们现在想要在测试文档里一行一行地读，看看是男性还是女性，并把我们的幸存者预测写到一个新文件中。</p>
+<pre><code>prediction_file_object.writerow([&quot;PassengerId&quot;, &quot;Survived&quot;])
 for row in test_file_object:       # For each row in test.csv
-    if row[3] == &#39;female&#39;:         # is it a female, if yes then                                       
-        prediction_file_object.writerow([row[0],&#39;1&#39;])    # predict 1
+    if row[3] == &apos;female&apos;:         # is it a female, if yes then                                       
+        prediction_file_object.writerow([row[0],&apos;1&apos;])    # predict 1
     else:                              # or else if male,       
-        prediction_file_object.writerow([row[0],&#39;0&#39;])    # predict 0
+        prediction_file_object.writerow([row[0],&apos;0&apos;])    # predict 0
 test_file.close()
-prediction_file.close()</code></p>
-<p>Now you have a file called ‘genderbasedmodel.csv’, which you can submit!<br>现在你有了一个叫’genderbasedmodel.csv’的文件，你可以提交了！</p>
+prediction_file.close()
+</code></pre><p>Now you have a file called ‘genderbasedmodel.csv’, which you can submit!<br>现在你有了一个叫’genderbasedmodel.csv’的文件，你可以提交了！</p>
 <p>On the Data page you will find all of the steps above in a single python script named ‘gendermodel.py’. One advantage of python is that you can quickly run all of the steps you did again in the future – if you receive a new training file, for example.<br>在Data页，在一个叫’gendermodel.py’的单个脚本里，你能找出上面所有的步骤。python的一个优势是，你能够未来重复快速跑完所有这些步骤，例如，你接收到一个新的训练文件。</p>
 <p>Pythonising the second submission<br>Pythonising第二次提交</p>
 <p>By now you have created your first python submission. Let’s complicate things and try and submit the same submission as before, binning up the ticket price into the four bins and modeling the outcome on class, gender, and ticket price. This part assumes that you have completed the section ‘Reading in your train.csv’ and you have a data array as before.  On the Data page you will find a python script named ‘genderclassmodel.py’ to follow along… but be sure to type (or paste) each line of code yourself, to help you learn what is happening.<br>到现在你已经创建了你的第一个python提交。让我们把事情变复杂一点，试图像从前一样提交同样的东西。把票价也扔进那四个容器中，把结果按阶层、性别、票价建模。这部分假设你已经完成了“在train.csv里读”的部分，以及你之前已经有一个数组。在Data也你将找到一个名字为’genderclassmodel.py’的python脚本来学习。但是确保是自己输入（或者粘贴）每一行代码，来帮助自己学习了解什么即将发生。</p>
 <p>The idea is to create an table which contains just 1’s and 0’s. The array will be a survival reference table, whereby you read in the test data, find out passenger attributes, look them up in the survival table, and determine if they should be predicted to survive or not. In the case of a model that uses gender, class, and ticket price, you will need an array of 2x3x4 ( [female/male] , [1st / 2nd / 3rd class], [4 bins of prices] ).<br>这个主意是创建一个表格，包含1‘s和0’s。数组将是一个存活参考表格，通过你读测试数据，找到乘客属性，在幸存者表格里查找，然后确定他们是否应当被预测幸存或者不能幸存。在一个模型的例子中，使用性别、阶层和票价，你将需要2<em>3</em>4（男／女，一／二／三等，价格的4bin）。</p>
 <p>The script will systematically will loop through each combination and use the ‘where’ function in python to search the passengers that fit that combination of variables. Just like before, you can ask what indices in your data equals female, 1st class, and paid more than $30. The problem is that looping through requires bins of equal sizes, i.e. $0-9,  $10-19,  $20-29,  $30-39.  For the sake of binning let’s say everything equal to and above 40 “equals” 39 so it falls in this bin. So then you can set the bins:<br>这个脚本将系统的循环每个结合，并使用python的where功能来搜索那些适用于变量组合的乘客。就像从前，你能问你数据中的哪个索引等于女性，一等，付费超过30美元。问题是，循环需要在相等规模大小的bins里进行，例如$0-9,  $10-19,  $20-29,  $30-39. 为了binning让我们假设所有大于或等于40的东西“equals”39，这样，它就落入这个bin。所以你就能够设置bin：</p>
-<p>`# So we add a ceiling<br>fare_ceiling = 40</p>
-<h1 id="then-modify-the-data-in-the-Fare-column-to-39-if-it-is-greater-or-equal-to-the-ceiling"><a href="#then-modify-the-data-in-the-Fare-column-to-39-if-it-is-greater-or-equal-to-the-ceiling" class="headerlink" title="then modify the data in the Fare column to = 39, if it is greater or equal to the ceiling"></a>then modify the data in the Fare column to = 39, if it is greater or equal to the ceiling</h1><p>data[ data[0::,9].astype(np.float) &gt;= fare_ceiling, 9 ] = fare_ceiling - 1.0</p>
-<p>fare_bracket_size = 10<br>number_of_price_brackets = fare_ceiling / fare_bracket_size</p>
-<h1 id="I-know-there-were-1st-2nd-and-3rd-classes-on-board"><a href="#I-know-there-were-1st-2nd-and-3rd-classes-on-board" class="headerlink" title="I know there were 1st, 2nd and 3rd classes on board"></a>I know there were 1st, 2nd and 3rd classes on board</h1><p>number_of_classes = 3</p>
-<h1 id="But-it’s-better-practice-to-calculate-this-from-the-data-directly"><a href="#But-it’s-better-practice-to-calculate-this-from-the-data-directly" class="headerlink" title="But it’s better practice to calculate this from the data directly"></a>But it’s better practice to calculate this from the data directly</h1><h1 id="Take-the-length-of-an-array-of-unique-values-in-column-index-2"><a href="#Take-the-length-of-an-array-of-unique-values-in-column-index-2" class="headerlink" title="Take the length of an array of unique values in column index 2"></a>Take the length of an array of unique values in column index 2</h1><p>number_of_classes = len(np.unique(data[0::,2]))</p>
-<h1 id="Initialize-the-survival-table-with-all-zeros"><a href="#Initialize-the-survival-table-with-all-zeros" class="headerlink" title="Initialize the survival table with all zeros"></a>Initialize the survival table with all zeros</h1><p>survival_table = np.zeros((2, number_of_classes, number_of_price_brackets))<br>`</p>
-<p>Now that these are set up, you can loop through each variable and find all those passengers that agree with the statements:<br>这些建立后，你就能在每个变量里循环一遍，找到所有那些满足条件的乘客：</p>
-<p>`for i in xrange(number_of_classes):       #loop through each class<br>  for j in xrange(number_of_price_brackets):   #loop through each price bin</p>
-<pre><code>women_only_stats = data[                          \#Which element           
-                     (data[0::,4] == &quot;female&quot;)    \#is a female
-                   &amp;(data[0::,2].astype(np.float) \#and was ith class
-                         == i+1) \                       
-                   &amp;(data[0:,9].astype(np.float)  \#was greater
-                        &gt;= j*fare_bracket_size)   \#than this bin              
-                   &amp;(data[0:,9].astype(np.float)  \#and less than
-                        &lt; (j+1)*fare_bracket_size)\#the next bin    
-                      , 1]                        #in the 2nd col                           
+<pre><code># So we add a ceiling
+fare_ceiling = 40
+# then modify the data in the Fare column to = 39, if it is greater or equal to the ceiling
+data[ data[0::,9].astype(np.float) &gt;= fare_ceiling, 9 ] = fare_ceiling - 1.0
+
+fare_bracket_size = 10
+number_of_price_brackets = fare_ceiling / fare_bracket_size
+
+# I know there were 1st, 2nd and 3rd classes on board
+number_of_classes = 3
+
+# But it&apos;s better practice to calculate this from the data directly
+# Take the length of an array of unique values in column index 2
+number_of_classes = len(np.unique(data[0::,2]))
+
+# Initialize the survival table with all zeros
+survival_table = np.zeros((2, number_of_classes, number_of_price_brackets))
+</code></pre><p>Now that these are set up, you can loop through each variable and find all those passengers that agree with the statements:<br>这些建立后，你就能在每个变量里循环一遍，找到所有那些满足条件的乘客：</p>
+<pre><code>for i in xrange(number_of_classes):       #loop through each class
+  for j in xrange(number_of_price_brackets):   #loop through each price bin
+
+    women_only_stats = data[                          \#Which element           
+                         (data[0::,4] == &quot;female&quot;)    \#is a female
+                       &amp;(data[0::,2].astype(np.float) \#and was ith class
+                             == i+1) \                       
+                       &amp;(data[0:,9].astype(np.float)  \#was greater
+                            /&gt;= j*fare_bracket_size)   \#than this bin              
+                       &amp;(data[0:,9].astype(np.float)  \#and less than
+                            &lt; (j+1)* fare_bracket_size)\#the next bin    
+                          , 1]                        #in the 2nd col                           
 
 
 
-men_only_stats = data[                            \#Which element           
-                     (data[0::,4] != &quot;female&quot;)    \#is a male
-                   &amp;(data[0::,2].astype(np.float) \#and was ith class
-                         == i+1)                  \                     
-                   &amp;(data[0:,9].astype(np.float)  \#was greater
-                        &gt;= j*fare_bracket_size)   \#than this bin              
-                   &amp;(data[0:,9].astype(np.float)  \#and less than
-                        &lt; (j+1)*fare_bracket_size)\#the next bin    
-                      , 1] `
+    men_only_stats = data[                            \#Which element           
+                         (data[0::,4] != &quot;female&quot;)    \#is a male
+                       &amp;(data[0::,2].astype(np.float) \#and was ith class
+                             == i+1)                  \                     
+                       &amp;(data[0:,9].astype(np.float)  \#was greater
+                            /&gt;= j*fare_bracket_size)   \#than this bin              
+                       &amp;(data[0:,9].astype(np.float)  \#and less than
+                            &lt; (j+1)* fare_bracket_size)\#the next bin    
+                          , 1]
 </code></pre><p>Notice that  data[ where function, 1]  means it is finding the Survived column for the conditional criteria which is being called. As the loop starts with i=0 and j=0, the first loop will return the Survived values for all the 1st-class females (i + 1) who paid less than 10 ((j+1) * fare_bracket_size) and similarly all the 1st-class males who paid less than 10.  Before resetting to the top of the loop, we can calculate the proportion of survivors for this particular combination of criteria and record it to our survival table:<br>注意data[ where function, 1]意味着它在按调用的条件标准寻找幸存者列。当循环从i=0和j=0开始，第一个循环返回所有支付少于10的第一等级女性的幸存值，类似所有第一等级支付少于10的男性。在重置循环顶端，我们能计算这个特定标准结合的幸存者比例，并记录到我们的幸存者表格中。</p>
-<p>  <code>survival_table[0,i,j] = np.mean(women_only_stats.astype(np.float))
-  survival_table[1,i,j] = np.mean(men_only_stats.astype(np.float))</code></p>
-<p>At the end we will get a matrix which will be shaped as a 2x3x4 array– or think of this as two 3x4 arrays: The first corresponding to females, with the rows giving the class and columns giving the fare bracket, and the second corresponding similarly to the males.<br>最后，我们将得到一个矩阵，形成一个2<em>3</em>4的数组——或者当成3*4的数组。第一个与女性相关，行给出等级，列给出票价，类似的第二个与男性相关。</p>
+<pre><code>survival_table[0,i,j] = np.mean(women_only_stats.astype(np.float))
+survival_table[1,i,j] = np.mean(men_only_stats.astype(np.float))`
+</code></pre><p>At the end we will get a matrix which will be shaped as a 2x3x4 array– or think of this as two 3x4 arrays: The first corresponding to females, with the rows giving the class and columns giving the fare bracket, and the second corresponding similarly to the males.<br>最后，我们将得到一个矩阵，形成一个2<em>3</em>4的数组——或者当成3*4的数组。第一个与女性相关，行给出等级，列给出票价，类似的第二个与男性相关。</p>
 <p>Note! A Runtime warning will show when the loop is run, but it won’t affect the output. This approach created a problem if there are no passengers in a given category. For example, in reality no females paid less than $10 for a first class ticket, so Python will return a nan for the mean, since it is dividing by zero. To deal with these, we could set them to 0 using a simple statement:<br>注意：当在跑这个循环时，一个运行时间警告将会出现，但它不影响输出。如果没有乘客在给定类别里，这个方法就会出现问题。例如，实际上在一等票价里，没有女性支付少于10美元。所以Python将会为平均值返回一个nan，因为它被0除了。要解决这个问题，我们能使用一个简单的声明将它们设置为0.</p>
-<p><code>survival_table[ survival_table != survival_table ] = 0.</code></p>
-<p>What does our survival table look like?  Type print survival_table<br>我们的幸存者表格像什么？输出print survival_table</p>
-<p>`[[[ 0. 0. 0.83333333 0.97727273]<br>  [ 0. 0.91428571 0.9 1. ]<br>  [ 0.59375 0.58139535 0.33333333 0.125 ]]</p>
-<p> [[ 0. 0. 0.4 0.38372093]<br>  [ 0. 0.15873016 0.16 0.21428571]<br>  [ 0.11153846 0.23684211 0.125 0.24 ]]]`</p>
-<p>Each of these numbers is the proportion of survivors for that criteria of passengers. For example, 0.91428571 signifies 91.4% of female, Pclass = 2, in the Fare bin of 10-19. The numbers should look familiar to you from the Pivot table in the previous Excel tutorial.  For our second model, let’s again assume any probability greater than or equal to 0.5 should result in our predicting survival – and less than 0.5 should not. We can update our survival table with:<br>这些数据里的每个都是这类乘客幸存者比例。例如，0.91428571意味着，女性，等级2，在10-19票价bin中的91.4%。这个数据你应该觉得很熟悉，跟之前Excel教程中的Pivot表格一样。对我们的第二个模型，让我们继续假设任意大于或者等于0.5的概率应当变为预测中的幸存。小于0.5的则不能。我们能更新我们的幸存表格，使用：</p>
-<p><code>survival_table[ survival_table &lt; 0.5 ] = 0
-survival_table[ survival_table &gt;= 0.5 ] = 1</code></p>
-<p>Now we have a survival table. Type print survival_table again if you like.<br>现在我们有了一个幸存者表格。如果你愿意可以再次输入print survival_table。</p>
+<pre><code>survival_table[ survival_table != survival_table ] = 0.`
+</code></pre><p>What does our survival table look like?  Type print survival_table<br>我们的幸存者表格像什么？输出print survival_table</p>
+<pre><code>[[[ 0. 0. 0.83333333 0.97727273]
+  [ 0. 0.91428571 0.9 1. ]
+  [ 0.59375 0.58139535 0.33333333 0.125 ]]
+
+ [[ 0. 0. 0.4 0.38372093]
+  [ 0. 0.15873016 0.16 0.21428571]
+  [ 0.11153846 0.23684211 0.125 0.24 ]]]`
+</code></pre><p>Each of these numbers is the proportion of survivors for that criteria of passengers. For example, 0.91428571 signifies 91.4% of female, Pclass = 2, in the Fare bin of 10-19. The numbers should look familiar to you from the Pivot table in the previous Excel tutorial.  For our second model, let’s again assume any probability greater than or equal to 0.5 should result in our predicting survival – and less than 0.5 should not. We can update our survival table with:<br>这些数据里的每个都是这类乘客幸存者比例。例如，0.91428571意味着，女性，等级2，在10-19票价bin中的91.4%。这个数据你应该觉得很熟悉，跟之前Excel教程中的Pivot表格一样。对我们的第二个模型，让我们继续假设任意大于或者等于0.5的概率应当变为预测中的幸存。小于0.5的则不能。我们能更新我们的幸存表格，使用：</p>
+<pre><code>survival_table[ survival_table &lt; 0.5 ] = 0
+survival_table[ survival_table &gt;= 0.5 ] = 1`
+</code></pre><p>Now we have a survival table. Type print survival_table again if you like.<br>现在我们有了一个幸存者表格。如果你愿意可以再次输入print survival_table。</p>
 <p>When we go through each row of the test file we can find what criteria fit each new passenger and assign them a 1 or 0 according to our survival table.  As previously, let’s open up the test file to read (and skip the header row), and also a new file to write to, called ‘genderclassmodel.csv’:<br>当我们检查了测试文件的每一行，根据幸存者表格，我们能找到哪种判断标准适合每个新乘客，并分配它们一个1或者0。像从前一样，让我们打开测试文件来读（并跳过表头行），也同样打开一个新文件来写，叫’genderclassmodel.csv’:</p>
-<p><code>test_file = open(&#39;../csv/test.csv&#39;, &#39;rb&#39;)
+<pre><code>test_file = open(&apos;../csv/test.csv&apos;, &apos;rb&apos;)
 test_file_object = csv.reader(test_file)
 header = test_file_object.next()
 predictions_file = open(&quot;../csv/genderclassmodel.csv&quot;, &quot;wb&quot;)
 p = csv.writer(predictions_file)
-p.writerow([&quot;PassengerId&quot;, &quot;Survived&quot;])</code></p>
-<p>As with the previous model, we can take the first passenger, look at his/her gender, class, and price of ticket, and assign a Survived label. The problem is that each passenger in the test.csv file is not binned. We should loop through each bin and see if the price of their ticket falls in that bin. If so, we can break the loop (so we don’t go through all the bins) and assign that bin:<br>按先前的模型，我们拿第一个乘客，查看性别、等级、和票价，并分配一个幸存标签。问题是，每个在test.csv文件中的乘客没有binned。我们应该在每个bin中循环，看看他们的票价是否落入那个bin。如果是，我们能中断循环（这样我们不用检查所有的bin），同时分配那个bin：</p>
-<p>`for row in test_file_object:                 # We are going to loop</p>
-<pre><code># through each passenger
-# in the test set                     
-</code></pre><p>  for j in xrange(number_of_price_brackets):  # For each passenger we</p>
-<pre><code>                                          # loop thro each price bin
-try:                                      # Some passengers have no
+p.writerow([&quot;PassengerId&quot;, &quot;Survived&quot;])`
+</code></pre><p>As with the previous model, we can take the first passenger, look at his/her gender, class, and price of ticket, and assign a Survived label. The problem is that each passenger in the test.csv file is not binned. We should loop through each bin and see if the price of their ticket falls in that bin. If so, we can break the loop (so we don’t go through all the bins) and assign that bin:<br>按先前的模型，我们拿第一个乘客，查看性别、等级、和票价，并分配一个幸存标签。问题是，每个在test.csv文件中的乘客没有binned。我们应该在每个bin中循环，看看他们的票价是否落入那个bin。如果是，我们能中断循环（这样我们不用检查所有的bin），同时分配那个bin：</p>
+<pre><code>for row in test_file_object:                 # We are going to loop
+                                          # through each passenger
+                                          # in the test set                     
+  for j in xrange(number_of_price_brackets):  # For each passenger we
+                                          # loop thro each price bin
+    try:                                      # Some passengers have no
                                           # Fare data so try to make
-  row[8] = float(row[8])                  # a float
-except:                                   # If fails: no data, so
-  bin_fare = 3 - float(row[1])            # bin the fare according Pclass
-  break                                   # Break from the loop
-if row[8] &gt; fare_ceiling:              # If there is data see if
+      row[8] = float(row[8])                  # a float
+    except:                                   # If fails: no data, so
+      bin_fare = 3 - float(row[1])            # bin the fare according Pclass
+      break                                   # Break from the loop
+    if row[8] &gt; fare_ceiling:              # If there is data see if
                                           # it is greater than fare
                                           # ceiling we set earlier
-  bin_fare = number_of_price_brackets-1   # If so set to highest bin
-  break                                   # And then break loop
-if row[8] &gt;= j * fare_bracket_size\
-   and row[8] &lt; \
-   (j+1) * fare_bracket_size:             # If passed these tests
+      bin_fare = number_of_price_brackets-1   # If so set to highest bin
+      break                                   # And then break loop
+    if row[8] &gt;= j * fare_bracket_size\
+       and row[8] &lt; \
+       (j+1) * fare_bracket_size:             # If passed these tests
                                           # then loop through each bin
-  bin_fare = j                            # then assign index
-  break                                   
-</code></pre><p>…`<br>There are a couple of things to notice here. We try to make the relevant Fare variable (row[8]) into a float, since, in the case of empty data, the script cannot make it a float. If there is no fare entry we’ll assume a fare bin simply correlated to the Passenger class. For example, if the passenger is third class they are put in the first bin ($0-9), second class into the second bin ($10-19), etc. The other thing to notice is that we assign the bin_fare to equal j … So although there are four bins, they must go from 0 to 3 because we will be using these as indices of our survival table. This little loop determines the index of the bin to look up in the survival table.<br>这里有很多东西要注意。我们尝试让相关票价变量row[8]变为浮点型，因为，在空数据情况下，脚本不能把它变为浮点型。如果没有票价记录，我们将假设一个票价bin与乘客等级简单相关。例如，如果乘客是三等，他们就放在第一个bin($0-9)，二等就放到第二个bin($10-19)等等。另一件事要关注的是，我们分配bin_fare到j。所以尽管这里有4个bin，它们必须从0到3，因为我们将使用这个作为我们幸存者表格的索引。这个小循环决定了查找幸存者表格的bin索引。</p>
+      bin_fare = j                            # then assign index
+      break                                   
+...
+</code></pre><p>There are a couple of things to notice here. We try to make the relevant Fare variable (row[8]) into a float, since, in the case of empty data, the script cannot make it a float. If there is no fare entry we’ll assume a fare bin simply correlated to the Passenger class. For example, if the passenger is third class they are put in the first bin ($0-9), second class into the second bin ($10-19), etc. The other thing to notice is that we assign the bin_fare to equal j … So although there are four bins, they must go from 0 to 3 because we will be using these as indices of our survival table. This little loop determines the index of the bin to look up in the survival table.<br>这里有很多东西要注意。我们尝试让相关票价变量row[8]变为浮点型，因为，在空数据情况下，脚本不能把它变为浮点型。如果没有票价记录，我们将假设一个票价bin与乘客等级简单相关。例如，如果乘客是三等，他们就放在第一个bin($0-9)，二等就放到第二个bin($10-19)等等。另一件事要关注的是，我们分配bin_fare到j。所以尽管这里有4个bin，它们必须从0到3，因为我们将使用这个作为我们幸存者表格的索引。这个小循环决定了查找幸存者表格的bin索引。</p>
 <p>Now that we have determined the binned ticket price (bin_fare), we can see if the passenger is female (row[3]), find their Pclass (row[1]), and then grab the relevant element in survival_table. We need to convert this from the float in the survival_table into an integer (int) that we write in our prediction file for Kaggle:<br>既然我们决定了the binned ticket price (bin_fare),我们能看到乘客是否是女性(row[3])，找到他们的等级(row[1])，然后在幸存者表格中抓取相关元素。我们需要将这个从幸存者表格中的浮点型转换成为Kaggle所写的预测文件里的整数型。</p>
-<p>`…</p>
-<p>if row[3] == ‘female’:                             #If the passenger is female<br>        p.writerow([row[0], “%d” % \<br>                   int(survival_table[0, float(row[1])-1, bin_fare])])<br>    else:                                          #else if male<br>        p.writerow([row[0], “%d” % \<br>                   int(survival_table[1, float(row[1])-1, bin_fare])])</p>
-<h1 id="Close-out-the-files"><a href="#Close-out-the-files" class="headerlink" title="Close out the files."></a>Close out the files.</h1><p>test_file.close()<br>predictions_file.close()`</p>
-<p>We have now inserted a 1 or 0 prediction, according to gender, class, and how much she/he paid in fare. We can now submit the file genderclassmodel.csv.<br>我们现在插入了一个1或者0的预测，根据性别，等级，和他们付的价格，我们现在能够提交genderclassmodel.csv文件</p>
+<pre><code>...
+
+if row[3] == &apos;female&apos;:                             #If the passenger is female
+        p.writerow([row[0], &quot;%d&quot; % \
+               int(survival_table[0, float(row[1])-1, bin_fare])])
+    else:                                          #else if male
+        p.writerow([row[0], &quot;%d&quot; % \
+                   int(survival_table[1, float(row[1])-1, bin_fare])])
+
+# Close out the files.
+test_file.close()
+predictions_file.close()
+</code></pre><p>We have now inserted a 1 or 0 prediction, according to gender, class, and how much she/he paid in fare. We can now submit the file genderclassmodel.csv.<br>我们现在插入了一个1或者0的预测，根据性别，等级，和他们付的价格，我们现在能够提交genderclassmodel.csv文件</p>
 <p>Conclusion<br>结论</p>
 <p>Just like in Excel, here we built predictions that take into account several features. But type  print survival_table  again: what do you notice about the predictions for men? Surely some of the men survived, but our model can only predict 0. This suggests one source of error that’s reflected in our leaderboard score, and it may already be prompting new ideas for improving your next model.<br>就像在Excel里，这里有我们建立的考虑到很多特征的预测。但是再次输入print survival_table：你注意到男性的预测了吗？显然一些男人存货了，但我们的模型只能预测0.这暗示一个错误之源，这个错误在我们积分榜上反映了。它也许已经推动了改善你下一个模型的新主意。</p>
 <p>Yet in contrast to Excel, we have created a script now that can easily be altered to add more variables. For example, we could include Age, where they Embarked, or even their Name. All these variables may themselves have complications, so you will need to think of ways to make them useful. In this tutorial, in order to fill in any missing values of the fare, we assumed the Passenger Class can correlate simply to which fare bin to use. Using python we developed an extensible model without too much effort.<br>然而与Excel相对比，我们已经创建了脚本，很容易地增加新的变量。例如，我们包含了年龄，他们从哪里开始，甚至他们的名字。所有这些变量也许本身就是complications。所以你需要想办法让他们变得有用。在这个教程里，为了填充任何票价意识的值，我们假设乘客等级与票价简单关联。适用python我们不太费力就发展了一个扩展模型。</p>

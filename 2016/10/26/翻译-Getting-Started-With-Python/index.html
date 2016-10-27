@@ -94,7 +94,7 @@ Recapping our work with Exce">
 <meta property="og:description" content="原文地址：https://www.kaggle.com/c/titanic/details/getting-started-with-python
 Getting Started with Python: Kaggle’s Titanic Competition使用Python完成Kaggle’s Titanic Competition说明
 Recapping our work with Exce">
-<meta property="og:updated_time" content="2016-10-27T08:49:06.000Z">
+<meta property="og:updated_time" content="2016-10-27T09:08:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="翻译 | Getting Started With Python">
 <meta name="twitter:description" content="原文地址：https://www.kaggle.com/c/titanic/details/getting-started-with-python
@@ -299,142 +299,204 @@ Recapping our work with Exce">
 <p>One of the great advantages of Python is its packages. Of these packages, the most useful (for Kaggle competitions) are the Numpy, Scipy, Pandas, matplotlib and csv package. In order to check whether you have these, just go to your python command line and type  import numpy  (and so on). If you don’t you will need them! This tutorial is going to guide you through making the same submissions as before, only this time using Python.<br>Python一个主要优势在于它的包。所有包里，最有用的（对Kaggle竞赛而言）是Numpy，Scipy，Pandas，matplotlib and csv package。为了检查你是否有这些包，只需去你的python命令行输入 import numpy（等等）。如果你不能你就需要它们！这个教程将引导你像从前一样提交，只是这次使用Python。</p>
 <p>Python: Reading in your train.csv<br>Python：阅读你的train.csv</p>
 <p>Python has a nice csv reader, which reads each line of a file into memory. You can read in each row and just append a list. From there, you can quickly turn it into an array.<br>Python有一个很好的csv阅读器，能够把文件的每一行都读到内存。你能读每行，并添加一个列表。然后，你可以快速将它转化为数组。</p>
-<p>`/# The first thing to do is to import the relevant packages<br>第一件是是导入相关的包。<br>/# that I will need for my script,<br>哪些我在脚本中需要的<br>/# these include the Numpy (for maths and arrays)<br>包含了Numpy（为maths和数组）<br>/# and csv for reading and writing csv files<br>以及csv，为读写csv文件<br>/# If i want to use something from this I need to call<br>如果我想从这里使用某些东西，我需要先调用<br>/# csv.[function] or np.[function] first<br>csv.函数或者np.函数</p>
-<p>import csv as csv<br>import numpy as np</p>
-<p>/# Open up the csv file in to a Python object<br>打开csv文件in to 一个Python object<br>csv_file_object = csv.reader(open(‘../csv/train.csv’, ‘rb’))<br>header = csv_file_object.next()  # The next() command just skips the</p>
-<pre><code># first line which is a header
-</code></pre><p>data=[]                          # Create a variable called ‘data’.<br>for row in csv_file_object:      # Run through each row in the csv file,<br>    data.append(row)             # adding each row to the data variable<br>data = np.array(data)              # Then convert from a list to an array</p>
-<pre><code># Be aware that each item is currently
-            # a string in this format`
+<pre><code># The first thing to do is to import the relevant packages
+第一件是是导入相关的包。
+#that I will need for my script,
+哪些我在脚本中需要的
+#these include the Numpy (for maths and arrays)
+包含了Numpy（为maths和数组）
+#and csv for reading and writing csv files
+以及csv，为读写csv文件
+#If i want to use something from this I need to call
+如果我想从这里使用某些东西，我需要先调用
+#csv.[function] or np.[function] first
+csv.函数或者np.函数`
+
+import csv as csv
+import numpy as np`
+
+#Open up the csv file in to a Python object
+打开csv文件in to 一个Python object
+csv_file_object = csv.reader(open(&apos;../csv/train.csv&apos;, &apos;rb&apos;))
+header = csv_file_object.next()  # The next() command just skips the
+                             # first line which is a header
+data=[]                          # Create a variable called &apos;data&apos;.
+for row in csv_file_object:      # Run through each row in the csv file,
+data.append(row)             # adding each row to the data variable
+data = np.array(data)              # Then convert from a list to an array
+                 # Be aware that each item is currently
+                             # a string in this format`
 </code></pre><p>Although you’ve seen this data before in Excel, just to be sure let’s look at how it is stored now in Python.  Type  print data  and the output should be something like<br>尽管你已经在Excel中看了这个数据，仍要确认，让我们看下它在Python里是如何存放的。输入print data 输出将是这样的：</p>
-<p><code>[[&#39;1&#39; &#39;0&#39; &#39;3&#39; ..., &#39;7.25&#39; &#39;&#39; &#39;S&#39;]
- [&#39;2&#39; &#39;1&#39; &#39;1&#39; ..., &#39;71.2833&#39; &#39;C85&#39; &#39;C&#39;]
- [&#39;3&#39; &#39;1&#39; &#39;3&#39; ..., &#39;7.925&#39; &#39;&#39; &#39;S&#39;]
+<pre><code>[[&apos;1&apos; &apos;0&apos; &apos;3&apos; ..., &apos;7.25&apos; &apos;&apos; &apos;S&apos;]
+ [&apos;2&apos; &apos;1&apos; &apos;1&apos; ..., &apos;71.2833&apos; &apos;C85&apos; &apos;C&apos;]
+ [&apos;3&apos; &apos;1&apos; &apos;3&apos; ..., &apos;7.925&apos; &apos;&apos; &apos;S&apos;]
  ...,
- [&#39;889&#39; &#39;0&#39; &#39;3&#39; ..., &#39;23.45&#39; &#39;&#39; &#39;S&#39;]
- [&#39;890&#39; &#39;1&#39; &#39;1&#39; ..., &#39;30&#39; &#39;C148&#39; &#39;C&#39;]
- [&#39;891&#39; &#39;0&#39; &#39;3&#39; ..., &#39;7.75&#39; &#39;&#39; &#39;Q&#39;]]</code></p>
-<p>You can see this is an array with just values (no descriptive header). And you can see that each value is being shown in quotes, which means it is stored as a string. Unfortunately in the output above, the full set of columns is being obscured with “…,” so let’s print the first row to see it clearly.  Type  print data[0]<br>你可以看到这是一个数组，有一些值（没有描述性的表头）。你能看到每个值在引号中显示，这意味着它以字符串的格式存储。不幸的是，在上面的输出中，列的整集，被“。。。”给掩盖了，所以让我们打印第一行，这样看的更清楚。输入 print data【0】</p>
-<p><code>[&#39;1&#39; &#39;0&#39; &#39;3&#39; &#39;Braund, Mr. Owen Harris&#39; &#39;male&#39; &#39;22&#39; &#39;1&#39; &#39;0&#39; &#39;A/5 21171&#39; &#39;7.25&#39; &#39;&#39; &#39;S&#39;]</code><br>and to see the last row, type  print data[-1]<br>想看最后一行，输入 print data【-1】</p>
-<p><code>[&#39;891&#39; &#39;0&#39; &#39;3&#39; &#39;Dooley, Mr. Patrick&#39; &#39;male&#39; &#39;32&#39; &#39;0&#39; &#39;0&#39; &#39;370376&#39; &#39;7.75&#39; &#39;&#39; &#39;Q&#39;]</code><br>and to see the 1st row, 4th column, type  print data[0,3]<br>想看第一行第四列，输入print data【0，3】</p>
-<p><code>Braund, Mr. Owen Harris</code></p>
-<p>I have my data now I want to play with it<br>我现在有数据了，我想开始玩了。</p>
+ [&apos;889&apos; &apos;0&apos; &apos;3&apos; ..., &apos;23.45&apos; &apos;&apos; &apos;S&apos;]
+ [&apos;890&apos; &apos;1&apos; &apos;1&apos; ..., &apos;30&apos; &apos;C148&apos; &apos;C&apos;]
+ [&apos;891&apos; &apos;0&apos; &apos;3&apos; ..., &apos;7.75&apos; &apos;&apos; &apos;Q&apos;]]`
+</code></pre><p>You can see this is an array with just values (no descriptive header). And you can see that each value is being shown in quotes, which means it is stored as a string. Unfortunately in the output above, the full set of columns is being obscured with “…,” so let’s print the first row to see it clearly.  Type  print data[0]<br>你可以看到这是一个数组，有一些值（没有描述性的表头）。你能看到每个值在引号中显示，这意味着它以字符串的格式存储。不幸的是，在上面的输出中，列的整集，被“。。。”给掩盖了，所以让我们打印第一行，这样看的更清楚。输入 print data【0】</p>
+<pre><code>[&apos;1&apos; &apos;0&apos; &apos;3&apos; &apos;Braund, Mr. Owen Harris&apos; &apos;male&apos; &apos;22&apos; &apos;1&apos; &apos;0&apos; &apos;A/5 21171&apos; &apos;7.25&apos; &apos;&apos; &apos;S&apos;]`
+</code></pre><p>and to see the last row, type  print data[-1]<br>想看最后一行，输入 print data【-1】</p>
+<pre><code>[&apos;891&apos; &apos;0&apos; &apos;3&apos; &apos;Dooley, Mr. Patrick&apos; &apos;male&apos; &apos;32&apos; &apos;0&apos; &apos;0&apos; &apos;370376&apos; &apos;7.75&apos; &apos;&apos; &apos;Q&apos;]`
+</code></pre><p>and to see the 1st row, 4th column, type  print data[0,3]<br>想看第一行第四列，输入print data【0，3】</p>
+<pre><code>Braund, Mr. Owen Harris`
+</code></pre><p>I have my data now I want to play with it<br>我现在有数据了，我想开始玩了。</p>
 <p>Now if you want to call a specific column of data, say, the gender column, I can just type data[0::,4], remembering that “0::” means all (from start to end), and Python starts indices from 0 (not 1). You should be aware that the csv reader works by default with strings, so you will need to convert to floats in order to do numerical calculations. For example, you can turn the Pclass variable into floats by using data[0::,2].astype(np.float). Using this, we can calculate the proportion of survivors on the Titanic:<br>现在如果你想调用数据中的某个特定列，比如，性别列，我能输入data [0::,4]，记住”0::” 意味着全部（从头到尾），Python的索引从0开始而不是1.你应该知道，csv阅读器默认处理字符串，所以你将需要将之转化为浮点型来做数值计算。例如，你能使用data[0::,2].astype(np.float)将Pclass变量转为浮点型。使用这个，我们能计算Titanic上的幸存者比例。</p>
-<p>`# The size() function counts how many elements are in</p>
-<h1 id="in-the-array-and-sum-as-you-would-expects-sums-up"><a href="#in-the-array-and-sum-as-you-would-expects-sums-up" class="headerlink" title="in the array and sum() (as you would expects) sums up"></a>in the array and sum() (as you would expects) sums up</h1><h1 id="the-elements-in-the-array"><a href="#the-elements-in-the-array" class="headerlink" title="the elements in the array."></a>the elements in the array.</h1><p>number_passengers = np.size(data[0::,1].astype(np.float))<br>number_survived = np.sum(data[0::,1].astype(np.float))<br>proportion_survivors = number_survived / number_passengers`</p>
+<pre><code># The size() function counts how many elements are in
+# in the array and sum() (as you would expects) sums up
+# the elements in the array.
+</code></pre><p>number_passengers = np.size(data[0::,1].astype(np.float))<br>number_survived = np.sum(data[0::,1].astype(np.float))<br>proportion_survivors = number_survived / number_passengers`</p>
 <p>Numpy has some lovely functions. For example, we can search the gender column, find where any elements equal female (and for males, ‘do not equal female’), and then use this to determine the number of females and males that survived:<br>Numpy有些迷人的功能。例如，我们能搜索性别列，找到哪些元素等于女性（对于男性，即“不等于女性”），使用这个确定幸存女性和男性的数量：</p>
-<p>`women_only_stats = data[0::,4] == “female” # This finds where all</p>
-<pre><code># the elements in the gender
-# column that equals “female”
-</code></pre><p>men_only_stats = data[0::,4] != “female”   # This finds where all the</p>
-<pre><code># elements do not equal
-# female (i.e. male)`
+<pre><code>women_only_stats = data[0::,4] == &quot;female&quot; # This finds where all
+                                       # the elements in the gender
+                                       # column that equals “female”
+men_only_stats = data[0::,4] != &quot;female&quot;   # This finds where all the
+                                       # elements do not equal
+                                       # female (i.e. male)`
 </code></pre><p>We use these two new variables as a “mask” on our original train data, so we can select only those women, and only those men on board, then calculate the proportion of those who survived:<br>我们使用这两个新变量作为我们原始训练数据的“mask”，所以我们可以仅选择甲板上的那些女人，或者仅选择男人，然后计算这些人的幸存比例。</p>
-<p>`# Using the index from above we select the females and males separately<br>women_onboard = data[women_only_stats,1].astype(np.float)<br>men_onboard = data[men_only_stats,1].astype(np.float)</p>
-<h1 id="Then-we-finds-the-proportions-of-them-that-survived"><a href="#Then-we-finds-the-proportions-of-them-that-survived" class="headerlink" title="Then we finds the proportions of them that survived"></a>Then we finds the proportions of them that survived</h1><p>proportion_women_survived = \<br>                       np.sum(women_onboard) / np.size(women_onboard)<br>proportion_men_survived = \<br>                       np.sum(men_onboard) / np.size(men_onboard)</p>
-<h1 id="and-then-print-it-out"><a href="#and-then-print-it-out" class="headerlink" title="and then print it out"></a>and then print it out</h1><p>print ‘Proportion of women who survived is %s’ % proportion_women_survived<br>print ‘Proportion of men who survived is %s’ % proportion_men_survived`</p>
-<p>Now that I have my indication that women were much more likely to survive, I am done with the training set.<br>现在我已经有了女人更容易存活的指示，训练集也完成了。</p>
+<pre><code># Using the index from above we select the females and males separately
+women_onboard = data[women_only_stats,1].astype(np.float)     
+men_onboard = data[men_only_stats,1].astype(np.float)
+
+# Then we finds the proportions of them that survived
+proportion_women_survived = \
+                   np.sum(women_onboard) / np.size(women_onboard)  
+proportion_men_survived = \
+                   np.sum(men_onboard) / np.size(men_onboard)
+
+# and then print it out
+print &apos;Proportion of women who survived is %s&apos; % proportion_women_survived
+print &apos;Proportion of men who survived is %s&apos; % proportion_men_survived`
+</code></pre><p>Now that I have my indication that women were much more likely to survive, I am done with the training set.<br>现在我已经有了女人更容易存活的指示，训练集也完成了。</p>
 <p>Reading the test data and writing the gender model as a csv<br>读测试数据并用csv格式写性别模型</p>
 <p>As before, we need to read in the test file by opening a python object to read and another to write. First, we read in the test.csv file and skip the header line:<br>就像从前，我们需要打开两个个python object，一个读测试文件，一个写。首先，我们在test.csv里读和跳过表头行：</p>
-<p><code>test_file = open(&#39;../csv/test.csv&#39;, &#39;rb&#39;)
+<pre><code>test_file = open(&apos;../csv/test.csv&apos;, &apos;rb&apos;)
 test_file_object = csv.reader(test_file)
-header = test_file_object.next()</code></p>
-<p>Now, let’s open a pointer to a new file so we can write to it (this file does not exist yet). Call it something descriptive so that it is recognizable when we upload it:<br>现在，让我们打开一个新文件的指针，让我们能够写它（这个文件并不存在）。用描述性的语言调用它，这样当我们上传的时候它就是可识别的。</p>
-<p><code>prediction_file = open(&quot;genderbasedmodel.csv&quot;, &quot;wb&quot;)
-prediction_file_object = csv.writer(prediction_file)</code></p>
-<p>We now want to read in the test file row by row, see if it is female or male, and write our survival prediction to a new file.<br>我们现在想要在测试文档里一行一行地读，看看是男性还是女性，并把我们的幸存者预测写到一个新文件中。</p>
-<p><code>prediction_file_object.writerow([&quot;PassengerId&quot;, &quot;Survived&quot;])
+header = test_file_object.next()`
+</code></pre><p>Now, let’s open a pointer to a new file so we can write to it (this file does not exist yet). Call it something descriptive so that it is recognizable when we upload it:<br>现在，让我们打开一个新文件的指针，让我们能够写它（这个文件并不存在）。用描述性的语言调用它，这样当我们上传的时候它就是可识别的。</p>
+<pre><code>prediction_file = open(&quot;genderbasedmodel.csv&quot;, &quot;wb&quot;)
+prediction_file_object = csv.writer(prediction_file)`
+</code></pre><p>We now want to read in the test file row by row, see if it is female or male, and write our survival prediction to a new file.<br>我们现在想要在测试文档里一行一行地读，看看是男性还是女性，并把我们的幸存者预测写到一个新文件中。</p>
+<pre><code>prediction_file_object.writerow([&quot;PassengerId&quot;, &quot;Survived&quot;])
 for row in test_file_object:       # For each row in test.csv
-    if row[3] == &#39;female&#39;:         # is it a female, if yes then                                       
-        prediction_file_object.writerow([row[0],&#39;1&#39;])    # predict 1
+    if row[3] == &apos;female&apos;:         # is it a female, if yes then                                       
+        prediction_file_object.writerow([row[0],&apos;1&apos;])    # predict 1
     else:                              # or else if male,       
-        prediction_file_object.writerow([row[0],&#39;0&#39;])    # predict 0
+        prediction_file_object.writerow([row[0],&apos;0&apos;])    # predict 0
 test_file.close()
-prediction_file.close()</code></p>
-<p>Now you have a file called ‘genderbasedmodel.csv’, which you can submit!<br>现在你有了一个叫’genderbasedmodel.csv’的文件，你可以提交了！</p>
+prediction_file.close()
+</code></pre><p>Now you have a file called ‘genderbasedmodel.csv’, which you can submit!<br>现在你有了一个叫’genderbasedmodel.csv’的文件，你可以提交了！</p>
 <p>On the Data page you will find all of the steps above in a single python script named ‘gendermodel.py’. One advantage of python is that you can quickly run all of the steps you did again in the future – if you receive a new training file, for example.<br>在Data页，在一个叫’gendermodel.py’的单个脚本里，你能找出上面所有的步骤。python的一个优势是，你能够未来重复快速跑完所有这些步骤，例如，你接收到一个新的训练文件。</p>
 <p>Pythonising the second submission<br>Pythonising第二次提交</p>
 <p>By now you have created your first python submission. Let’s complicate things and try and submit the same submission as before, binning up the ticket price into the four bins and modeling the outcome on class, gender, and ticket price. This part assumes that you have completed the section ‘Reading in your train.csv’ and you have a data array as before.  On the Data page you will find a python script named ‘genderclassmodel.py’ to follow along… but be sure to type (or paste) each line of code yourself, to help you learn what is happening.<br>到现在你已经创建了你的第一个python提交。让我们把事情变复杂一点，试图像从前一样提交同样的东西。把票价也扔进那四个容器中，把结果按阶层、性别、票价建模。这部分假设你已经完成了“在train.csv里读”的部分，以及你之前已经有一个数组。在Data也你将找到一个名字为’genderclassmodel.py’的python脚本来学习。但是确保是自己输入（或者粘贴）每一行代码，来帮助自己学习了解什么即将发生。</p>
 <p>The idea is to create an table which contains just 1’s and 0’s. The array will be a survival reference table, whereby you read in the test data, find out passenger attributes, look them up in the survival table, and determine if they should be predicted to survive or not. In the case of a model that uses gender, class, and ticket price, you will need an array of 2x3x4 ( [female/male] , [1st / 2nd / 3rd class], [4 bins of prices] ).<br>这个主意是创建一个表格，包含1‘s和0’s。数组将是一个存活参考表格，通过你读测试数据，找到乘客属性，在幸存者表格里查找，然后确定他们是否应当被预测幸存或者不能幸存。在一个模型的例子中，使用性别、阶层和票价，你将需要2<em>3</em>4（男／女，一／二／三等，价格的4bin）。</p>
 <p>The script will systematically will loop through each combination and use the ‘where’ function in python to search the passengers that fit that combination of variables. Just like before, you can ask what indices in your data equals female, 1st class, and paid more than $30. The problem is that looping through requires bins of equal sizes, i.e. $0-9,  $10-19,  $20-29,  $30-39.  For the sake of binning let’s say everything equal to and above 40 “equals” 39 so it falls in this bin. So then you can set the bins:<br>这个脚本将系统的循环每个结合，并使用python的where功能来搜索那些适用于变量组合的乘客。就像从前，你能问你数据中的哪个索引等于女性，一等，付费超过30美元。问题是，循环需要在相等规模大小的bins里进行，例如$0-9,  $10-19,  $20-29,  $30-39. 为了binning让我们假设所有大于或等于40的东西“equals”39，这样，它就落入这个bin。所以你就能够设置bin：</p>
-<p>`# So we add a ceiling<br>fare_ceiling = 40</p>
-<h1 id="then-modify-the-data-in-the-Fare-column-to-39-if-it-is-greater-or-equal-to-the-ceiling"><a href="#then-modify-the-data-in-the-Fare-column-to-39-if-it-is-greater-or-equal-to-the-ceiling" class="headerlink" title="then modify the data in the Fare column to = 39, if it is greater or equal to the ceiling"></a>then modify the data in the Fare column to = 39, if it is greater or equal to the ceiling</h1><p>data[ data[0::,9].astype(np.float) &gt;= fare_ceiling, 9 ] = fare_ceiling - 1.0</p>
-<p>fare_bracket_size = 10<br>number_of_price_brackets = fare_ceiling / fare_bracket_size</p>
-<h1 id="I-know-there-were-1st-2nd-and-3rd-classes-on-board"><a href="#I-know-there-were-1st-2nd-and-3rd-classes-on-board" class="headerlink" title="I know there were 1st, 2nd and 3rd classes on board"></a>I know there were 1st, 2nd and 3rd classes on board</h1><p>number_of_classes = 3</p>
-<h1 id="But-it’s-better-practice-to-calculate-this-from-the-data-directly"><a href="#But-it’s-better-practice-to-calculate-this-from-the-data-directly" class="headerlink" title="But it’s better practice to calculate this from the data directly"></a>But it’s better practice to calculate this from the data directly</h1><h1 id="Take-the-length-of-an-array-of-unique-values-in-column-index-2"><a href="#Take-the-length-of-an-array-of-unique-values-in-column-index-2" class="headerlink" title="Take the length of an array of unique values in column index 2"></a>Take the length of an array of unique values in column index 2</h1><p>number_of_classes = len(np.unique(data[0::,2]))</p>
-<h1 id="Initialize-the-survival-table-with-all-zeros"><a href="#Initialize-the-survival-table-with-all-zeros" class="headerlink" title="Initialize the survival table with all zeros"></a>Initialize the survival table with all zeros</h1><p>survival_table = np.zeros((2, number_of_classes, number_of_price_brackets))<br>`</p>
-<p>Now that these are set up, you can loop through each variable and find all those passengers that agree with the statements:<br>这些建立后，你就能在每个变量里循环一遍，找到所有那些满足条件的乘客：</p>
-<p>`for i in xrange(number_of_classes):       #loop through each class<br>  for j in xrange(number_of_price_brackets):   #loop through each price bin</p>
-<pre><code>women_only_stats = data[                          \#Which element           
-                     (data[0::,4] == &quot;female&quot;)    \#is a female
-                   &amp;(data[0::,2].astype(np.float) \#and was ith class
-                         == i+1) \                       
-                   &amp;(data[0:,9].astype(np.float)  \#was greater
-                        &gt;= j*fare_bracket_size)   \#than this bin              
-                   &amp;(data[0:,9].astype(np.float)  \#and less than
-                        &lt; (j+1)*fare_bracket_size)\#the next bin    
-                      , 1]                        #in the 2nd col                           
+<pre><code># So we add a ceiling
+fare_ceiling = 40
+# then modify the data in the Fare column to = 39, if it is greater or equal to the ceiling
+data[ data[0::,9].astype(np.float) &gt;= fare_ceiling, 9 ] = fare_ceiling - 1.0
+
+fare_bracket_size = 10
+number_of_price_brackets = fare_ceiling / fare_bracket_size
+
+# I know there were 1st, 2nd and 3rd classes on board
+number_of_classes = 3
+
+# But it&apos;s better practice to calculate this from the data directly
+# Take the length of an array of unique values in column index 2
+number_of_classes = len(np.unique(data[0::,2]))
+
+# Initialize the survival table with all zeros
+survival_table = np.zeros((2, number_of_classes, number_of_price_brackets))
+</code></pre><p>Now that these are set up, you can loop through each variable and find all those passengers that agree with the statements:<br>这些建立后，你就能在每个变量里循环一遍，找到所有那些满足条件的乘客：</p>
+<pre><code>for i in xrange(number_of_classes):       #loop through each class
+  for j in xrange(number_of_price_brackets):   #loop through each price bin
+
+    women_only_stats = data[                          \#Which element           
+                         (data[0::,4] == &quot;female&quot;)    \#is a female
+                       &amp;(data[0::,2].astype(np.float) \#and was ith class
+                             == i+1) \                       
+                       &amp;(data[0:,9].astype(np.float)  \#was greater
+                            /&gt;= j*fare_bracket_size)   \#than this bin              
+                       &amp;(data[0:,9].astype(np.float)  \#and less than
+                            &lt; (j+1)* fare_bracket_size)\#the next bin    
+                          , 1]                        #in the 2nd col                           
 
 
 
-men_only_stats = data[                            \#Which element           
-                     (data[0::,4] != &quot;female&quot;)    \#is a male
-                   &amp;(data[0::,2].astype(np.float) \#and was ith class
-                         == i+1)                  \                     
-                   &amp;(data[0:,9].astype(np.float)  \#was greater
-                        &gt;= j*fare_bracket_size)   \#than this bin              
-                   &amp;(data[0:,9].astype(np.float)  \#and less than
-                        &lt; (j+1)*fare_bracket_size)\#the next bin    
-                      , 1] `
+    men_only_stats = data[                            \#Which element           
+                         (data[0::,4] != &quot;female&quot;)    \#is a male
+                       &amp;(data[0::,2].astype(np.float) \#and was ith class
+                             == i+1)                  \                     
+                       &amp;(data[0:,9].astype(np.float)  \#was greater
+                            /&gt;= j*fare_bracket_size)   \#than this bin              
+                       &amp;(data[0:,9].astype(np.float)  \#and less than
+                            &lt; (j+1)* fare_bracket_size)\#the next bin    
+                          , 1]
 </code></pre><p>Notice that  data[ where function, 1]  means it is finding the Survived column for the conditional criteria which is being called. As the loop starts with i=0 and j=0, the first loop will return the Survived values for all the 1st-class females (i + 1) who paid less than 10 ((j+1) * fare_bracket_size) and similarly all the 1st-class males who paid less than 10.  Before resetting to the top of the loop, we can calculate the proportion of survivors for this particular combination of criteria and record it to our survival table:<br>注意data[ where function, 1]意味着它在按调用的条件标准寻找幸存者列。当循环从i=0和j=0开始，第一个循环返回所有支付少于10的第一等级女性的幸存值，类似所有第一等级支付少于10的男性。在重置循环顶端，我们能计算这个特定标准结合的幸存者比例，并记录到我们的幸存者表格中。</p>
-<p>  <code>survival_table[0,i,j] = np.mean(women_only_stats.astype(np.float))
-  survival_table[1,i,j] = np.mean(men_only_stats.astype(np.float))</code></p>
-<p>At the end we will get a matrix which will be shaped as a 2x3x4 array– or think of this as two 3x4 arrays: The first corresponding to females, with the rows giving the class and columns giving the fare bracket, and the second corresponding similarly to the males.<br>最后，我们将得到一个矩阵，形成一个2<em>3</em>4的数组——或者当成3*4的数组。第一个与女性相关，行给出等级，列给出票价，类似的第二个与男性相关。</p>
+<pre><code>survival_table[0,i,j] = np.mean(women_only_stats.astype(np.float))
+survival_table[1,i,j] = np.mean(men_only_stats.astype(np.float))`
+</code></pre><p>At the end we will get a matrix which will be shaped as a 2x3x4 array– or think of this as two 3x4 arrays: The first corresponding to females, with the rows giving the class and columns giving the fare bracket, and the second corresponding similarly to the males.<br>最后，我们将得到一个矩阵，形成一个2<em>3</em>4的数组——或者当成3*4的数组。第一个与女性相关，行给出等级，列给出票价，类似的第二个与男性相关。</p>
 <p>Note! A Runtime warning will show when the loop is run, but it won’t affect the output. This approach created a problem if there are no passengers in a given category. For example, in reality no females paid less than $10 for a first class ticket, so Python will return a nan for the mean, since it is dividing by zero. To deal with these, we could set them to 0 using a simple statement:<br>注意：当在跑这个循环时，一个运行时间警告将会出现，但它不影响输出。如果没有乘客在给定类别里，这个方法就会出现问题。例如，实际上在一等票价里，没有女性支付少于10美元。所以Python将会为平均值返回一个nan，因为它被0除了。要解决这个问题，我们能使用一个简单的声明将它们设置为0.</p>
-<p><code>survival_table[ survival_table != survival_table ] = 0.</code></p>
-<p>What does our survival table look like?  Type print survival_table<br>我们的幸存者表格像什么？输出print survival_table</p>
-<p>`[[[ 0. 0. 0.83333333 0.97727273]<br>  [ 0. 0.91428571 0.9 1. ]<br>  [ 0.59375 0.58139535 0.33333333 0.125 ]]</p>
-<p> [[ 0. 0. 0.4 0.38372093]<br>  [ 0. 0.15873016 0.16 0.21428571]<br>  [ 0.11153846 0.23684211 0.125 0.24 ]]]`</p>
-<p>Each of these numbers is the proportion of survivors for that criteria of passengers. For example, 0.91428571 signifies 91.4% of female, Pclass = 2, in the Fare bin of 10-19. The numbers should look familiar to you from the Pivot table in the previous Excel tutorial.  For our second model, let’s again assume any probability greater than or equal to 0.5 should result in our predicting survival – and less than 0.5 should not. We can update our survival table with:<br>这些数据里的每个都是这类乘客幸存者比例。例如，0.91428571意味着，女性，等级2，在10-19票价bin中的91.4%。这个数据你应该觉得很熟悉，跟之前Excel教程中的Pivot表格一样。对我们的第二个模型，让我们继续假设任意大于或者等于0.5的概率应当变为预测中的幸存。小于0.5的则不能。我们能更新我们的幸存表格，使用：</p>
-<p><code>survival_table[ survival_table &lt; 0.5 ] = 0
-survival_table[ survival_table &gt;= 0.5 ] = 1</code></p>
-<p>Now we have a survival table. Type print survival_table again if you like.<br>现在我们有了一个幸存者表格。如果你愿意可以再次输入print survival_table。</p>
+<pre><code>survival_table[ survival_table != survival_table ] = 0.`
+</code></pre><p>What does our survival table look like?  Type print survival_table<br>我们的幸存者表格像什么？输出print survival_table</p>
+<pre><code>[[[ 0. 0. 0.83333333 0.97727273]
+  [ 0. 0.91428571 0.9 1. ]
+  [ 0.59375 0.58139535 0.33333333 0.125 ]]
+
+ [[ 0. 0. 0.4 0.38372093]
+  [ 0. 0.15873016 0.16 0.21428571]
+  [ 0.11153846 0.23684211 0.125 0.24 ]]]`
+</code></pre><p>Each of these numbers is the proportion of survivors for that criteria of passengers. For example, 0.91428571 signifies 91.4% of female, Pclass = 2, in the Fare bin of 10-19. The numbers should look familiar to you from the Pivot table in the previous Excel tutorial.  For our second model, let’s again assume any probability greater than or equal to 0.5 should result in our predicting survival – and less than 0.5 should not. We can update our survival table with:<br>这些数据里的每个都是这类乘客幸存者比例。例如，0.91428571意味着，女性，等级2，在10-19票价bin中的91.4%。这个数据你应该觉得很熟悉，跟之前Excel教程中的Pivot表格一样。对我们的第二个模型，让我们继续假设任意大于或者等于0.5的概率应当变为预测中的幸存。小于0.5的则不能。我们能更新我们的幸存表格，使用：</p>
+<pre><code>survival_table[ survival_table &lt; 0.5 ] = 0
+survival_table[ survival_table &gt;= 0.5 ] = 1`
+</code></pre><p>Now we have a survival table. Type print survival_table again if you like.<br>现在我们有了一个幸存者表格。如果你愿意可以再次输入print survival_table。</p>
 <p>When we go through each row of the test file we can find what criteria fit each new passenger and assign them a 1 or 0 according to our survival table.  As previously, let’s open up the test file to read (and skip the header row), and also a new file to write to, called ‘genderclassmodel.csv’:<br>当我们检查了测试文件的每一行，根据幸存者表格，我们能找到哪种判断标准适合每个新乘客，并分配它们一个1或者0。像从前一样，让我们打开测试文件来读（并跳过表头行），也同样打开一个新文件来写，叫’genderclassmodel.csv’:</p>
-<p><code>test_file = open(&#39;../csv/test.csv&#39;, &#39;rb&#39;)
+<pre><code>test_file = open(&apos;../csv/test.csv&apos;, &apos;rb&apos;)
 test_file_object = csv.reader(test_file)
 header = test_file_object.next()
 predictions_file = open(&quot;../csv/genderclassmodel.csv&quot;, &quot;wb&quot;)
 p = csv.writer(predictions_file)
-p.writerow([&quot;PassengerId&quot;, &quot;Survived&quot;])</code></p>
-<p>As with the previous model, we can take the first passenger, look at his/her gender, class, and price of ticket, and assign a Survived label. The problem is that each passenger in the test.csv file is not binned. We should loop through each bin and see if the price of their ticket falls in that bin. If so, we can break the loop (so we don’t go through all the bins) and assign that bin:<br>按先前的模型，我们拿第一个乘客，查看性别、等级、和票价，并分配一个幸存标签。问题是，每个在test.csv文件中的乘客没有binned。我们应该在每个bin中循环，看看他们的票价是否落入那个bin。如果是，我们能中断循环（这样我们不用检查所有的bin），同时分配那个bin：</p>
-<p>`for row in test_file_object:                 # We are going to loop</p>
-<pre><code># through each passenger
-# in the test set                     
-</code></pre><p>  for j in xrange(number_of_price_brackets):  # For each passenger we</p>
-<pre><code>                                          # loop thro each price bin
-try:                                      # Some passengers have no
+p.writerow([&quot;PassengerId&quot;, &quot;Survived&quot;])`
+</code></pre><p>As with the previous model, we can take the first passenger, look at his/her gender, class, and price of ticket, and assign a Survived label. The problem is that each passenger in the test.csv file is not binned. We should loop through each bin and see if the price of their ticket falls in that bin. If so, we can break the loop (so we don’t go through all the bins) and assign that bin:<br>按先前的模型，我们拿第一个乘客，查看性别、等级、和票价，并分配一个幸存标签。问题是，每个在test.csv文件中的乘客没有binned。我们应该在每个bin中循环，看看他们的票价是否落入那个bin。如果是，我们能中断循环（这样我们不用检查所有的bin），同时分配那个bin：</p>
+<pre><code>for row in test_file_object:                 # We are going to loop
+                                          # through each passenger
+                                          # in the test set                     
+  for j in xrange(number_of_price_brackets):  # For each passenger we
+                                          # loop thro each price bin
+    try:                                      # Some passengers have no
                                           # Fare data so try to make
-  row[8] = float(row[8])                  # a float
-except:                                   # If fails: no data, so
-  bin_fare = 3 - float(row[1])            # bin the fare according Pclass
-  break                                   # Break from the loop
-if row[8] &gt; fare_ceiling:              # If there is data see if
+      row[8] = float(row[8])                  # a float
+    except:                                   # If fails: no data, so
+      bin_fare = 3 - float(row[1])            # bin the fare according Pclass
+      break                                   # Break from the loop
+    if row[8] &gt; fare_ceiling:              # If there is data see if
                                           # it is greater than fare
                                           # ceiling we set earlier
-  bin_fare = number_of_price_brackets-1   # If so set to highest bin
-  break                                   # And then break loop
-if row[8] &gt;= j * fare_bracket_size\
-   and row[8] &lt; \
-   (j+1) * fare_bracket_size:             # If passed these tests
+      bin_fare = number_of_price_brackets-1   # If so set to highest bin
+      break                                   # And then break loop
+    if row[8] &gt;= j * fare_bracket_size\
+       and row[8] &lt; \
+       (j+1) * fare_bracket_size:             # If passed these tests
                                           # then loop through each bin
-  bin_fare = j                            # then assign index
-  break                                   
-</code></pre><p>…`<br>There are a couple of things to notice here. We try to make the relevant Fare variable (row[8]) into a float, since, in the case of empty data, the script cannot make it a float. If there is no fare entry we’ll assume a fare bin simply correlated to the Passenger class. For example, if the passenger is third class they are put in the first bin ($0-9), second class into the second bin ($10-19), etc. The other thing to notice is that we assign the bin_fare to equal j … So although there are four bins, they must go from 0 to 3 because we will be using these as indices of our survival table. This little loop determines the index of the bin to look up in the survival table.<br>这里有很多东西要注意。我们尝试让相关票价变量row[8]变为浮点型，因为，在空数据情况下，脚本不能把它变为浮点型。如果没有票价记录，我们将假设一个票价bin与乘客等级简单相关。例如，如果乘客是三等，他们就放在第一个bin($0-9)，二等就放到第二个bin($10-19)等等。另一件事要关注的是，我们分配bin_fare到j。所以尽管这里有4个bin，它们必须从0到3，因为我们将使用这个作为我们幸存者表格的索引。这个小循环决定了查找幸存者表格的bin索引。</p>
+      bin_fare = j                            # then assign index
+      break                                   
+...
+</code></pre><p>There are a couple of things to notice here. We try to make the relevant Fare variable (row[8]) into a float, since, in the case of empty data, the script cannot make it a float. If there is no fare entry we’ll assume a fare bin simply correlated to the Passenger class. For example, if the passenger is third class they are put in the first bin ($0-9), second class into the second bin ($10-19), etc. The other thing to notice is that we assign the bin_fare to equal j … So although there are four bins, they must go from 0 to 3 because we will be using these as indices of our survival table. This little loop determines the index of the bin to look up in the survival table.<br>这里有很多东西要注意。我们尝试让相关票价变量row[8]变为浮点型，因为，在空数据情况下，脚本不能把它变为浮点型。如果没有票价记录，我们将假设一个票价bin与乘客等级简单相关。例如，如果乘客是三等，他们就放在第一个bin($0-9)，二等就放到第二个bin($10-19)等等。另一件事要关注的是，我们分配bin_fare到j。所以尽管这里有4个bin，它们必须从0到3，因为我们将使用这个作为我们幸存者表格的索引。这个小循环决定了查找幸存者表格的bin索引。</p>
 <p>Now that we have determined the binned ticket price (bin_fare), we can see if the passenger is female (row[3]), find their Pclass (row[1]), and then grab the relevant element in survival_table. We need to convert this from the float in the survival_table into an integer (int) that we write in our prediction file for Kaggle:<br>既然我们决定了the binned ticket price (bin_fare),我们能看到乘客是否是女性(row[3])，找到他们的等级(row[1])，然后在幸存者表格中抓取相关元素。我们需要将这个从幸存者表格中的浮点型转换成为Kaggle所写的预测文件里的整数型。</p>
-<p>`…</p>
-<p>if row[3] == ‘female’:                             #If the passenger is female<br>        p.writerow([row[0], “%d” % \<br>                   int(survival_table[0, float(row[1])-1, bin_fare])])<br>    else:                                          #else if male<br>        p.writerow([row[0], “%d” % \<br>                   int(survival_table[1, float(row[1])-1, bin_fare])])</p>
-<h1 id="Close-out-the-files"><a href="#Close-out-the-files" class="headerlink" title="Close out the files."></a>Close out the files.</h1><p>test_file.close()<br>predictions_file.close()`</p>
-<p>We have now inserted a 1 or 0 prediction, according to gender, class, and how much she/he paid in fare. We can now submit the file genderclassmodel.csv.<br>我们现在插入了一个1或者0的预测，根据性别，等级，和他们付的价格，我们现在能够提交genderclassmodel.csv文件</p>
+<pre><code>...
+
+if row[3] == &apos;female&apos;:                             #If the passenger is female
+        p.writerow([row[0], &quot;%d&quot; % \
+               int(survival_table[0, float(row[1])-1, bin_fare])])
+    else:                                          #else if male
+        p.writerow([row[0], &quot;%d&quot; % \
+                   int(survival_table[1, float(row[1])-1, bin_fare])])
+
+# Close out the files.
+test_file.close()
+predictions_file.close()
+</code></pre><p>We have now inserted a 1 or 0 prediction, according to gender, class, and how much she/he paid in fare. We can now submit the file genderclassmodel.csv.<br>我们现在插入了一个1或者0的预测，根据性别，等级，和他们付的价格，我们现在能够提交genderclassmodel.csv文件</p>
 <p>Conclusion<br>结论</p>
 <p>Just like in Excel, here we built predictions that take into account several features. But type  print survival_table  again: what do you notice about the predictions for men? Surely some of the men survived, but our model can only predict 0. This suggests one source of error that’s reflected in our leaderboard score, and it may already be prompting new ideas for improving your next model.<br>就像在Excel里，这里有我们建立的考虑到很多特征的预测。但是再次输入print survival_table：你注意到男性的预测了吗？显然一些男人存货了，但我们的模型只能预测0.这暗示一个错误之源，这个错误在我们积分榜上反映了。它也许已经推动了改善你下一个模型的新主意。</p>
 <p>Yet in contrast to Excel, we have created a script now that can easily be altered to add more variables. For example, we could include Age, where they Embarked, or even their Name. All these variables may themselves have complications, so you will need to think of ways to make them useful. In this tutorial, in order to fill in any missing values of the fare, we assumed the Passenger Class can correlate simply to which fare bin to use. Using python we developed an extensible model without too much effort.<br>然而与Excel相对比，我们已经创建了脚本，很容易地增加新的变量。例如，我们包含了年龄，他们从哪里开始，甚至他们的名字。所有这些变量也许本身就是complications。所以你需要想办法让他们变得有用。在这个教程里，为了填充任何票价意识的值，我们假设乘客等级与票价简单关联。适用python我们不太费力就发展了一个扩展模型。</p>
@@ -614,7 +676,7 @@ if row[8] &gt;= j * fare_bracket_size\
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#in-the-array-and-sum-as-you-would-expects-sums-up"><span class="nav-number">1.</span> <span class="nav-text">in the array and sum() (as you would expects) sums up</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-elements-in-the-array"><span class="nav-number">2.</span> <span class="nav-text">the elements in the array.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Then-we-finds-the-proportions-of-them-that-survived"><span class="nav-number">3.</span> <span class="nav-text">Then we finds the proportions of them that survived</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#and-then-print-it-out"><span class="nav-number">4.</span> <span class="nav-text">and then print it out</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#then-modify-the-data-in-the-Fare-column-to-39-if-it-is-greater-or-equal-to-the-ceiling"><span class="nav-number">5.</span> <span class="nav-text">then modify the data in the Fare column to = 39, if it is greater or equal to the ceiling</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-know-there-were-1st-2nd-and-3rd-classes-on-board"><span class="nav-number">6.</span> <span class="nav-text">I know there were 1st, 2nd and 3rd classes on board</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#But-it’s-better-practice-to-calculate-this-from-the-data-directly"><span class="nav-number">7.</span> <span class="nav-text">But it’s better practice to calculate this from the data directly</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Take-the-length-of-an-array-of-unique-values-in-column-index-2"><span class="nav-number">8.</span> <span class="nav-text">Take the length of an array of unique values in column index 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Initialize-the-survival-table-with-all-zeros"><span class="nav-number">9.</span> <span class="nav-text">Initialize the survival table with all zeros</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Close-out-the-files"><span class="nav-number">10.</span> <span class="nav-text">Close out the files.</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
