@@ -238,6 +238,141 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/28/翻译-Getting-Started-With-Random-Forests/" itemprop="url">
+                  翻译 | Getting Started With Random Forests
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T11:24:08+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/28/翻译-Getting-Started-With-Random-Forests/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/翻译-Getting-Started-With-Random-Forests/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Getting Started with Random Forests: Titanic Competition</p>
+<p>The last step in this series of tutorials will be a quick guide to multivariate models that truly learn from your data. As far as competing and doing well in Kaggle competitions, this is the most important page, however there is much more to learn beyond this. We hope this gives you a taste of how simple it can be to apply a sophisticated algorithm.</p>
+<p>Quick Recap:</p>
+<p>The previous tutorials allowed us to open the data in both Excel and in the scripting language Python. We created a simple model in both and wrote a csv to use as our submission. We are going to build on these skills to create what is known as a random forest™ (or, an ensemble of decision trees).</p>
+<p>The beauty of Python</p>
+<p>This is where the effort you put into getting Python running pays off! As was mentioned in the previous tutorial, Python has handy, built-in packages to help you manipulate arrays, compute complex math functions, read in complex file formats, and in this case, create random forests. You will need to install the scikit-learn package, which has the handy RandomForestClassifier class. (If you originally installed the Anaconda distribution of python, then scikit-learn is already installed too.) For more on this package, visit the scikit random forest page.</p>
+<p>What is a Random Forest?</p>
+<p>As with all the important questions in life, this is best deferred to the Wikipedia page. A random forest is an ensemble of decision trees which will output a prediction value, in this case survival. Each decision tree is constructed by using a random subset of the training data. After you have trained your forest, you can then pass each test row through it, in order to output a prediction. Simple! Well not quite! This particular python function requires floats for the input variables, so all strings need to be converted, and any missing data needs to be filled.</p>
+<p>How do I clean and fill?</p>
+<p>In the previous pandas tutorial you gained the skills to clean and fill in data using the pandas package. Now you can put that into practice.</p>
+<p>Not all types of data can be converted into floats. For example, Names would be very difficult. In these cases let’s decide to neglect these columns. Although they are strings, the categorical variables like male and female can be converted to 1 and 0, and the port of embarkment, which has three categories, can be converted to a 0, 1 or 2 (Cherbourg, Southamption and Queenstown). This may seem like a non-sensical way of classifying, since Queenstown is not twice the value of Southampton– but random forests are somewhat robust when the number of different attributes are not too numerous.</p>
+<p>Converting from categorical strings to floats is intuitive. However, filling in data can be more tricky. Some data cannot be trivially filled (such as Cabin) without complete knowledge of every cabin and ticket price for the entire ship.  Nonetheless, Fare price can be estimated if you know the class, or the age of a passenger can be estimated using the median age of the people on board. Fortunately for us, the amount of missing data here is not too large, so the method for which you choose to fill the data shouldn’t have too much of an effect on your predictive result.</p>
+<p>My data is complete and floating nicely, I want to predict</p>
+<p>Using the predictive capabilities of the scikit-learn package is very simple. In fact, it can be carried out in three simple steps: initializing the model, fitting it to the training data, and predicting new values.</p>
+<p>Note that almost all of the model techniques in scikit-learn share a few common named functions, once they are initialized. You can always find out more about them in the documentation for each model. These are</p>
+<p>some-model-name.fit( )</p>
+<p>some-model-name.predict( )</p>
+<p>some-model-name.score( )</p>
+<p>At this point, it is assumed that you have read in the training data into an array train_data, where the first column [0] is the Survived column, that the Name, Cabin, and Ticket columns have been removed, and also that the Gender and Embarked columns have been converted to numbers. (If you just completed the previous pandas tutorial this means you also need to drop the PassengerId column.)</p>
+<h1 id="Import-the-random-forest-package"><a href="#Import-the-random-forest-package" class="headerlink" title="Import the random forest package"></a>Import the random forest package</h1><p>from sklearn.ensemble import RandomForestClassifier</p>
+<h1 id="Create-the-random-forest-object-which-will-include-all-the-parameters"><a href="#Create-the-random-forest-object-which-will-include-all-the-parameters" class="headerlink" title="Create the random forest object which will include all the parameters"></a>Create the random forest object which will include all the parameters</h1><h1 id="for-the-fit"><a href="#for-the-fit" class="headerlink" title="for the fit"></a>for the fit</h1><p>forest = RandomForestClassifier(n_estimators = 100)</p>
+<h1 id="Fit-the-training-data-to-the-Survived-labels-and-create-the-decision-trees"><a href="#Fit-the-training-data-to-the-Survived-labels-and-create-the-decision-trees" class="headerlink" title="Fit the training data to the Survived labels and create the decision trees"></a>Fit the training data to the Survived labels and create the decision trees</h1><p>forest = forest.fit(train_data[0::,1::],train_data[0::,0])</p>
+<h1 id="Take-the-same-decision-trees-and-run-it-on-the-test-data"><a href="#Take-the-same-decision-trees-and-run-it-on-the-test-data" class="headerlink" title="Take the same decision trees and run it on the test data"></a>Take the same decision trees and run it on the test data</h1><p>output = forest.predict(test_data)<br>There is much more to this script, which you can find on the Data page.</p>
+<p>The output will be an array with a length equal to the number of passengers in the test set and a prediction of whether they survived. You can change the parameters as you see fit, as described on the RandomForestClassifier documentation page.</p>
+<p>Word of Warning!!!</p>
+<p>Looking at the leaderboard, I now see:</p>
+<p>Better or No Better</p>
+<p>It appears that I have not improved my score! This seems strange, as your initial thoughts are “This is more complicated, therefore should be better!” This gives us three lessons to bear in mind:</p>
+<p>A simple model is not always a bad model. Sometimes, concise, simple views of data reveal their true patterns and nature.<br>This is not the final score for my new submission! I have not done as well on the public leaderboard, but who knows what the private score may hold? I made my previous model on the assumptions of the training data: we still don’t know how these will hold up in the private leaderboard.<br>Because the data set is very small, the differences in scores can be just one or two flips in decisions between survived or not survived. This means it will be very hard to determine the quality of the model from this data set. The aim of our Titanic Tutorial was to show you an easy way into more difficult problems, so don’t be too disheartened if your super-complicated random forest doesn’t beat the gender based model!<br>Conclusion</p>
+<p>Now you have a budding set of skills to get you going in the larger Kaggle competitions. That, of course, is the primary prize of this Competition. There is still some improvement possible in your model, so please feel free to post comments on the forums, questions (and answers!). Chances are the experiences you have and questions you ask will be shared by others.</p>
+<p>Know that a score of 0.79 - 0.81 is doing well on this challenge, and 0.81-0.82 is really going beyond the basic models! The dataset here is smaller than normal, so there is less signal to tap your models into. NOTE: You may see some people on the Leaderboard show accuracy of .90 up to even 100% – but that’s probably not from statistical modeling, just trying to look up the answers somewhere else on the Internet (which defeats the entire purpose.) So seriously, ignore those people! A discussion in the forum talks further about What accuracy should I be aiming for?</p>
+<p>In terms of improving your model from here, you could consider any of these paths to try on your own:</p>
+<p>Revisit your assumptions about how you cleaned and filled the data.<br>Be creative with additional feature engineering, so that your chosen model has more columns to train from.<br>Use the sklearn documentation to experiment with different parameters for your random forest.<br>Consider a different model approach. For example, a logistic regression model is often used to predict binary outcomes like 0/1.<br>Added note: If you would like to try out a different tool than Python for accomplishing the same kind of analysis, we now have links to outside tutorials for Getting Started with R.</p>
+<p>We also have Further Reading with additional tutorials and suggestions.</p>
+<p>Good luck with the competition!</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/28/翻译-Getting-Started-With-Excel/" itemprop="url">
                   翻译 | Getting Started With Excel
                 </a>
@@ -295,7 +430,7 @@
 <p>The competition is simple: we want you to use the Titanic passenger data (name, age, gender, socio-economic class, etc) to try to predict who will survive and who will die.<br>竞赛很简单。我们希望你使用Titanic乘客数据（姓名，年龄，性别，社会经济层次等）来试图预测谁将存活，谁将死去。</p>
 <p>I want to compete! What do I do next?<br>我想参加竞赛，我下一步该做什么？</p>
 <p>The first thing to do is get the data from the Kaggle website. You will need two files: train.csv and test.csv. The .csv filename stands for comma separated values, where every value (name, age, gender, etc) in a row is separated by a comma. This allows Excel to interpet the data as columns.  If you load the file up in notepad–or your text editor of choice–it would look like this:<br>第一件事就是从Kaggle网站上获取数据。你将需要2个文件：train.csv和test.csv. .csv文件名代表，用逗号隔开值，在同一行的每个值（姓名，年龄，性别等）都由逗号隔开。这允许Excel把这些数据转换为列。如果你下载文件用notepad打开，或者你的文本编辑器，它看起来是这样的：</p>
-<p><a href="https://kaggle2.blob.core.windows.net/competitions/kaggle/3136/media/notepad.PNG" target="_blank" rel="external">CSV in notepad!</a></p>
+<p><img src="https://kaggle2.blob.core.windows.net/competitions/kaggle/3136/media/notepad.PNG" alt="CSV in notepad!"></p>
 <p> However, in Excel it looks like this:<br> 然而，在Excel它看起来是这样的：</p>
 <p>CSV in Excel</p>
 <p>To get the data…Click on Get The Data, and this will take you to the Data page:<br>为了得到数据，点击“Get the Data”，然后它将带你到Data page：</p>
@@ -1764,110 +1899,6 @@ predictions_file.close()
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/08/静止的一天/" itemprop="url">
-                  静止的两天
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T20:10:39+08:00" content="2016-08-08">
-              2016-08-08
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/08/静止的一天/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/静止的一天/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天老大休假了，又有一些其它的事情困扰，看了一天书，心情平复了些。</p>
-<p>周末由于朗读、写作、听分享、帮忙修改稿件、交流沟通，把原本计划下午的Python的学习时间挤掉了。</p>
-<p><strong><em>签名档</em></strong></p>
-<p><em>别再轻率地对待时光，否则时光会让你懂得什么叫无能为力。</em></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1913,7 +1944,7 @@ predictions_file.close()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

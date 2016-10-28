@@ -1,0 +1,653 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Getting Started with Random Forests: Titanic Competition
+The last step in this series of tutorials will be a quick guide to multivariate models that truly learn from your data. As far as competing and">
+<meta property="og:type" content="article">
+<meta property="og:title" content="翻译 | Getting Started With Random Forests">
+<meta property="og:url" content="http://yoursite.com/2016/10/28/翻译-Getting-Started-With-Random-Forests/index.html">
+<meta property="og:site_name" content="ProgramLife">
+<meta property="og:description" content="Getting Started with Random Forests: Titanic Competition
+The last step in this series of tutorials will be a quick guide to multivariate models that truly learn from your data. As far as competing and">
+<meta property="og:updated_time" content="2016-10-28T03:25:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="翻译 | Getting Started With Random Forests">
+<meta name="twitter:description" content="Getting Started with Random Forests: Titanic Competition
+The last step in this series of tutorials will be a quick guide to multivariate models that truly learn from your data. As far as competing and">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/28/翻译-Getting-Started-With-Random-Forests/"/>
+
+  <title> 翻译 | Getting Started With Random Forests | ProgramLife </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cb10f5fafcabdf4c0137f311c0ecaf7b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ProgramLife</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                翻译 | Getting Started With Random Forests
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T11:24:08+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/28/翻译-Getting-Started-With-Random-Forests/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/翻译-Getting-Started-With-Random-Forests/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Getting Started with Random Forests: Titanic Competition</p>
+<p>The last step in this series of tutorials will be a quick guide to multivariate models that truly learn from your data. As far as competing and doing well in Kaggle competitions, this is the most important page, however there is much more to learn beyond this. We hope this gives you a taste of how simple it can be to apply a sophisticated algorithm.</p>
+<p>Quick Recap:</p>
+<p>The previous tutorials allowed us to open the data in both Excel and in the scripting language Python. We created a simple model in both and wrote a csv to use as our submission. We are going to build on these skills to create what is known as a random forest™ (or, an ensemble of decision trees).</p>
+<p>The beauty of Python</p>
+<p>This is where the effort you put into getting Python running pays off! As was mentioned in the previous tutorial, Python has handy, built-in packages to help you manipulate arrays, compute complex math functions, read in complex file formats, and in this case, create random forests. You will need to install the scikit-learn package, which has the handy RandomForestClassifier class. (If you originally installed the Anaconda distribution of python, then scikit-learn is already installed too.) For more on this package, visit the scikit random forest page.</p>
+<p>What is a Random Forest?</p>
+<p>As with all the important questions in life, this is best deferred to the Wikipedia page. A random forest is an ensemble of decision trees which will output a prediction value, in this case survival. Each decision tree is constructed by using a random subset of the training data. After you have trained your forest, you can then pass each test row through it, in order to output a prediction. Simple! Well not quite! This particular python function requires floats for the input variables, so all strings need to be converted, and any missing data needs to be filled.</p>
+<p>How do I clean and fill?</p>
+<p>In the previous pandas tutorial you gained the skills to clean and fill in data using the pandas package. Now you can put that into practice.</p>
+<p>Not all types of data can be converted into floats. For example, Names would be very difficult. In these cases let’s decide to neglect these columns. Although they are strings, the categorical variables like male and female can be converted to 1 and 0, and the port of embarkment, which has three categories, can be converted to a 0, 1 or 2 (Cherbourg, Southamption and Queenstown). This may seem like a non-sensical way of classifying, since Queenstown is not twice the value of Southampton– but random forests are somewhat robust when the number of different attributes are not too numerous.</p>
+<p>Converting from categorical strings to floats is intuitive. However, filling in data can be more tricky. Some data cannot be trivially filled (such as Cabin) without complete knowledge of every cabin and ticket price for the entire ship.  Nonetheless, Fare price can be estimated if you know the class, or the age of a passenger can be estimated using the median age of the people on board. Fortunately for us, the amount of missing data here is not too large, so the method for which you choose to fill the data shouldn’t have too much of an effect on your predictive result.</p>
+<p>My data is complete and floating nicely, I want to predict</p>
+<p>Using the predictive capabilities of the scikit-learn package is very simple. In fact, it can be carried out in three simple steps: initializing the model, fitting it to the training data, and predicting new values.</p>
+<p>Note that almost all of the model techniques in scikit-learn share a few common named functions, once they are initialized. You can always find out more about them in the documentation for each model. These are</p>
+<p>some-model-name.fit( )</p>
+<p>some-model-name.predict( )</p>
+<p>some-model-name.score( )</p>
+<p>At this point, it is assumed that you have read in the training data into an array train_data, where the first column [0] is the Survived column, that the Name, Cabin, and Ticket columns have been removed, and also that the Gender and Embarked columns have been converted to numbers. (If you just completed the previous pandas tutorial this means you also need to drop the PassengerId column.)</p>
+<h1 id="Import-the-random-forest-package"><a href="#Import-the-random-forest-package" class="headerlink" title="Import the random forest package"></a>Import the random forest package</h1><p>from sklearn.ensemble import RandomForestClassifier</p>
+<h1 id="Create-the-random-forest-object-which-will-include-all-the-parameters"><a href="#Create-the-random-forest-object-which-will-include-all-the-parameters" class="headerlink" title="Create the random forest object which will include all the parameters"></a>Create the random forest object which will include all the parameters</h1><h1 id="for-the-fit"><a href="#for-the-fit" class="headerlink" title="for the fit"></a>for the fit</h1><p>forest = RandomForestClassifier(n_estimators = 100)</p>
+<h1 id="Fit-the-training-data-to-the-Survived-labels-and-create-the-decision-trees"><a href="#Fit-the-training-data-to-the-Survived-labels-and-create-the-decision-trees" class="headerlink" title="Fit the training data to the Survived labels and create the decision trees"></a>Fit the training data to the Survived labels and create the decision trees</h1><p>forest = forest.fit(train_data[0::,1::],train_data[0::,0])</p>
+<h1 id="Take-the-same-decision-trees-and-run-it-on-the-test-data"><a href="#Take-the-same-decision-trees-and-run-it-on-the-test-data" class="headerlink" title="Take the same decision trees and run it on the test data"></a>Take the same decision trees and run it on the test data</h1><p>output = forest.predict(test_data)<br>There is much more to this script, which you can find on the Data page.</p>
+<p>The output will be an array with a length equal to the number of passengers in the test set and a prediction of whether they survived. You can change the parameters as you see fit, as described on the RandomForestClassifier documentation page.</p>
+<p>Word of Warning!!!</p>
+<p>Looking at the leaderboard, I now see:</p>
+<p>Better or No Better</p>
+<p>It appears that I have not improved my score! This seems strange, as your initial thoughts are “This is more complicated, therefore should be better!” This gives us three lessons to bear in mind:</p>
+<p>A simple model is not always a bad model. Sometimes, concise, simple views of data reveal their true patterns and nature.<br>This is not the final score for my new submission! I have not done as well on the public leaderboard, but who knows what the private score may hold? I made my previous model on the assumptions of the training data: we still don’t know how these will hold up in the private leaderboard.<br>Because the data set is very small, the differences in scores can be just one or two flips in decisions between survived or not survived. This means it will be very hard to determine the quality of the model from this data set. The aim of our Titanic Tutorial was to show you an easy way into more difficult problems, so don’t be too disheartened if your super-complicated random forest doesn’t beat the gender based model!<br>Conclusion</p>
+<p>Now you have a budding set of skills to get you going in the larger Kaggle competitions. That, of course, is the primary prize of this Competition. There is still some improvement possible in your model, so please feel free to post comments on the forums, questions (and answers!). Chances are the experiences you have and questions you ask will be shared by others.</p>
+<p>Know that a score of 0.79 - 0.81 is doing well on this challenge, and 0.81-0.82 is really going beyond the basic models! The dataset here is smaller than normal, so there is less signal to tap your models into. NOTE: You may see some people on the Leaderboard show accuracy of .90 up to even 100% – but that’s probably not from statistical modeling, just trying to look up the answers somewhere else on the Internet (which defeats the entire purpose.) So seriously, ignore those people! A discussion in the forum talks further about What accuracy should I be aiming for?</p>
+<p>In terms of improving your model from here, you could consider any of these paths to try on your own:</p>
+<p>Revisit your assumptions about how you cleaned and filled the data.<br>Be creative with additional feature engineering, so that your chosen model has more columns to train from.<br>Use the sklearn documentation to experiment with different parameters for your random forest.<br>Consider a different model approach. For example, a logistic regression model is often used to predict binary outcomes like 0/1.<br>Added note: If you would like to try out a different tool than Python for accomplishing the same kind of analysis, we now have links to outside tutorials for Getting Started with R.</p>
+<p>We also have Further Reading with additional tutorials and suggestions.</p>
+<p>Good luck with the competition!</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="dumpling001 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>我的微信公众号二维码，写点滴思考，与编程无关。</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/28/翻译-Getting-Started-With-Excel/" rel="next" title="翻译 | Getting Started With Excel">
+                <i class="fa fa-chevron-left"></i> 翻译 | Getting Started With Excel
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/28/翻译-Getting-Started-With-Random-Forests/"
+           data-title="翻译 | Getting Started With Random Forests" data-url="http://yoursite.com/2016/10/28/翻译-Getting-Started-With-Random-Forests/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="dumpling001" />
+          <p class="site-author-name" itemprop="name">dumpling001</p>
+          <p class="site-description motion-element" itemprop="description">Java, Python, 编写未来新生活</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://blueseach.github.io/" title="游遍星辰" target="_blank">游遍星辰</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://chayangge.com/" title="插秧哥" target="_blank">插秧哥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaolai.li/" title="Reborn" target="_blank">Reborn</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://qixinbo.info/" title="亓欣波" target="_blank">亓欣波</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunwhut.com/2015/10/30/buildBlog/" title="Sunwhut" target="_blank">Sunwhut</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Import-the-random-forest-package"><span class="nav-number">1.</span> <span class="nav-text">Import the random forest package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-the-random-forest-object-which-will-include-all-the-parameters"><span class="nav-number">2.</span> <span class="nav-text">Create the random forest object which will include all the parameters</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for-the-fit"><span class="nav-number">3.</span> <span class="nav-text">for the fit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fit-the-training-data-to-the-Survived-labels-and-create-the-decision-trees"><span class="nav-number">4.</span> <span class="nav-text">Fit the training data to the Survived labels and create the decision trees</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Take-the-same-decision-trees-and-run-it-on-the-test-data"><span class="nav-number">5.</span> <span class="nav-text">Take the same decision trees and run it on the test data</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dumpling001</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"programlife"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
