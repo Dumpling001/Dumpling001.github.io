@@ -238,6 +238,157 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/28/翻译-Getting-Started-With-Excel/" itemprop="url">
+                  翻译 | Getting Started With Excel
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T07:16:53+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/28/翻译-Getting-Started-With-Excel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/翻译-Getting-Started-With-Excel/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Getting-Started-with-Excel-Kaggle’s-Titanic-Competition"><a href="#Getting-Started-with-Excel-Kaggle’s-Titanic-Competition" class="headerlink" title="Getting Started with Excel: Kaggle’s Titanic Competition"></a>Getting Started with Excel: Kaggle’s Titanic Competition</h1><p>开始使用Excel：Kaggle‘s Titanic Competition</p>
+<p>For those who are not experienced with handling large data sets, logging into the Kaggle website for the first time may be slightly daunting. Many of these competitions have a six figure prize and data which can, at times, be extremely involved. Here at Kaggle, we understand that this may seem like an insurmountable barrier to entry, so we have created a “getting started” competition to guide you through the initial steps required to get your first decent submission on the board.<br>对那些没有处理过大数据集的人，第一次登陆Kaggle网站，也许感到害怕。有些竞赛有6位数的奖励和数据。在Kaggle这里，我们理解，这看起来像是一个不可逾越的障碍，所以我们创建了一个“getting started”竞赛，通过你在board上完成第一个提交的初始必要步骤来引导你。</p>
+<h2 id="The-challenge"><a href="#The-challenge" class="headerlink" title="The challenge"></a>The challenge</h2><p>挑战</p>
+<p>The competition is simple: we want you to use the Titanic passenger data (name, age, gender, socio-economic class, etc) to try to predict who will survive and who will die.<br>竞赛很简单。我们希望你使用Titanic乘客数据（姓名，年龄，性别，社会经济层次等）来试图预测谁将存活，谁将死去。</p>
+<p>I want to compete! What do I do next?<br>我想参加竞赛，我下一步该做什么？</p>
+<p>The first thing to do is get the data from the Kaggle website. You will need two files: train.csv and test.csv. The .csv filename stands for comma separated values, where every value (name, age, gender, etc) in a row is separated by a comma. This allows Excel to interpet the data as columns.  If you load the file up in notepad–or your text editor of choice–it would look like this:<br>第一件事就是从Kaggle网站上获取数据。你将需要2个文件：train.csv和test.csv. .csv文件名代表，用逗号隔开值，在同一行的每个值（姓名，年龄，性别等）都由逗号隔开。这允许Excel把这些数据转换为列。如果你下载文件用notepad打开，或者你的文本编辑器，它看起来是这样的：</p>
+<p><a href="https://kaggle2.blob.core.windows.net/competitions/kaggle/3136/media/notepad.PNG" target="_blank" rel="external">CSV in notepad!</a></p>
+<p> However, in Excel it looks like this:<br> 然而，在Excel它看起来是这样的：</p>
+<p>CSV in Excel</p>
+<p>To get the data…Click on Get The Data, and this will take you to the Data page:<br>为了得到数据，点击“Get the Data”，然后它将带你到Data page：</p>
+<p>Download the data</p>
+<p>In order to download, click on the blue file extensions (.csv). The first time you do this you will be taken to the rules acceptance page. You must accept the competition rules in order to download the data. These rules govern how many submissions you can make per day, the maximum team size, and other competition specific details. Click “I Understand and Accept” and then re-click the filenames.  You will need both files.<br>为了下载，点击蓝色的文件扩展名（.csv）.第一次你做这些你将被带到rules acceptance页。为了下载数据你必须接受竞赛规则。这些规则控制了你一天能够提交多少次，团队最大规模，以及其他竞赛具体细节。点击“I Understant and Accept”然后重新点击文件名。两个文件你都需要。</p>
+<p>I have the data what do I have to do?!<br>我已经有数据了，现在该做什么？</p>
+<p>You have two files, train.csv and test.csv. Train.csv will contain the details of a subset of the passengers on board (891 to be exact) and will tell you their details and whether they survived or not. Using the patterns you find in the train.csv data, you will have to predict whether the other 418 passengers on board (found in test.csv) survived.<br>你有了两个文件，train.csv和test.csv. Train.csv将包含船上乘客子集（准确的说是891个），并将告诉你他们的细节，他们是否存活下来。你必须使用这些你在train.csv找到的模式，来预测船上另外418名乘客（在test.csv）的存活率。</p>
+<p>So I need to find patterns in the data… Where do I start?!<br>所以我需要找出数据的模式了？……我从哪里开始呢？</p>
+<p>Open up train.csv in Excel. As you can see, we have given you the details of a number of passengers on board the Titanic. We have given you the Pclass, the class of their ticket (1st, 2nd or 3rd), their name, their sex, age, Subsp (which is the number of siblings / spouses they had on board with them), Parch (which is the number of parents / children they had on board with them), their ticket type, the fare they paid for their ticket, their cabin number, and Embarcation point (where they got on: Queenstown, Cherbourg or Southampton). We also give you whether they survived or not (1 = yes, 0 = sadly, not). This is the information you are going to use to make your predictions. We want to find if there is a relationship between one of the variables and ultimate survival.<br>打开Excel中train.csv的格式，你能看到，我们给了你很多Titanic号上乘客的细节。给了你Pclass，他们船票的等级（1等，2等或3等），他们的名字，性别，年龄，兄弟姐妹（兄弟姐妹数，假设也都在船上），Parch（同在船上的父母/孩子数）他们的船票类型，他们为船票支付的价格，他们的船舱号，以及他们上船地点（昆斯敦、瑟堡或南安普敦）。我们同样给了你他们是否存活下来的信息（1存活，0不幸，没有幸存）。这是你将用来制作预测的信息。我们想要发现，在这些变量与最终存活率是否有某种关系。</p>
+<p>In data science, your intuition is often a great place to start. If you have ever seen the film Titanic, they try to save the women and children first.  This would be a good guess to start! Excel has a helpful tool for this kind of exploration called a pivot table. Highlight the entire set of data and go to ‘Insert’–&gt; ‘Pivot Tables’.<br>在数据科学中，你的直觉是最好的开始。如果你看过电影Titanic，他们试图先救女人和小孩。这将是一个好的猜测开始。Excel对此类探索问题有一个很有用的工具叫数据透视表。高亮全部数据集，点击“插入”–&gt;“数据透视表”。</p>
+<p>Insert a Pivot Table!<br>插入一个数据透视表</p>
+<p>This should create a new spreadsheet in your document. On the right should be all the variables that you selected and four boxes at the bottom. We are interested in who survived, so you want to see how this value varies as you select other variables. On the right hand side, drag the word ‘survived’, which has a check box next to it, down to the bottom right hand box. This will show the sum of the survived box. Now, to see how many women and men survived, drag the ‘Sex’ variable to the ‘Row labels’. Since Survived is a 1 or 0, the sum of this is the total number who survived. If you want to find the proportion, drag the Survived variable again into the values box (so now there are two in there) click on the down arrow, select value field settings, and change ‘Sum’ to ‘count’. This will tell you the total number of rows (or passengers in this case). Now, in the cell next to the table you can just type = B4 / C4, which would show the proportion on females that survived.<br>这将在你的文档里创建一个新的电子表格程序。右边是你你选择的全部变量，最下是4个框框。我们对谁存活下来很有兴趣，所以你希望看到当选择其他变量时这个值如何改变。在右手边，拖动单词“survived”（它旁边有一个复选框）到最下方右边的框框里，这将显示survived框的综合。现在，看看有多少男人和多少女人幸存，拖动“Sex”变量到行标签。因为Survived是1或0，它的总数即幸存者总数。如果你想找到比例，再次拖动Survived变量到values框（这样就有2个了），点击向下的箭头，选中该区域设置的值，把“sum”改为“count”。这将告诉你，行的总和（或者这个例子里的乘客）。现在，在表格旁边的单元格里，输入B4/C4，这样就能显示女性幸存比例。</p>
+<p>Work out the proportion of survivors<br>计算出幸存者比例</p>
+<p>From this you can see that almost 75% of the females survived! However, only 19% of the males lived to tell about it. This is quite a promising first guess!<br>从这里你能看到几乎75%的女性幸存了！然而只有19%的男性lived to tell about it. 第一次猜测很有希望！</p>
+<p>Making my predictions<br>制作我的预测</p>
+<p>Gender seems to be a strong indicator of survival, with women having a much better chance! To make your first predictions based on this, now open test.csv in Excel and insert a new column in the first column, and give it the header Survived. Your submission to Kaggle MUST have your predictions in a column named ‘Survived’ (more info here)!<br>性别看起来是一个有力的幸存指标，因为女人有更大的机会！为了基于此制作你的第一次预测，现在Excel中打开test.csv，在第一列后插入一个新列，给这个表头命名为Survived。你提交到Kaggle的预测必须有一列命名为‘Survived’（点击查看更多信息）。</p>
+<p>To make a model which states that if the passenger is female then she survives in the first cell write a logical ‘if’ statement. Type =if(E2=”female”,1,0) which means if(sex=female, then make this cell = 1, if not then make this cell = 0). Then double click on the bottom right hand corner of this box so it drags down through all rows. You’ve now created a calculated formula for each row in Excel, but for Kaggle you want a definitive value, 0 or 1. So re-paste the same column onto itself with Paste As &gt; Values.  Save the file as something memorable. I’ll use ‘genderbasedmodel.csv’.<br>为了制作一个模型，这个模型表明如果乘客是女性那么她就存活。在第一个单元格里写下逻辑表达式“if”。输入=if（E2=“female”，1，0），它的意思是，if（sex=femal，就把这个单元格置为1，否则置为0）。然后双击这个框的右下手角落，拖拉到所有行的最后。你已经在Excel里为每一行创建了一个计算公式。但是对于Kaggle，你希望一个明确的值，0或1. 所以用Paste As &gt; Values的方法重新粘贴到同一列，把这个文件保存成一个好记的名字。我将使用’genderbasedmodel.csv’。</p>
+<p>A gender based model!<br>一个性别基本模型！</p>
+<p>I’ve made my predictions, how well have I done?<br>我已经制作了我的预测，我做的怎么样？</p>
+<p>One last step:  Kaggle can only accept 2 columns in your submitted answer, PassengerId and Survived. Delete any extra columns, and save (or Save As) this new version of your csv which only has those 2 columns. Now go back to your internet browser and the competition page and click ‘Make a submission’.<br>最后一步：Kaggle仅能接受你提交答案里的2列。PassengerID和Survived。删除多余的列，把这个只有2列的新版csv文件保存起来，现在回到你的网络浏览器的竞赛页面，点击“Make a submission”。</p>
+<ul>
+<li>This should bring up your team page. This is where you can set up your team. (On Kaggle you are always a member of a team, whether it is one person or 20 people.) Each team has a team leader. Teams can be added to at a later date, however members cannot be removed, so choose carefully! You can compete anonymously as well, if don’t want people to see your name.<br>这应当提到你的团队页。这是你可以建立团队的地方。（在Kaggle上你经常是一个团队成员，无论是1个还是20个。）每个团队有一个领队，团队能够在晚些时期里增加，但成员是否被移除。所以谨慎选择。如果不想别人看到你的名字，你也可以匿名竞赛。</li>
+</ul>
+<ul>
+<li>Hit ‘Continue’ and the first thing you may notice is ‘You have 2 (of 2 entries) left today’. Kaggle limits the number of submissions you make so you can’t use the leaderboard score to gain and unfair advantage with your submissions. Click on the button ‘Click or Drop Submission Here’ and select the file you would like to submit (here, ‘genderbasedmodel.csv’) and click ‘Submit’.<br>点击“Continue”，也许你注意到的第一件事是“你今天剩余2个（entries）”。Kaggle限制了你提交的次数，这样你不能再次在你的提交上使用积分榜和不公平的好处。点击“Click or Drop Submission Here”，选择你想要提交的文件（’genderbasedmodel.csv’），点击“Submit”。</li>
+</ul>
+<p>The Kaggle Leaderboard!</p>
+<ul>
+<li>Once you have submitted, you will be taken to the leaderboard and shown your score and ranking on the leaderboard. Each competition is scored based on different evaluation metrics, whose details are described on the Evaluation page.  In this competition the metric is simply the fraction of passengers you got correct.<br>一旦你提交了，你的分数和排名将被显示在积分榜上。每个竞赛都基于不同的评价标准得出分数。细节在Evaluation页描述。在这个竞赛中，衡量标准仅仅是你正确预测乘客的分数。</li>
+</ul>
+<h2 id="My-second-submission-I-want-to-do-better"><a href="#My-second-submission-I-want-to-do-better" class="headerlink" title="My second submission: I want to do better!"></a>My second submission: I want to do better!</h2><p>我的第二次提交：我想做得更好！</p>
+<p>Your first submission will likely not be your best at the end of the competition. As the competition grows and evolves, people learn about the data, posts appear on the forum discussing techniques which give insight, and you will think of new ways to improve your model. Let’s try to improve ours.<br>你第一次提交将不是你竞赛的最好成绩。当竞赛进化，人们知道数据、出现在论坛讨论技术的帖子将给你带来启发，你将思考一些新的方法来改进模型。让我们来试试改进自己的。</p>
+<p>Going back to the train.csv, you want to improve what you currently have. Extending the earlier hypothesis that maybe age may also be predictive, you can add age to the pivot table. Drag age to the Row labels (where sex was) and it will show the number of passengers who were match on both gender and an age. However, as you may notice, the age is not binned up in any way. You may want to group these up, perhaps starting with just adults and children. Just like before, make an extra column with a ‘if’ statement. In this case, it will read =IF(F2&gt;18,”adult”,”child”), where F2 was the age column. Now recreate the pivot table (note you have to re-make it) and add the same variables before, you can see if there are more patterns!<br>回到train.csv, 你想要改进你现在已有的。扩展最初的假设，也许年龄也能预测，你能把年龄加入透视表。把年龄拖到行标签中（性别所在处），它将现实同时匹配性别和年龄的乘客数量。然而，你会注意到，年龄并没有以任何方式binned up。你也许想把他们分组，也许仅分为成人和孩子，像从前一样，增加一列，使用if语句。在这个情况下，它将是=IF(F2&gt;18,”adult”,”child”)，F2是年龄列，现在创建透视表（注意你必须重新建），增加相同的变量，你能看到是否有更多模式。</p>
+<p>According to the table, adult women (over 18) had a 78% chance of survival and male adults only had an 18% chance of survival. You can see that this isn’t much changed from the original proportions. This tells us that there is not much additional information in the age variable. Let’s look at one more variable: the class of passenger. Adding this to the pivot table we can see the results:<br>根据这个表格，成年女人（大于18岁）有78%的生存几率，成年男人仅有18%的幸存概率。你能看到，从最初的比例上，并没有太大改变。这告诉我们，在年龄变量上，并无更多信息。让我们看看另一个变量，乘客登机。把这个加入到透视表中，我们能看到结果：</p>
+<p>Adding Class to the pivot table<br>把等级加入透视表格</p>
+<p>As you can see, the proportions have now changed dramatically, meaning that there is some predictive merit to this variable. However, this still doesn’t surpass the male/female divide. Now let’s bin up what people paid for their ticket, so that each class is split into payments of: (i) less than $10, (ii) between $10 and $20, (iii) between $20 and $30, and (iv) greater than $30:<br>就像你看到的，比例有了戏剧性改变。这意味着这个变量更具预测性价值。然而这仍然没有超过性别分类。让我们bin up人们支付的票价，这样每个等级都分为(i) 小于$10, (ii) $10～$20, (iii) $20～$30, and (iv) 大于$30:</p>
+<p>Price, Class and gender in my pivot table<br>我的数据透视表格中的价格，等级和性别</p>
+<p>Now we have the proportions for many different variables. I decide to just assume that any group with more than half survivors I will model to always survive, and all those with less than half will model to never survive. So as you can see, all the males will still not survive; however now women in third class who paid more than $20 will also not survive. This small improvement should make a difference on the leaderboard! So now going to test.csv  I do a nested IF statement in each cell of a new first column I create called Survived:<br>现在我们有了许多不同变量的比例。我决定假设，任意有超过一半幸存者的群组，我将模型化为总是幸存，所有那些低于一半的，将模型化为不能幸存。这样你能看到，所有的男性不能幸存，然后在三等舱、支付票价超过20美元的女性也不能幸存。这个小的改动将使积分榜产生变化！所以我现在一个新建名为Survived的列所有单元格中test.csv，做一个if表达式：</p>
+<p>=IF(E2=”male”,0,IF(C2=3,IF(J2&gt;20,0,1),1))</p>
+<p>and then re-paste my formula column with Paste As Values, reduce my file to only 2 columns, Survived &amp; PassengerId, then save to a csv file, then submit! As you see, we now differentiated between those who paid a lot for their third class ticket, and those who did not, and look at the effect on my submitted score!<br>然后用Paste As Values的方法重新粘贴我的公式列，把文件减少到只有2列，Survived &amp; PassengerId, 然后保存为一个csv文件，然后提交！你将看到，我们现在区分了那些为三等票支付很多钱的，和那些没有支付很多的，然后看看我提交后的分数结果。</p>
+<p>I am number 1!<br>我是number1！</p>
+<p>Conclusion<br>结论</p>
+<p>Here Excel was used to get the basic understanding of the data. From just this basic bit of work, we have found that people did not necessarily pay the same amount of money for a ticket; some people paid more for a third class than a first class!<br>Excel被用来获得数据的基础理解。从这个工作的最基础部分，我们发现了，人并不一定为同一船票支付同样数量的钱。一些人在三舱支付的票价比一等舱的票价还要高！</p>
+<p>This concludes our first tutorial. We have been able to download the data and make a simple model based on our initial understanding of the problem. We made a submission to Kaggle, and then built on it and made an improvement.   As we incorporate more models and more complicated ideas, we may want to move to something slightly more sophisticated than Excel. The next tutorial will look at using Python, a simple scripting language which can help automate our analysis.<br>这总结了我们的第一个教程。我们已经能够下载数据，基于我们最初对问题的理解制作简单模型。我们在Kaggle上提交了一次，然后在它基础上又改进了一次。当我们融合了更多模型，更多复杂的思想，我们也许想用比Excel更加复杂的东西。下一个教程将使用Python，一个可以帮助我们自动化分析的简单脚本语言。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/27/翻译-Getting-Started-With-Python-II/" itemprop="url">
                   翻译 | Getting Started With Python II
                 </a>
@@ -1717,109 +1868,6 @@ predictions_file.close()
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/06/用Java写脚本的机会来了（2）/" itemprop="url">
-                  用Java写脚本的机会来了（2）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-06T20:31:37+08:00" content="2016-08-06">
-              2016-08-06
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/06/用Java写脚本的机会来了（2）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/用Java写脚本的机会来了（2）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="一、脚本进行"><a href="#一、脚本进行" class="headerlink" title="一、脚本进行"></a>一、脚本进行</h1><p>周五，准备写脚本了。看哪些地方该替换属性。基本就是顺藤摸瓜找调用的方法的过程。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/06/用Java写脚本的机会来了（2）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1865,7 +1913,7 @@ predictions_file.close()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
