@@ -289,41 +289,69 @@
       
         
           
-            <p>Getting Started with Random Forests: Titanic Competition</p>
-<p>The last step in this series of tutorials will be a quick guide to multivariate models that truly learn from your data. As far as competing and doing well in Kaggle competitions, this is the most important page, however there is much more to learn beyond this. We hope this gives you a taste of how simple it can be to apply a sophisticated algorithm.</p>
-<p>Quick Recap:</p>
-<p>The previous tutorials allowed us to open the data in both Excel and in the scripting language Python. We created a simple model in both and wrote a csv to use as our submission. We are going to build on these skills to create what is known as a random forest™ (or, an ensemble of decision trees).</p>
-<p>The beauty of Python</p>
-<p>This is where the effort you put into getting Python running pays off! As was mentioned in the previous tutorial, Python has handy, built-in packages to help you manipulate arrays, compute complex math functions, read in complex file formats, and in this case, create random forests. You will need to install the scikit-learn package, which has the handy RandomForestClassifier class. (If you originally installed the Anaconda distribution of python, then scikit-learn is already installed too.) For more on this package, visit the scikit random forest page.</p>
-<p>What is a Random Forest?</p>
-<p>As with all the important questions in life, this is best deferred to the Wikipedia page. A random forest is an ensemble of decision trees which will output a prediction value, in this case survival. Each decision tree is constructed by using a random subset of the training data. After you have trained your forest, you can then pass each test row through it, in order to output a prediction. Simple! Well not quite! This particular python function requires floats for the input variables, so all strings need to be converted, and any missing data needs to be filled.</p>
-<p>How do I clean and fill?</p>
-<p>In the previous pandas tutorial you gained the skills to clean and fill in data using the pandas package. Now you can put that into practice.</p>
-<p>Not all types of data can be converted into floats. For example, Names would be very difficult. In these cases let’s decide to neglect these columns. Although they are strings, the categorical variables like male and female can be converted to 1 and 0, and the port of embarkment, which has three categories, can be converted to a 0, 1 or 2 (Cherbourg, Southamption and Queenstown). This may seem like a non-sensical way of classifying, since Queenstown is not twice the value of Southampton– but random forests are somewhat robust when the number of different attributes are not too numerous.</p>
-<p>Converting from categorical strings to floats is intuitive. However, filling in data can be more tricky. Some data cannot be trivially filled (such as Cabin) without complete knowledge of every cabin and ticket price for the entire ship.  Nonetheless, Fare price can be estimated if you know the class, or the age of a passenger can be estimated using the median age of the people on board. Fortunately for us, the amount of missing data here is not too large, so the method for which you choose to fill the data shouldn’t have too much of an effect on your predictive result.</p>
-<p>My data is complete and floating nicely, I want to predict</p>
-<p>Using the predictive capabilities of the scikit-learn package is very simple. In fact, it can be carried out in three simple steps: initializing the model, fitting it to the training data, and predicting new values.</p>
-<p>Note that almost all of the model techniques in scikit-learn share a few common named functions, once they are initialized. You can always find out more about them in the documentation for each model. These are</p>
+            <p>Getting Started with Random Forests: Titanic Competition<br>开始使用Random Forests：Titanic Competition</p>
+<p>The last step in this series of tutorials will be a quick guide to multivariate models that truly learn from your data. As far as competing and doing well in Kaggle competitions, this is the most important page, however there is much more to learn beyond this. We hope this gives you a taste of how simple it can be to apply a sophisticated algorithm.<br>这个系列教程的最后一步，将是给真正能从你的数据中学习到的多变量模型快速指南。只要想在Kaggle竞赛中做出好成绩，这是最重要的一页。然而有更多需要学的。我们希望这个能给你应用复杂算法其实很简单的感觉。</p>
+<p>Quick Recap:<br>快速回顾：</p>
+<p>The previous tutorials allowed us to open the data in both Excel and in the scripting language Python. We created a simple model in both and wrote a csv to use as our submission. We are going to build on these skills to create what is known as a random forest™ (or, an ensemble of decision trees).<br>先前教程允许我们在Excel和脚本语言Python中打开数据。我们创建了一个简单的模型，在这两者里，写一个csv作为我们的提交使用。我们将要基于这些技巧，创建一个已知的随即森林（或者，多个决策树的一个组合）</p>
+<p>The beauty of Python<br>Python之美</p>
+<p>This is where the effort you put into getting Python running pays off! As was mentioned in the previous tutorial, Python has handy, built-in packages to help you manipulate arrays, compute complex math functions, read in complex file formats, and in this case, create random forests. You will need to install the scikit-learn package, which has the handy RandomForestClassifier class. (If you originally installed the Anaconda distribution of python, then scikit-learn is already installed too.) For more on this package, visit the scikit random forest page.<br>这是你努力使用Python的收获！像之前教程里提到的，Python有方便的、内置的包来帮你操作数组，计算复杂的数学函数，读取复杂的文件格式，在这个情况下，创建随机森林。你需要安装scikit-learn包，它有方便的RandomForestClassifier包。（如果你最初安装了python的Anaconda distribution，那么scikit-learn就已经安装好了 。）对于这个包更多的介绍，请访问scikit random forest页。</p>
+<p>What is a Random Forest?<br>什么是随机森林？</p>
+<p>As with all the important questions in life, this is best deferred to the Wikipedia page. A random forest is an ensemble of decision trees which will output a prediction value, in this case survival. Each decision tree is constructed by using a random subset of the training data. After you have trained your forest, you can then pass each test row through it, in order to output a prediction. Simple! Well not quite! This particular python function requires floats for the input variables, so all strings need to be converted, and any missing data needs to be filled.<br>就像生活中所有的重要问题，这个最好推到Wikipedia页。一个随机森林是多个决策树的组合，对这个幸存问题，它将输出一个预测值。每个决策树通过使用一个训练数据的随机子集构成。在你训练你的森林后，你能把每个测试行传给它，来输出一个预测值。简单！也不尽如此！这个特殊的python功能需要输入变量为浮点型，所以所有的字符需要转换，所有缺失值需要过滤掉。</p>
+<p>How do I clean and fill?<br>我怎样清洗和填充？</p>
+<p>In the previous pandas tutorial you gained the skills to clean and fill in data using the pandas package. Now you can put that into practice.<br>在先前的pandas教程，你获得了用pandas包对数据清洗和填充的技能。现在你能实际练习一下。</p>
+<p>Not all types of data can be converted into floats. For example, Names would be very difficult. In these cases let’s decide to neglect these columns. Although they are strings, the categorical variables like male and female can be converted to 1 and 0, and the port of embarkment, which has three categories, can be converted to a 0, 1 or 2 (Cherbourg, Southamption and Queenstown). This may seem like a non-sensical way of classifying, since Queenstown is not twice the value of Southampton– but random forests are somewhat robust when the number of different attributes are not too numerous.<br>不是所有类型的数据都能转换为浮点型。例如，名字就很难。在这种情况下，让我们先忽略这些列。尽管他们是字符，像男女等分类变量能转换为1和0，上船的3个地点，有三个类别，能够转换成0，1，2(Cherbourg, Southamption and Queenstown)。这看起来像不靠谱的归类方法，因为Queenstown不是Southampton的两倍。但是随机森林在不同属性的数量不是那么大时，有点robust？</p>
+<p>Converting from categorical strings to floats is intuitive. However, filling in data can be more tricky. Some data cannot be trivially filled (such as Cabin) without complete knowledge of every cabin and ticket price for the entire ship.  Nonetheless, Fare price can be estimated if you know the class, or the age of a passenger can be estimated using the median age of the people on board. Fortunately for us, the amount of missing data here is not too large, so the method for which you choose to fill the data shouldn’t have too much of an effect on your predictive result.<br>把分类字符串转换为浮点型是直觉性的。然而填充数据更复杂。一些数据，比如客舱，没有对客舱和整个船票价的足够了解，不能轻易的填充。但是，如果你知道等级，票价能够估计，或者乘客的年龄能够使用船上所有人年龄的中值估算。幸运的是，缺失值数量不多，所以你选择填充数据的方法，对于你预测的结果不会有太大影响。</p>
+<p>My data is complete and floating nicely, I want to predict<br>我的数据是完整的和浮点型的，我想要预测：</p>
+<p>Using the predictive capabilities of the scikit-learn package is very simple. In fact, it can be carried out in three simple steps: initializing the model, fitting it to the training data, and predicting new values.<br>使用scikit-learn包的预测能力非常简单。实际上，它用三步就能完成：初始化模型，喂训练数据，预测新值。</p>
+<p>Note that almost all of the model techniques in scikit-learn share a few common named functions, once they are initialized. You can always find out more about them in the documentation for each model. These are<br>注意一旦它们初始化，scikit-learn中几乎所有的模型技术共用了一些常见命名的函数。你总能在参考资料里给每个模型找出更多的信息。这些是：</p>
 <p>some-model-name.fit( )</p>
 <p>some-model-name.predict( )</p>
 <p>some-model-name.score( )</p>
-<p>At this point, it is assumed that you have read in the training data into an array train_data, where the first column [0] is the Survived column, that the Name, Cabin, and Ticket columns have been removed, and also that the Gender and Embarked columns have been converted to numbers. (If you just completed the previous pandas tutorial this means you also need to drop the PassengerId column.)</p>
-<h1 id="Import-the-random-forest-package"><a href="#Import-the-random-forest-package" class="headerlink" title="Import the random forest package"></a>Import the random forest package</h1><p>from sklearn.ensemble import RandomForestClassifier</p>
-<h1 id="Create-the-random-forest-object-which-will-include-all-the-parameters"><a href="#Create-the-random-forest-object-which-will-include-all-the-parameters" class="headerlink" title="Create the random forest object which will include all the parameters"></a>Create the random forest object which will include all the parameters</h1><h1 id="for-the-fit"><a href="#for-the-fit" class="headerlink" title="for the fit"></a>for the fit</h1><p>forest = RandomForestClassifier(n_estimators = 100)</p>
-<h1 id="Fit-the-training-data-to-the-Survived-labels-and-create-the-decision-trees"><a href="#Fit-the-training-data-to-the-Survived-labels-and-create-the-decision-trees" class="headerlink" title="Fit the training data to the Survived labels and create the decision trees"></a>Fit the training data to the Survived labels and create the decision trees</h1><p>forest = forest.fit(train_data[0::,1::],train_data[0::,0])</p>
-<h1 id="Take-the-same-decision-trees-and-run-it-on-the-test-data"><a href="#Take-the-same-decision-trees-and-run-it-on-the-test-data" class="headerlink" title="Take the same decision trees and run it on the test data"></a>Take the same decision trees and run it on the test data</h1><p>output = forest.predict(test_data)<br>There is much more to this script, which you can find on the Data page.</p>
-<p>The output will be an array with a length equal to the number of passengers in the test set and a prediction of whether they survived. You can change the parameters as you see fit, as described on the RandomForestClassifier documentation page.</p>
-<p>Word of Warning!!!</p>
-<p>Looking at the leaderboard, I now see:</p>
+<p>At this point, it is assumed that you have read in the training data into an array train_data, where the first column [0] is the Survived column, that the Name, Cabin, and Ticket columns have been removed, and also that the Gender and Embarked columns have been converted to numbers. (If you just completed the previous pandas tutorial this means you also need to drop the PassengerId column.)<br>从这点看，假设你已经把training数据读成一个数组train_data，第0列就是Survived列，名字、可客舱和票价列都被移除，同样性别和上船点列已经被转化为数字。（如果你只是完成先前的pandas教程，这意味着你同样需要丢弃PassengerID列。）</p>
+<pre><code># Import the random forest package
+导入随即森林包
+from sklearn.ensemble import RandomForestClassifier
+
+# Create the random forest object which will include all the parameters
+创建随即森林对象，它将包含所有参数
+# for the fit
+forest = RandomForestClassifier(n_estimators = 100)
+
+# Fit the training data to the Survived labels and create the decision trees
+Fit训练数据到Survived标签，创建决策树
+forest = forest.fit(train_data[0::,1::],train_data[0::,0])
+
+# Take the same decision trees and run it on the test data
+使用同样的决策树，在测试数据上运行
+output = forest.predict(test_data)
+</code></pre><p>There is much more to this script, which you can find on the Data page.<br>你能在Data页上发现与这个脚本相关的更多信息。</p>
+<p>The output will be an array with a length equal to the number of passengers in the test set and a prediction of whether they survived. You can change the parameters as you see fit, as described on the RandomForestClassifier documentation page.<br>输出将是一个数组，长度等于测试集中的乘客数量，还有他们是否幸存的预测。当你看fit时你能改变参数，就像RandomForestClassifier资料页描述的那样。</p>
+<p>Word of Warning!!!<br>警告！！！</p>
+<p>Looking at the leaderboard, I now see:<br>看积分榜，我看到：</p>
 <p>Better or No Better</p>
-<p>It appears that I have not improved my score! This seems strange, as your initial thoughts are “This is more complicated, therefore should be better!” This gives us three lessons to bear in mind:</p>
-<p>A simple model is not always a bad model. Sometimes, concise, simple views of data reveal their true patterns and nature.<br>This is not the final score for my new submission! I have not done as well on the public leaderboard, but who knows what the private score may hold? I made my previous model on the assumptions of the training data: we still don’t know how these will hold up in the private leaderboard.<br>Because the data set is very small, the differences in scores can be just one or two flips in decisions between survived or not survived. This means it will be very hard to determine the quality of the model from this data set. The aim of our Titanic Tutorial was to show you an easy way into more difficult problems, so don’t be too disheartened if your super-complicated random forest doesn’t beat the gender based model!<br>Conclusion</p>
-<p>Now you have a budding set of skills to get you going in the larger Kaggle competitions. That, of course, is the primary prize of this Competition. There is still some improvement possible in your model, so please feel free to post comments on the forums, questions (and answers!). Chances are the experiences you have and questions you ask will be shared by others.</p>
-<p>Know that a score of 0.79 - 0.81 is doing well on this challenge, and 0.81-0.82 is really going beyond the basic models! The dataset here is smaller than normal, so there is less signal to tap your models into. NOTE: You may see some people on the Leaderboard show accuracy of .90 up to even 100% – but that’s probably not from statistical modeling, just trying to look up the answers somewhere else on the Internet (which defeats the entire purpose.) So seriously, ignore those people! A discussion in the forum talks further about What accuracy should I be aiming for?</p>
-<p>In terms of improving your model from here, you could consider any of these paths to try on your own:</p>
-<p>Revisit your assumptions about how you cleaned and filled the data.<br>Be creative with additional feature engineering, so that your chosen model has more columns to train from.<br>Use the sklearn documentation to experiment with different parameters for your random forest.<br>Consider a different model approach. For example, a logistic regression model is often used to predict binary outcomes like 0/1.<br>Added note: If you would like to try out a different tool than Python for accomplishing the same kind of analysis, we now have links to outside tutorials for Getting Started with R.</p>
-<p>We also have Further Reading with additional tutorials and suggestions.</p>
-<p>Good luck with the competition!</p>
+<p>It appears that I have not improved my score! This seems strange, as your initial thoughts are “This is more complicated, therefore should be better!” This gives us three lessons to bear in mind:<br>它显示，我没有提高分数！这看起来很奇怪。因为你的初始想法是“这个更复杂，因此更好！”这个给了我们三个教训：</p>
+<ol>
+<li>A simple model is not always a bad model. Sometimes, concise, simple views of data reveal their true patterns and nature.<br>一个简单的模型并非是一个差的模型。有时候，对数据简洁的、简单的观点，揭示了它们的真实模式和本质。</li>
+<li>This is not the final score for my new submission! I have not done as well on the public leaderboard, but who knows what the private score may hold? I made my previous model on the assumptions of the training data: we still don’t know how these will hold up in the private leaderboard.<br>这不是我新提交的最终分数。我在公共积分榜上没有做好，但是谁知道私下的分数是多少呢？我是在训练数据的假设上做出的模型：我们仍不知道这些怎么hold up在私下的积分榜上的。</li>
+<li>Because the data set is very small, the differences in scores can be just one or two flips in decisions between survived or not survived. This means it will be very hard to determine the quality of the model from this data set. The aim of our Titanic Tutorial was to show you an easy way into more difficult problems, so don’t be too disheartened if your super-complicated random forest doesn’t beat the gender based model!<br>因为数据集很小，分数差异就是在幸存和没有幸存的决定里一两个flips。这意味着它将很难从这数据集中确定模型的质量。我们Titanic教程的目的，是给你显示一个容易的路径到复杂的问题，所以如果你的超级复杂随即森林并没有击败性别基本模型，不要太沮丧。</li>
+</ol>
+<p>Conclusion<br>结论</p>
+<p>Now you have a budding set of skills to get you going in the larger Kaggle competitions. That, of course, is the primary prize of this Competition. There is still some improvement possible in your model, so please feel free to post comments on the forums, questions (and answers!). Chances are the experiences you have and questions you ask will be shared by others.<br>现在你有a budding set of技能来开始更大一点儿的Kaggle竞赛。当然，就是这个竞赛主要的奖赏。在你的模型中而也仍有一些改进的可能性，所以请随意在论坛里贴评论，问题（或者答案！）。你所有的经验就是机会，你问的问题将被其他人共享。</p>
+<p>Know that a score of 0.79 - 0.81 is doing well on this challenge, and 0.81-0.82 is really going beyond the basic models! The dataset here is smaller than normal, so there is less signal to tap your models into. NOTE: You may see some people on the Leaderboard show accuracy of .90 up to even 100% – but that’s probably not from statistical modeling, just trying to look up the answers somewhere else on the Internet (which defeats the entire purpose.) So seriously, ignore those people! A discussion in the forum talks further about What accuracy should I be aiming for?<br>已知，0.79-0.81的分数就是表示这个挑战成绩比较好；0.81-0.82实际远超过基本模型！这里的数据集比正常的要小，所以很少信号tap进你的模型。注意：你也许看到一些人在积分榜上显示0.9的精确度，甚至快100%——但那可能不是从统计模型中来的。只要试着找网络上其他的答案，（用来打败所有人的目的。）所以认真的，忽略这些人！这个论坛的一个关于“我的目标精确度是多少？”讨论谈论得更深入。</p>
+<p>In terms of improving your model from here, you could consider any of these paths to try on your own:<br>就改进你的模型而言，你能独立思考任何路径：</p>
+<ul>
+<li>Revisit your assumptions about how you cleaned and filled the data.</li>
+<li>回到你关于如何清洗和填充数据的假设</li>
+<li>Be creative with additional feature engineering, so that your chosen model has more columns to train from.</li>
+<li>创造性地对待附加的特征工程，这样你的选择模型就有更多列来训练</li>
+<li>Use the sklearn documentation to experiment with different parameters for your random forest.</li>
+<li>使用sklearn资料来为你的随即森林实验不同的参数</li>
+<li>Consider a different model approach. For example, a logistic regression model is often used to predict binary outcomes like 0/1.</li>
+<li>考虑一个不同的模型方法。例如，一个逻辑回归模型，常常用来预测像0/1之类的二进制结果。</li>
+</ul>
+<p>Added note: If you would like to try out a different tool than Python for accomplishing the same kind of analysis, we now have links to outside tutorials for Getting Started with R.<br>额外注意：如果你想要试一下一个与Python不同的工具完成这类分析，我们有另外的使用R的教程。</p>
+<p>We also have Further Reading with additional tutorials and suggestions.<br>对额外的教程和建议，我们也有更进一步的阅读。</p>
+<p>Good luck with the competition!<br>祝你竞赛有好运！</p>
 
           
         
