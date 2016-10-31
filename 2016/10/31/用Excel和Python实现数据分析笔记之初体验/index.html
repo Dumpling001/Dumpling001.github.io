@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/31/用Excel和Python实现数据分析笔记之初体验/index.html">
 <meta property="og:site_name" content="ProgramLife">
 <meta property="og:description" content="本文将回顾Excel实现数据分析，和Python实现数据分析的基本流程，并记录使用Python实现时遇到的两个坑。">
-<meta property="og:updated_time" content="2016-10-31T10:17:59.000Z">
+<meta property="og:updated_time" content="2016-10-31T11:24:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Excel和Python实现数据分析笔记之初体验">
 <meta name="twitter:description" content="本文将回顾Excel实现数据分析，和Python实现数据分析的基本流程，并记录使用Python实现时遇到的两个坑。">
@@ -305,36 +305,38 @@
 <li>打开test.csv，按照预测模型，把幸存者预测写到一个新文件中，提交。</li>
 </ol>
 <ul>
-<li>如果想要复杂一点，在第2步中可计算幸存与票价、等级和性别三者的联系，将这些类别幸存概率值保存为一个2<em>3</em>4的矩阵。通过矩阵值观察概率，得出预测模型；其他按照上面步骤进行。</li>
+<li>如果想要复杂一点，在第2步中可计算幸存与票价、等级和性别三者的联系，将这些类别幸存概率值保存为一个2 <em> 3 </em> 4的矩阵。通过矩阵值观察概率，得出预测模型；其他按照上面步骤进行。</li>
 </ul>
 <p>复杂之处在于计算train.csv概率矩阵时需要用到嵌套循环；在使用预测模型推断test.csv的幸存值时，也需要用到嵌套循环。</p>
 <p>所用到的基础知识：如何打开关闭文件，如何将文件转化为数组，如何抽取某列，如何遍历所有乘客等。</p>
-<h1 id="用Python实现时掉进的两个坑："><a href="#用Python实现时掉进的两个坑：" class="headerlink" title="用Python实现时掉进的两个坑："></a>用Python实现时掉进的两个坑：</h1><ol>
+<h1 id="用Python实现时掉进的三个坑："><a href="#用Python实现时掉进的三个坑：" class="headerlink" title="用Python实现时掉进的三个坑："></a>用Python实现时掉进的三个坑：</h1><ul>
 <li><p>打开文件时的引用路径：</p>
-<p> csv_file_object = csv.reader(open(‘Downloads/train.csv’, ‘rb’))</p>
-</li>
-</ol>
-<p>以上需要用到绝对路径，如何使用相对路径我还没找到方法。现在使用的工具是iPython + notebook，对一些背景知识不熟悉。</p>
-<ol>
-<li><p>不能使用／#，而要用#</p>
-<p> women_only_stats = data[                          #Which element   </p>
-</li>
-</ol>
-<p>在调试上面部分时总是报错，尝试了几次发现删除／就OK了。教程上是“／#” 。</p>
-<ol>
-<li><p>循环中的缩进</p>
-<p> for i in xrange(number_of_classes):       #loop through each class<br>   for j in xrange(number_of_price_brackets):       #loop through each price bin</p>
-<pre><code>women_only_stats = data[                          \#Which element           
-                     (data[0::,4] == &quot;female&quot;)    \#is a female
-                   &amp;(data[0::,2].astype(np.float) \#and was ith class
-                         == i+1) \                       
-                   &amp;(data[0:,9].astype(np.float)  \#was greater
-                        /&gt;= j*fare_bracket_size)   \#than this bin              
-                   &amp;(data[0:,9].astype(np.float)  \#and less than
-                        &lt; (j+1)* fare_bracket_size)\#the next bin    
-                      , 1]                        #in the 2nd col                           
+<pre><code>csv_file_object = csv.reader(open(&apos;Downloads/train.csv&apos;, &apos;rb&apos;))
 </code></pre></li>
-</ol>
+</ul>
+<p>以上需要用到绝对路径，如何使用相对路径我还没找到方法。现在使用的工具是iPython + notebook，对一些背景知识不熟悉。</p>
+<ul>
+<li><p>不能使用／#，而要用#</p>
+<pre><code>women_only_stats = data[                          \#Which element   
+</code></pre></li>
+</ul>
+<p>在调试上面部分时总是报错，尝试了几次发现删除／就OK了。教程上是“#” 。</p>
+<ul>
+<li><p>循环中的缩进</p>
+<pre><code>for i in xrange(number_of_classes):       #loop through each class
+  for j in xrange(number_of_price_brackets):       #loop through each price bin
+
+    women_only_stats = data[                          \#Which element           
+                         (data[0::,4] == &quot;female&quot;)    \#is a female
+                       &amp;(data[0::,2].astype(np.float) \#and was ith class
+                         == i+1) \                       
+                       &amp;(data[0:,9].astype(np.float)  \#was greater
+                            /&gt;= j*fare_bracket_size)   \#than this bin              
+                       &amp;(data[0:,9].astype(np.float)  \#and less than
+                            &lt; (j+1)* fare_bracket_size)\#the next bin    
+                          , 1]                        #in the 2nd col                           
+</code></pre></li>
+</ul>
 <pre><code>men_only_stats = data[                            \#Which element           
                      (data[0::,4] != &quot;female&quot;)    \#is a male
                    &amp;(data[0::,2].astype(np.float) \#and was ith class
@@ -519,7 +521,7 @@ survival_table[1,i,j] = np.mean(men_only_stats.astype(np.float))
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Excel简单实现数据分析的基本流程"><span class="nav-number">1.</span> <span class="nav-text">Excel简单实现数据分析的基本流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Excel实现较复杂数据分析的基本流程"><span class="nav-number">2.</span> <span class="nav-text">Excel实现较复杂数据分析的基本流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用Python实现数据分析的基本流程"><span class="nav-number">3.</span> <span class="nav-text">利用Python实现数据分析的基本流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用Python实现时掉进的两个坑："><span class="nav-number">4.</span> <span class="nav-text">用Python实现时掉进的两个坑：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Excel简单实现数据分析的基本流程"><span class="nav-number">1.</span> <span class="nav-text">Excel简单实现数据分析的基本流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Excel实现较复杂数据分析的基本流程"><span class="nav-number">2.</span> <span class="nav-text">Excel实现较复杂数据分析的基本流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用Python实现数据分析的基本流程"><span class="nav-number">3.</span> <span class="nav-text">利用Python实现数据分析的基本流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用Python实现时掉进的三个坑："><span class="nav-number">4.</span> <span class="nav-text">用Python实现时掉进的三个坑：</span></a></li></ol></div>
             
           </div>
         </section>
