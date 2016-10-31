@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/31/用Excel和Python实现数据分析笔记之初体验/index.html">
 <meta property="og:site_name" content="ProgramLife">
 <meta property="og:description" content="本文将回顾Excel实现数据分析，和Python实现数据分析的基本流程，并记录使用Python实现时遇到的两个坑。">
-<meta property="og:updated_time" content="2016-10-31T11:28:27.000Z">
+<meta property="og:updated_time" content="2016-10-31T11:34:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Excel和Python实现数据分析笔记之初体验">
 <meta name="twitter:description" content="本文将回顾Excel实现数据分析，和Python实现数据分析的基本流程，并记录使用Python实现时遇到的两个坑。">
@@ -305,7 +305,7 @@
 <li>打开test.csv，按照预测模型，把幸存者预测写到一个新文件中，提交。</li>
 </ol>
 <ul>
-<li>如果想要复杂一点，在第2步中可计算幸存与票价、等级和性别三者的联系，将这些类别幸存概率值保存为一个2 <em> 3 </em> 4的矩阵。通过矩阵值观察概率，得出预测模型；其他按照上面步骤进行。</li>
+<li>如果想要复杂一点，在第2步中可计算幸存与票价、等级和性别三者的联系，将这些类别幸存概率值保存为一个2*3*4的矩阵。通过矩阵值观察概率，得出预测模型；其他按照上面步骤进行。</li>
 </ul>
 <p>复杂之处在于计算train.csv概率矩阵时需要用到嵌套循环；在使用预测模型推断test.csv的幸存值时，也需要用到嵌套循环。</p>
 <p>所用到的基础知识：如何打开关闭文件，如何将文件转化为数组，如何抽取某列，如何遍历所有乘客等。</p>
