@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/31/用Excel和Python实现数据分析笔记之初体验/index.html">
 <meta property="og:site_name" content="ProgramLife">
 <meta property="og:description" content="本文将回顾Excel实现数据分析，和Python实现数据分析的基本流程，并记录使用Python实现时遇到的两个坑。">
-<meta property="og:updated_time" content="2016-10-31T11:24:37.000Z">
+<meta property="og:updated_time" content="2016-10-31T11:28:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Excel和Python实现数据分析笔记之初体验">
 <meta name="twitter:description" content="本文将回顾Excel实现数据分析，和Python实现数据分析的基本流程，并记录使用Python实现时遇到的两个坑。">
@@ -320,7 +320,7 @@
 <pre><code>women_only_stats = data[                          \#Which element   
 </code></pre></li>
 </ul>
-<p>在调试上面部分时总是报错，尝试了几次发现删除／就OK了。教程上是“#” 。</p>
+<p>在调试上面部分时总是报错，尝试了几次发现删除／就OK了。教程上是“\#” 。</p>
 <ul>
 <li><p>循环中的缩进</p>
 <pre><code>for i in xrange(number_of_classes):       #loop through each class
@@ -335,18 +335,19 @@
                        &amp;(data[0:,9].astype(np.float)  \#and less than
                             &lt; (j+1)* fare_bracket_size)\#the next bin    
                           , 1]                        #in the 2nd col                           
+
+    men_only_stats = data[                            \#Which element           
+                         (data[0::,4] != &quot;female&quot;)    \#is a male
+                       &amp;(data[0::,2].astype(np.float) \#and was ith class
+                             == i+1)                  \                     
+                       &amp;(data[0:,9].astype(np.float)  \#was greater
+                            /&gt;= j*fare_bracket_size)   \#than this bin              
+                       &amp;(data[0:,9].astype(np.float)  \#and less than
+                            &lt; (j+1)* fare_bracket_size)\#the next bin    
+                          , 1]
 </code></pre></li>
 </ul>
-<pre><code>men_only_stats = data[                            \#Which element           
-                     (data[0::,4] != &quot;female&quot;)    \#is a male
-                   &amp;(data[0::,2].astype(np.float) \#and was ith class
-                         == i+1)                  \                     
-                   &amp;(data[0:,9].astype(np.float)  \#was greater
-                        /&gt;= j*fare_bracket_size)   \#than this bin              
-                   &amp;(data[0:,9].astype(np.float)  \#and less than
-                        &lt; (j+1)* fare_bracket_size)\#the next bin    
-                      , 1]
-</code></pre><p>上面的代码与下面的代码，在教程上分开介绍的，我就以为它们是独立的。但后来发现打印的值与教程上显示的不一样，另外找了一个代码，这个一摸一样，只是我从另外一个地方整体复制过来的，那个就没问题。折腾了好久，终于明白这两段代码其实是一起的，下面的也应该实在for循环里面。</p>
+<p>上面的代码与下面的代码，在教程上分开介绍的，我就以为它们是独立的。但后来发现打印的值与教程上显示的不一样，另外找了一个代码，这个一摸一样，只是我从另外一个地方整体复制过来的，那个就没问题。折腾了好久，终于明白这两段代码其实是一起的，下面的也应该实在for循环里面。</p>
 <p>分段后，分别复制到编辑器后，缩进不同了，所以在运行时，本来是一个整体的，变成了两个独立的部分，导致打印出来的值不同。</p>
 <pre><code>survival_table[0,i,j] = np.mean(women_only_stats.astype(np.float))
 survival_table[1,i,j] = np.mean(men_only_stats.astype(np.float))
