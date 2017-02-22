@@ -289,7 +289,7 @@
       
         
           
-            <p>重新温习了《Getting Started With Python》，并逐字敲了一遍代码。发现前两遍看得的确很马虎，有些地方实际上没有理解，却误以为懂了。以下是今天解决的难点：</p>
+            <h1 id="难点理解一："><a href="#难点理解一：" class="headerlink" title="难点理解一："></a>难点理解一：</h1><p>重新温习了《Getting Started With Python》，并逐字敲了一遍代码。发现前两遍看得的确很马虎，有些地方实际上没有理解，却误以为懂了。以下是今天解决的难点：</p>
 <pre><code>women_only_stats = data[0::,4] == &quot;female&quot; # This finds where all
                                            # the elements in the gender
                                            # column that equals &quot;female&quot;
@@ -318,6 +318,7 @@ print &apos;Proportion of men who survived is %s&apos; % proportion_men_survived
 <p>print data[data[0::,4] == “female”,1:]<br>[[‘1’ ‘1’ ‘Cumings, Mrs. John Bradley (Florence Briggs Thayer)’ …,<br>  ‘71.2833’ ‘C85’ ‘C’]<br> [‘1’ ‘3’ ‘Heikkinen, Miss. Laina’ …, ‘7.925’ ‘’ ‘S’]<br> [‘1’ ‘1’ ‘Futrelle, Mrs. Jacques Heath (Lily May Peel)’ …, ‘53.1’ ‘C123’…]<br>这两个对比说明，data[data[0::,4] == “female”,1]是布尔型数组作为数组索引，挑出了data数组中，所有女性乘客对应的Survived列；值为字符型。<br>data[data[0::,4] == “female”,1:]则是挑出了data数组中所有女性乘客对应的第2列及后面的所有列。</p>
 <p>print data[data[0::,4] == “female”,1].astype(np.float)<br>[ 1.  1.  1.  1.  1.  1.  1.  0.  1.  0.  1.  1.  0.  1.  1.  1.  1.  0…]<br>将所有女性乘客对应的Survived列值转化为浮点型。</p>
 <p>以上理解过程参考了《利用Python进行数据分析》的第4章《NumPy基础：数组和矢量计算》P93页的“布尔型索引”小节。<br>理解花费48分钟，整理文档花费20分钟。</p>
+<h1 id="难点理解二："><a href="#难点理解二：" class="headerlink" title="难点理解二："></a>难点理解二：</h1><p>Look at the first 15 rows of the Age column:   data[0:15,5]<br>这句话表示data[0::15,5]是查看第6列的第0-15行。</p>
 
           
         
@@ -1421,8 +1422,8 @@ df = df.dropna()
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
