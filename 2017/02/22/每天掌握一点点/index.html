@@ -84,25 +84,28 @@
 
 
 
-<meta name="description" content="今天完成了一个重要决定，把Python课程的week0b也学完了，还剩Miniproject，看来完成一个week的功课需要3天。
-https://www.coursera.org/learn/interactive-python-1/home/week/1
-另外，把Vamei的Java快速教程第一节复习了下，并在eclipse里做了实际练习。
-http://www.cnblogs.com/vam">
+<meta name="description" content="SQL:选取某一列：SELECT 列名称 FROM 表名称
+选取所有列：SELECT * FROM 表名称
+选取某一列（去除重复的记录）：SELECT DISTINCT 列名称 FROM 表名称
+有条件地选取某列，条件用 “WHERE 列 运算符 值”表示SELECT 列名称 FROM 表名称 WHERE 列 运算符 值
+仅选取符合条件的记录：SELECT * FROM 表名称 WHERE 列 运">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python交互式编程导论Part1学习笔记（week 0b）">
-<meta property="og:url" content="http://yoursite.com/2016/08/15/Python交互式编程导论Part1学习笔记（week 0b）/index.html">
+<meta property="og:title" content="每天掌握一点点（001）">
+<meta property="og:url" content="http://yoursite.com/2017/02/22/每天掌握一点点/index.html">
 <meta property="og:site_name" content="ProgramLife">
-<meta property="og:description" content="今天完成了一个重要决定，把Python课程的week0b也学完了，还剩Miniproject，看来完成一个week的功课需要3天。
-https://www.coursera.org/learn/interactive-python-1/home/week/1
-另外，把Vamei的Java快速教程第一节复习了下，并在eclipse里做了实际练习。
-http://www.cnblogs.com/vam">
-<meta property="og:updated_time" content="2016-08-15T13:10:54.000Z">
+<meta property="og:description" content="SQL:选取某一列：SELECT 列名称 FROM 表名称
+选取所有列：SELECT * FROM 表名称
+选取某一列（去除重复的记录）：SELECT DISTINCT 列名称 FROM 表名称
+有条件地选取某列，条件用 “WHERE 列 运算符 值”表示SELECT 列名称 FROM 表名称 WHERE 列 运算符 值
+仅选取符合条件的记录：SELECT * FROM 表名称 WHERE 列 运">
+<meta property="og:updated_time" content="2017-02-22T11:35:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python交互式编程导论Part1学习笔记（week 0b）">
-<meta name="twitter:description" content="今天完成了一个重要决定，把Python课程的week0b也学完了，还剩Miniproject，看来完成一个week的功课需要3天。
-https://www.coursera.org/learn/interactive-python-1/home/week/1
-另外，把Vamei的Java快速教程第一节复习了下，并在eclipse里做了实际练习。
-http://www.cnblogs.com/vam">
+<meta name="twitter:title" content="每天掌握一点点（001）">
+<meta name="twitter:description" content="SQL:选取某一列：SELECT 列名称 FROM 表名称
+选取所有列：SELECT * FROM 表名称
+选取某一列（去除重复的记录）：SELECT DISTINCT 列名称 FROM 表名称
+有条件地选取某列，条件用 “WHERE 列 运算符 值”表示SELECT 列名称 FROM 表名称 WHERE 列 运算符 值
+仅选取符合条件的记录：SELECT * FROM 表名称 WHERE 列 运">
 
 
 
@@ -123,9 +126,9 @@ http://www.cnblogs.com/vam">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/15/Python交互式编程导论Part1学习笔记（week 0b）/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/22/每天掌握一点点/"/>
 
-  <title> Python交互式编程导论Part1学习笔记（week 0b） | ProgramLife </title>
+  <title> 每天掌握一点点（001） | ProgramLife </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -245,7 +248,7 @@ http://www.cnblogs.com/vam">
             
             
               
-                Python交互式编程导论Part1学习笔记（week 0b）
+                每天掌握一点点（001）
               
             
           </h1>
@@ -257,8 +260,8 @@ http://www.cnblogs.com/vam">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-15T21:00:06+08:00" content="2016-08-15">
-              2016-08-15
+            <time itemprop="dateCreated" datetime="2017-02-22T19:35:07+08:00" content="2017-02-22">
+              2017-02-22
             </time>
           </span>
 
@@ -268,8 +271,8 @@ http://www.cnblogs.com/vam">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/15/Python交互式编程导论Part1学习笔记（week 0b）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/Python交互式编程导论Part1学习笔记（week 0b）/" itemprop="commentsCount"></span>
+                <a href="/2017/02/22/每天掌握一点点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/22/每天掌握一点点/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -292,15 +295,36 @@ http://www.cnblogs.com/vam">
       
 
       
-        <p>今天完成了一个重要决定，把Python课程的week0b也学完了，还剩Miniproject，看来完成一个week的功课需要3天。</p>
-<p><a href="https://www.coursera.org/learn/interactive-python-1/home/week/1" target="_blank" rel="external">https://www.coursera.org/learn/interactive-python-1/home/week/1</a></p>
-<p>另外，把Vamei的Java快速教程第一节复习了下，并在eclipse里做了实际练习。</p>
-<p><a href="http://www.cnblogs.com/vamei/archive/2013/03/14/2958654.html" target="_blank" rel="external">http://www.cnblogs.com/vamei/archive/2013/03/14/2958654.html</a></p>
-<p>在用简单的if，while等语句编写了1-999个数字的求和公式时，有种时空错乱、回到大学时代的感觉。在编程时，我体验到了那种在写作时熟悉的感觉：</p>
-<blockquote>
-<p>专注而宁静。</p>
-</blockquote>
-<p>我想我的选择是对的。</p>
+        <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL:"></a>SQL:</h1><p>选取某一列：<br>SELECT 列名称 FROM 表名称</p>
+<p>选取所有列：<br>SELECT * FROM 表名称</p>
+<p>选取某一列（去除重复的记录）：<br>SELECT DISTINCT 列名称 FROM 表名称</p>
+<p>有条件地选取某列，条件用 “WHERE 列 运算符 值”表示<br>SELECT 列名称 FROM 表名称 WHERE 列 运算符 值</p>
+<p>仅选取符合条件的记录：<br>SELECT * FROM 表名称 WHERE 列 运算符 值</p>
+<h1 id="linux"><a href="#linux" class="headerlink" title="linux:"></a>linux:</h1><p>cd ../path1 切换到上一层目录路径<br>cd ./path2 切换到当前目录路径<br>cd ／path3 切换到路径</p>
+<p>ls 列出当前目录下的文件信息<br>ls -a 列出当前目录下全部文件，包括隐藏文件<br>ls -l 列出当前目录下文件的全部属性</p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python:"></a>Python:</h1><p>优点：</p>
+<ul>
+<li>可进行网站建设工作；</li>
+<li>可编写简短而粗糙的小程序；</li>
+<li>有一个巨大而活跃的科学计算社区；</li>
+<li>能够轻松集成C、C++、Fortran；</li>
+<li>适用于研究和原型构建，同时适用于生产系统的构建。</li>
+</ul>
+<p>不足：</p>
+<ul>
+<li>是一种解释型语言，大部分比编译型语言（Java和C++）运行慢得多；</li>
+<li>有一个全局解释器锁，防止解释器同时执行多条指令，所以不适用于高并发多线程场景；</li>
+</ul>
+<h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>优点：</p>
+<ul>
+<li>语法优美</li>
+<li>语义易懂</li>
+<li>可移植</li>
+<li>自动垃圾收集</li>
+<li>大型的库</li>
+</ul>
+<p>不足：</p>
+<p>由于相容性造成了累赘。</p>
 
       
     </div>
@@ -331,17 +355,13 @@ http://www.cnblogs.com/vam">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/14/Python交互式编程导论Part1学习笔记（week 0a）/" rel="next" title="Python交互式编程导论Part1学习笔记（week 0a）">
-                <i class="fa fa-chevron-left"></i> Python交互式编程导论Part1学习笔记（week 0a）
+              <a href="/2016/11/04/Python复习难点记录01/" rel="next" title="Python复习难点记录01">
+                <i class="fa fa-chevron-left"></i> Python复习难点记录01
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/26/Python交互式编程导论Part1学习笔记（week1-4）/" rel="prev" title="Python交互式编程导论Part1学习笔记（week1-4）">
-                Python交互式编程导论Part1学习笔记（week1-4） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -367,8 +387,8 @@ http://www.cnblogs.com/vam">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/15/Python交互式编程导论Part1学习笔记（week 0b）/"
-           data-title="Python交互式编程导论Part1学习笔记（week 0b）" data-url="http://yoursite.com/2016/08/15/Python交互式编程导论Part1学习笔记（week 0b）/">
+      <div class="ds-thread" data-thread-key="2017/02/22/每天掌握一点点/"
+           data-title="每天掌握一点点（001）" data-url="http://yoursite.com/2017/02/22/每天掌握一点点/">
       </div>
     
   </div>
@@ -491,7 +511,7 @@ http://www.cnblogs.com/vam">
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux"><span class="nav-number">2.</span> <span class="nav-text">linux:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python"><span class="nav-number">3.</span> <span class="nav-text">Python:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA"><span class="nav-number">4.</span> <span class="nav-text">JAVA</span></a></li></ol></div>
             
           </div>
         </section>
