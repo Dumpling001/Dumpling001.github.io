@@ -238,6 +238,124 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/27/每天积累一点点（005）/" itemprop="url">
+                  每天积累一点点（005）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-27T15:35:18+08:00" content="2017-02-27">
+              2017-02-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/27/每天积累一点点（005）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/27/每天积累一点点（005）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL:"></a>SQL:</h1><p><code>INSERT INTO 表名称 VALUES （值1，值2，值3，……）</code><br>往表中插入一条记录</p>
+<p><code>INSERT INTO 表名称 （列1，列2，列3，……） VALUES （值1，值2，值3，……）</code><br>往表中的指定列插入值</p>
+<h1 id="Mac-Terminal"><a href="#Mac-Terminal" class="headerlink" title="Mac Terminal:"></a>Mac Terminal:</h1><p>mkdir [dir]<br>在当前路径创建一个文件夹</p>
+<p>cd [dir]<br>打开该文件夹</p>
+<p>touch [file]<br>在当前目录下创建一个新文件</p>
+<p>..<br>回到上一级目录</p>
+<p>rm -r [dir]<br>删除该目录及目录下的文件</p>
+<p>ctrl+U<br>清空光标前的字符</p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python:"></a>Python:</h1><p>《利用Python进行数据分析》</p>
+<p>python实现数据处理基本要完成的工作类别分为：接收数据、处理、输出；<br>接收即读各种文件和数据库；<br>处理即数据规整、运算转换、与统计模型或机器学习算法等联系；<br>输出即写文件，或者输出图片。</p>
+<p>引言一章知识给出一些范例，来讲解python能做什么。具体细节在后续章节讲解。代码示例来自于IPython shell。</p>
+<h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>《Java核心技术 卷I》<br>Java applet与Internet<br>在网页中运行Java程序被成为applet。它可以运行在任何启用的Java浏览器上，虚拟机的安全机制保证了安全。<br>它可以对用户命令作出响应，改变外观，在客户端和服务端之间传递数据。<br>但大多数网页直接使用Javascript和Flash，Java成为开发服务端应用程序的流行语言，使其可以产生网页、运行后端逻辑。</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>function:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var orderCount = 0;</div><div class="line"></div><div class="line">function takeOrder() &#123;</div><div class="line">  orderCount = orderCount + 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getSubTotal(itemCount)&#123;</div><div class="line">  return itemCount * 7.5;</div><div class="line">&#125;</div><div class="line"></div><div class="line">takeOrder();</div><div class="line">console.log(getSubTotal(orderCount));</div><div class="line"></div><div class="line">function getTax()&#123;</div><div class="line">  return  getSubTotal(orderCount) * 0.06;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getTotal()&#123;</div><div class="line">  return getSubTotal(orderCount) + getTax();</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(getTotal());</div></pre></td></tr></table></figure></p>
+<p>全局变量和局部变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var laundryRoom = &apos;Basement&apos;;</div><div class="line">var mailRoom  = &apos;Room 1A&apos;;</div><div class="line"></div><div class="line">function myApartment() &#123;</div><div class="line"> var mailBoxNumber = &apos;Box 3&apos;;</div><div class="line"> laundryRoom = &apos;In-unit&apos;;</div><div class="line"> console.log(&apos;Mail box: &apos; + mailBoxNumber + &apos;, Laundry: &apos; + laundryRoom);</div><div class="line">&#125;</div><div class="line"></div><div class="line">myApartment();</div><div class="line">console.log(&apos;Laundry: &apos; + laundryRoom + &apos;, Mail: &apos; + mailRoom);</div></pre></td></tr></table></figure></p>
+<p>function可以改变全局变量的值：<br>注意，function内的全局变量，前面加了var定义，就成为局部变量了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function myApartment() &#123;</div><div class="line">	var myCoffeeMaker = &apos;Aeropress&apos;;</div><div class="line">	buildingAddress = &apos;150 E 14th St, New York, NY&apos;;</div><div class="line">	var myCloset = &apos;Extra coats in the back&apos;;</div><div class="line">	buildingLaundryCode = 4927;</div><div class="line">	var myRefridgerator = &apos;Filled with veggies and dark chocolate.&apos;;</div><div class="line">	var myDog = &apos;Nikko&apos;;</div><div class="line">	buildingPhone = &apos;(481) 516-2342&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var buildingLaundryCode;</div><div class="line">var buildingPhone;</div><div class="line">var buildingAddress;</div><div class="line"></div><div class="line">myApartment();</div><div class="line"></div><div class="line">// Do not edit the code after this line</div><div class="line">console.log(&quot;**Apartment Building Information**&quot;);</div><div class="line">console.log(&quot;Laundry code: &quot; + buildingLaundryCode + &quot;\nPhone: &quot; + buildingPhone + &quot;\nMailing address: &quot; + buildingAddress);</div></pre></td></tr></table></figure></p>
+<p>.length, .push, .pop<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var bucketList = [&quot;house&quot;, &quot;car&quot;, &quot;money&quot;];</div><div class="line">console.log(bucketList);</div><div class="line"></div><div class="line">var listItem = bucketList[0];</div><div class="line">console.log(listItem);</div><div class="line"></div><div class="line">console.log(bucketList.length);</div><div class="line">console.log(&apos;bucketList&apos;.length);</div><div class="line"></div><div class="line">bucketList.push(&apos;hope&apos;);</div><div class="line">bucketList.pop();</div><div class="line">console.log(bucketList);</div></pre></td></tr></table></figure></p>
+<p>for循环：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var myPlaces = [&apos;Paris&apos;, &apos;New York&apos;, &apos;Barcelona&apos;];</div><div class="line">var friendPlaces = [&apos;Rome&apos;, &apos;Chicago&apos;, &apos;Paris&apos;];</div><div class="line"></div><div class="line">for (var i = 0; i &lt; myPlaces.length; i++) &#123;</div><div class="line">    console.log(myPlaces[i]);</div><div class="line"></div><div class="line">  for (var j = 0; j &lt; friendPlaces.length; j++) &#123;</div><div class="line">        console.log(friendPlaces[j]);</div><div class="line"></div><div class="line">    if (myPlaces[i] === friendPlaces[j]) &#123;</div><div class="line">    			console.log(&apos;Match: &apos; + myPlaces[i]);</div><div class="line">				&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>while循环：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var cards = [&apos;Diamond&apos;, &apos;Spade&apos;, &apos;Heart&apos;, &apos;Club&apos;];</div><div class="line">var currentCard = &apos;Heart&apos;;</div><div class="line"></div><div class="line">while (currentCard !== &apos;Spade&apos;) &#123;</div><div class="line">  console.log(currentCard);</div><div class="line"></div><div class="line">  var randomNumber = Math.floor(Math.random() * 4);</div><div class="line"></div><div class="line">  currentCard = cards[randomNumber];</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(&apos;Found a Spade!&apos;);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/26/每天积累一点点（004）/" itemprop="url">
                   每天积累一点点（004）
                 </a>
@@ -1305,110 +1423,6 @@ df = df.dropna()
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/27/翻译-Getting-Started-With-Python-II/" itemprop="url">
-                  翻译 | Getting Started With Python II
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-27T09:09:49+08:00" content="2016-10-27">
-              2016-10-27
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/27/翻译-Getting-Started-With-Python-II/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/翻译-Getting-Started-With-Python-II/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Getting Started with Pandas: Kaggle’s Titanic Competition<br>开始使用Pandas：Kaggle’s Titanic Competition</p>
-<p>To recap the last tutorial: we got comfortable with Python for re-implementing the models we originally imagined in Excel. By using a programming language, we were able to (1) use more powerful constructs and methods, like arrays to store and retrieve variables, and (2) to write scripted steps that can be repeated in the future without us performing the work by hand.<br>简要回顾上一个教程：我们已经能轻松使用Python重新应用最初在Excel里构想的模型。通过使用编程语言，我们可以（1）使用更强大的结构体和方法；像能够存放和检索变量的数组；(2)写下在将来能复用的脚本步骤，以后就不用手动去执行了。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/27/翻译-Getting-Started-With-Python-II/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1454,7 +1468,7 @@ df = df.dropna()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
