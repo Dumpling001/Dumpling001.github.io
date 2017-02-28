@@ -238,6 +238,121 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/28/每天积累一点点（006）/" itemprop="url">
+                  每天积累一点点（006）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-28T18:45:14+08:00" content="2017-02-28">
+              2017-02-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/28/每天积累一点点（006）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/28/每天积累一点点（006）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL:"></a>SQL:</h1><p>From W3Cschool</p>
+<p><code>SELECT * FROM Persons WHERE firstname=&#39;Thomas&#39; AND lastname=&#39;Carter&#39;</code><br>显示名字为Thomas，并且，姓为Carter的人</p>
+<p><code>SELECT * FROM Persons WHERE firstname=&#39;Thomas&#39; OR lastname=&#39;Carter&#39;</code><br>显示名字为Thomas，或者，姓为Carter的人</p>
+<h1 id="Mac-Terminal"><a href="#Mac-Terminal" class="headerlink" title="Mac Terminal:"></a>Mac Terminal:</h1><p>ESC+T<br>交换光标前的两个词</p>
+<p>mv [filename] [newfilename]<br>将文件重命名，注意文件须在当前目录下</p>
+<p>mdfind [filename]<br>查找文件，可以显示包含该文件名字的所有目录</p>
+<p>unzip [path and filename]<br>解压缩指定路径下的文件，将文件解压到当前目录下</p>
+<p>CTRL+A 光标移到行最前<br>CTRL+E 光标移到行最后<br>ESC+F 光标往前移动一个词<br>ESC+B 光标往后移动一个词</p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python:"></a>Python:</h1><p>《利用Python进行数据分析》</p>
+<p>1) <code>jupyter notebook</code>打开IPython notebook；<br>2）terminal当前目录应是例程所在目录；<br>3） 功能1:处理网络数据<br><figure class="highlight plain"><figcaption><span>= 'dir/filname'</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">open (path).readline() //文件中各行的格式为JSON（Javascript Object Notation）</div><div class="line">显示文件里的第一行</div><div class="line"></div><div class="line">import json</div><div class="line">path = &apos;dir/filname&apos;</div><div class="line">records = [json.loads(line) for line in open(path)]</div><div class="line">//使用json模块的loads函数逐行加载数据文件</div><div class="line"></div><div class="line">records 对象变为一组python字典，原来的一行，变为按字母顺序排列的序列。</div><div class="line"></div><div class="line">records[0][&apos;tz&apos;]</div><div class="line"></div><div class="line">print records[0][&apos;tz&apos;]</div></pre></td></tr></table></figure></p>
+<h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>《Java核心技术 卷I》<br>Java起源1991，发展一波三折。</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>From Codecademy</p>
+<p>main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//var skillset = document.getElementsByClassName(&apos;skillset&apos;);</div><div class="line">//alert(skillset);</div><div class="line"></div><div class="line">function main() &#123;</div><div class="line">  //var $skillset = $(&apos;.skillset&apos;);</div><div class="line"> // alert($skillset);</div><div class="line">  $(&apos;.skillset&apos;).hide();</div><div class="line">  $(&apos;.skillset&apos;).fadeIn(1000);</div><div class="line">  $(&apos;.projects&apos;).hide();</div><div class="line">  $(&apos;.projects-button&apos;).on(&apos;click&apos;, function()&#123;&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">$(document).ready(main);</div></pre></td></tr></table></figure></p>
+<p>index.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&apos;https://code.jquery.com/jquery-3.1.0.min.js&apos;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;script src=&apos;js/main.js&apos;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/27/每天积累一点点（005）/" itemprop="url">
                   每天积累一点点（005）
                 </a>
@@ -1319,110 +1434,6 @@ df = df.dropna()
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/28/翻译-Getting-Started-With-Excel/" itemprop="url">
-                  翻译 | Getting Started With Excel
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-28T07:16:53+08:00" content="2016-10-28">
-              2016-10-28
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/28/翻译-Getting-Started-With-Excel/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/翻译-Getting-Started-With-Excel/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Getting-Started-with-Excel-Kaggle’s-Titanic-Competition"><a href="#Getting-Started-with-Excel-Kaggle’s-Titanic-Competition" class="headerlink" title="Getting Started with Excel: Kaggle’s Titanic Competition"></a>Getting Started with Excel: Kaggle’s Titanic Competition</h1><p>开始使用Excel：Kaggle‘s Titanic Competition</p>
-<p>For those who are not experienced with handling large data sets, logging into the Kaggle website for the first time may be slightly daunting. Many of these competitions have a six figure prize and data which can, at times, be extremely involved. Here at Kaggle, we understand that this may seem like an insurmountable barrier to entry, so we have created a “getting started” competition to guide you through the initial steps required to get your first decent submission on the board.<br>对那些没有处理过大数据集的人，第一次登陆Kaggle网站，也许感到害怕。有些竞赛有6位数的奖励和数据。在Kaggle这里，我们理解，这看起来像是一个不可逾越的障碍，所以我们创建了一个“getting started”竞赛，通过你在board上完成第一个提交的初始必要步骤来引导你。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/28/翻译-Getting-Started-With-Excel/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1468,7 +1479,7 @@ df = df.dropna()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
