@@ -238,6 +238,140 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/05/Improving-a-little-everyday-011/" itemprop="url">
+                  Improving-a-little-everyday 011
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-05T17:08:55+08:00" content="2017-03-05">
+              2017-03-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/05/Improving-a-little-everyday-011/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/05/Improving-a-little-everyday-011/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>git clone remote_location clone_name 把远程地址的文件下载到本地，并命名<br>git fetch 获取<br>git merge origin/master 本地与主干合并<br>git push origin your_branch_name 把你的分支存放上去(没理解清除)<br>git remoute -v 查看远程？<br>没完全弄明白，想以后边用边弄清楚。</p>
+<h1 id="Command-Line"><a href="#Command-Line" class="headerlink" title="Command Line"></a>Command Line</h1><p>cd ../dir<br>mkdir dir<br>cd ../../dir<br>touch filename</p>
+<h1 id="Python-Crawler"><a href="#Python-Crawler" class="headerlink" title="Python Crawler"></a>Python Crawler</h1><h3 id="解决了一个大问题：jQuery过滤条件过期"><a href="#解决了一个大问题：jQuery过滤条件过期" class="headerlink" title="解决了一个大问题：jQuery过滤条件过期"></a>解决了一个大问题：jQuery过滤条件过期</h3><p>问题记录：<br>The reason is that, an url function is out of date, like this:</p>
+<blockquote>
+<p>return doc(‘div[class=”wx-rb bg-blue wx-rb_v1 _item”]’).attr(‘href’)      </p>
+</blockquote>
+<p>and there is no problem after updating it by:</p>
+<blockquote>
+<p>return doc(‘a[uigs=”account_name_0”]’).attr(‘href’)</p>
+</blockquote>
+<p><a href="https://github.com/ipython/ipython/issues/10379" target="_blank" rel="external">https://github.com/ipython/ipython/issues/10379</a></p>
+<p>自己报错信息，一步步看程序调用发现的。先是发现把一个url屏蔽后，程序可以跑通，只是什么都没抓到。所以推测问题就出在网址解析上。接着分析了代码，猜测是过滤条件更新，通过关键词pq().attr()查找发现是pyquery的问题，在pyquery的帮助文档关于<a href="http://www.geoinformatics.cn/lab/pyquery/" target="_blank" rel="external">绝对链接部分</a>找到对应语法，然后查找了<a href="http://www.w3school.com.cn/jquery/jquery_selectors.asp" target="_blank" rel="external">W3C School上jQuery的语法</a>，参考以上信息和自己的猜测（直觉像正则表达式一样），改了下过滤条件，整个代码就跑通了。</p>
+<p>不过出现新的问题：</p>
+<p>代码把抓取到的文章内容转变成jason格式保存起来，我却不知道为什么要这样做，保存的文件名是什么？所以今天有很大进步，但同时还有很多问题待解决。</p>
+<p>本来说今天休息不看python可是没忍住还是看代码去了～……～</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/04/Improving-a-little-everyday-010/" itemprop="url">
                   Improving a little everyday 010
                 </a>
@@ -1357,130 +1491,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/25/每天积累一点点（003）/" itemprop="url">
-                  每天积累一点点（003）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-25T16:15:22+08:00" content="2017-02-25">
-              2017-02-25
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/25/每天积累一点点（003）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/25/每天积累一点点（003）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL:"></a>SQL:</h1><p><code>DELETE FROM TableName WHERE ColumnsName = value</code><br>删除某表中列名称为某值的记录（行）</p>
-<p><code>DELETE FROM TableName</code><br><code>DELETE * FROM TableName</code><br>删除表中所有记录（行）</p>
-<h1 id="Mac-Terminal"><a href="#Mac-Terminal" class="headerlink" title="Mac Terminal:"></a>Mac Terminal:</h1><p>mkdir [foldername]<br>新建文件夹</p>
-<p>rmdir [foldername]<br>删除空文件夹</p>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python:"></a>Python:</h1><p>NumPy有多维数组对象ndarray；<br>Pandas有二维表结构DataFrame；<br>IPython主要用于交互式数据处理和利用matplotlib对数据进行可视化处理；<br>SciPy是一组专门解决科学计算中各种标准问题域的包的集合；<br>其中scipy。stats 标准连续和离散概率分布，各种统计检验方法，以及更好的描述统计方法。</p>
-<p>计算机已经安装过pyhon，Anacanda下载的，</p>
-<blockquote>
-<p>Both Canopy and Anaconda provide you a basic Python distribution with commonly used packages like NumPy, SciPy, Pandas, matplotlib, etc. already installed.(<a href="https://www.quora.com/How-does-Enthought-Canopy-compare-to-Anaconda" target="_blank" rel="external">https://www.quora.com/How-does-Enthought-Canopy-compare-to-Anaconda</a>)</p>
-</blockquote>
-<p>用Pylab模式启动IPython，然后尝试加载pandas并绘制一张图片：</p>
-<p>ipython –pylab<br>import pandas<br>plot(arange(10))</p>
-<p>成功打印出一张显示直线的图片。</p>
-<p>作者放在GitHub上的数据已下载。</p>
-<h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>1）简单性</p>
-<p>简单性是与C++对比得出的特性。它没有C++的头文件、指针运算、结构、联合、操作符重载、虚基类等。<br>Java还能支持开发能够在小型机器上独立运行的软件。</p>
-<p>2）面向对象<br>面向对象特性与C++相当，不同点在于多继承。Java使用的是简单的接口概念和元类模型。</p>
-<p>3）网络技能<br>能够通过URL很方便地打开访问网络上的对象。</p>
-<p>4）健壮性<br>与C++的不同在于，Java采用的指针模型可以消除重写内存和损坏数据的可能，不会出现内存分配错误，也不必防范内存泄漏。<br>Java编译器能够检测其他语言在运行时才能发现的问题。</p>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>数据有数值型、字符型、布尔型；<br>运算符有+ - <em> / % ;<br>用函数console.log()打印；<br>Math.random()随机<br>Math.floor()取整<br>M要大写<br>／／单行注释符<br>／</em>   *／ 多行注释符</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1521,7 +1536,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
