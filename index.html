@@ -238,6 +238,173 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/11/Improving-a-little-everyday-016/" itemprop="url">
+                  Improving-a-little-everyday-016
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-11T16:02:36+08:00" content="2017-03-11">
+              2017-03-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/program-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">program notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/11/Improving-a-little-everyday-016/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/Improving-a-little-everyday-016/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>learnpythonthehardway lesson 21～30</p>
+<p>=右边能放什么，就能return什么。</p>
+<p>不是从后往前，而是从里到外。</p>
+<p>没有失败，只有尝试。</p>
+<p>15分钟休息一下，不要伤到大脑，休息有助于学得更快，更少沮丧。</p>
+<p>在bitbucket.org, github.com, or gitorious.org网站source文件夹找到.py代码，然后从头浏览一遍，做笔记，把你认为它要做的事和你看不懂的、有趣的符号、单词记下来，待会再研究。</p>
+<p>还有一些网站：<br>github.com<br>launchpad.net<br>gitorious.org<br>sourceforge.net</p>
+<p>ex25.py</p>
+<p>def break_words(stuff):<br>   “””This function will break up words for us.”””<br>   words = stuff.split(‘ ‘)<br>   return words</p>
+<p>import ex25<br>help(ex25)<br>helo(ex25.break_words)</p>
+<p>“”” 是documentation comments</p>
+<p>   break_words(stuff)<br>       This function will break up words for us.</p>
+<p>from ex25 import *  “Import everything from ex25.”</p>
+<p>words = stuff.split(‘ ‘)<br>   return sorted(words)<br>       word = words.pop(0)<br>           word = words.pop(-1)</p>
+<p>当你是程序员时，你就要应付别人的代码、还有他们的傲慢。程序员常常声称自己的代码是完美的。这些程序员很愚蠢，他们不关心别人。一个好的程序员常常会像科学家一样假设他们的代码可能有错误。</p>
+<p>不要寻找帮助，如果你卡住了，就休息一会再回来继续。</p>
+<p>Even if this takes days to do, bust through it and make it right.<br>即使这需要好几天完成，也要解决它。</p>
+<p>falter 减少，运转不畅</p>
+<p>只要每天尽力尝试，每天多学一点点。</p>
+<p>deprecate 反对</p>
+<p>+= “increment by” operator.</p>
+<p>Python期待你在：之后有缩进。</p>
+<h1 id="Trouble-Shooting"><a href="#Trouble-Shooting" class="headerlink" title="Trouble Shooting"></a>Trouble Shooting</h1><p>昨晚花了2个小时解决了2个问题：</p>
+<h2 id="1）java-安装库源文件和文档，"><a href="#1）java-安装库源文件和文档，" class="headerlink" title="1）java 安装库源文件和文档，"></a>1）java 安装库源文件和文档，</h2><p>是《JAVA核心技术（卷1）》上指导步骤，<br>它要求先找到jdk所在目录，在电脑上所有可能地方翻，没找到；</p>
+<p>搜索了以下关键词：</p>
+<ul>
+<li>jdk安装后需要重启电脑吗(我真的重启了，没用)</li>
+<li>mac jdk安装路径 （找到：——mac新手，怎么配置jdk路径segfaulment）</li>
+<li>mac 找不到jdk——（找到：mac安装jdk1.7找不到路径?）</li>
+<li>mac jdk1.8.0——（找到oracle官网文档：JDK 8 Installation for OS X，没有提及库文件的事）</li>
+</ul>
+<p>解决办法：忽略</p>
+<h2 id="2）启动shell报错“alias-invalid-option”"><a href="#2）启动shell报错“alias-invalid-option”" class="headerlink" title="2）启动shell报错“alias:  -= invalid option”"></a>2）启动shell报错“alias:  -= invalid option”</h2><p>搜索关键词：</p>
+<ul>
+<li>mac 搜索 文件内容</li>
+<li>查看 ./bash_profile</li>
+<li>查看 bash_profile</li>
+<li>bash_profile</li>
+<li><p>open bash_profile——（找到：How do I edit $PATH (.bash_profile) on OSX? stackoverflow，在那里搜“alias:  invalid option”）</p>
+</li>
+<li><p>alias在哪里</p>
+</li>
+<li>shell启动时会用到哪些文件——（找到：<a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/ch31s04.html" target="_blank" rel="external">bash启动脚本</a>）</li>
+</ul>
+<p>然后在电脑下ls -a<br>发现有好多跟bash相关的文件，其中有个叫.aliases, nano aliases打开,看到确实有个 alias cd -= “cd -”的表达式，然后把这条表达式删掉了，再$ source .aliases,没有再报错，关掉terminal再开，也没有报错。说明问题解决了。</p>
+<p>中间改了好多次.bash_profile幸好没有出大错。</p>
+<p>通过之前在Codecademy和Learnpythonthehardway上对Command line的学习，加上这次的折腾，对shell算是彻底了解了。加上这几天的学习对python的运行方式也加深了理解。</p>
+<p>感觉今天开挂了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/10/Improving-a-little-everyday-015/" itemprop="url">
                   Improving-a-little-everyday-015
                 </a>
@@ -308,7 +475,7 @@
       
         
           
-            <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>learn python the hard way 11~20</p>
+            <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>learnpythonthehardway ex11~20</p>
 <p>raw_input() 命令行输入，返回字符型<br>int(raw_input()) 将字符型转为数值型<br>pydoc raw_input 在命令行查看raw_input的帮助文档<br>q 从帮助文档中退出<br>pydoc file或os或sys 同样可以查看其他<br>prompt —— 意思：提示<br>The argv is the “argument variable,”argv指参数变量<br>jargon 行话</p>
 <p>From now on we will be calling these “features” that we import modules. I’ll say things like, “You want to import the sys module.” They are also called “libraries” by other programmers, but let’s just stick with modules.<br>从今往后，我们将称呼“features”为导入模块。我将说”你要导入sys模块”。它们也被其他程序员称为库，但我们还是叫它模块。</p>
 <p>Many times searching for “python THING” will find answers to what that THING does in Python. Try searching for “python open.”<br>很多时候搜索“python ** ”可以找到python里对应的东西。试着搜索“python open”。</p>
@@ -1409,134 +1576,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/01/每天积累一点点（007）/" itemprop="url">
-                  每天积累一点点（007）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-01T20:16:17+08:00" content="2017-03-01">
-              2017-03-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/program-notes/" itemprop="url" rel="index">
-                    <span itemprop="name">program notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/03/01/每天积累一点点（007）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/01/每天积累一点点（007）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL:"></a>SQL:</h1><p>From W3Cschool</p>
-<p>17.通过 SQL，您如何向 “Persons” 表中的 “LastName” 列插入 “Wilson” ？<br>您的回答：INSERT INTO Persons (‘Wilson’) INTO LastName<br>正确答案：INSERT INTO Persons (LastName) VALUES (‘Wilson’)</p>
-<p>20.通过 SQL，您如何返回 “Persons” 表中记录的数目？<br>您的回答：SELECT COUNT() FROM Persons<br>正确答案：SELECT COUNT(*) FROM Persons</p>
-<h1 id="Mac-Terminal"><a href="#Mac-Terminal" class="headerlink" title="Mac Terminal:"></a>Mac Terminal:</h1><p>CTRL+W 删除光标前的词<br>CTRL+U 清除光标所在行<br>CTRL+C 结束当前进程<br>CTRL+D 退出shell窗口</p>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python:"></a>Python:</h1><p>《利用Python进行数据分析》</p>
-<p>讲了一个用纯Python对时区进行计数排序的应用实例。没有完全看懂。<br>需要了解字典、标准库。</p>
-<h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>《Java核心技术 卷I》<br>Java是程序设计语言，HTML是描述网页结构的方式，XML是描述数据的一种方式；JavaScript是一种在网页中使用的脚本语言；<br>Java功能强大，不太容易学。<br>Java的成功源于其类库能够让人轻松地完成原本有一定难度的事，如联网和多线程。<br>现在Java的运行速度已经大大提高了，</p>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>一些动态效果：<br>alert(), hide(), show(), fadeIn();<br>next(), text(), toggle(), toggleClass(), slideToggle();<br>  $(‘.projects-button’).on(‘click’, function() {});<br>  $(this);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//var skillset = document.getElementsByClassName(&apos;skillset&apos;);</div><div class="line">//alert(skillset);</div><div class="line"></div><div class="line">function main() &#123;</div><div class="line">  //var $skillset = $(&apos;.skillset&apos;);</div><div class="line"> // alert($skillset);</div><div class="line"> // $(&apos;.skillset&apos;).hide();</div><div class="line">  //$(&apos;.skillset&apos;).fadeIn(1000);</div><div class="line"> // $(&apos;.projects&apos;).hide();</div><div class="line"></div><div class="line">  $(&apos;.projects-button&apos;).on(&apos;click&apos;, function() &#123;</div><div class="line">    //$(this).next().toggleClass(&apos;active&apos;);</div><div class="line">    //$(this).next().toggle();</div><div class="line">    //$(this).text(&apos;Projects Viewed&apos;);</div><div class="line">     $(this).next().slideToggle(400);</div><div class="line"> &#125;);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">$(document).ready(main);</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1582,7 +1621,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1599,7 +1638,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

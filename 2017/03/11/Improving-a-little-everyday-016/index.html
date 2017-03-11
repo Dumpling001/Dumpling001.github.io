@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,Trouble Shooting," />
 
 
 
@@ -84,34 +84,31 @@
 
 
 
-<meta name="description" content="今天学习开始得太高兴，结束得太沮丧。
-高兴得是发现使用pandas导入csv实在太方便了：
-import pandas as pd
-import numpy as np
-
-# For .read_csv, always use header=0 when you know row 0 is the header row
-df = pd.read_csv(&amp;apos;train.csv&amp;apos;,">
+<meta name="description" content="Pythonlearnpythonthehardway lesson 21～30
+=右边能放什么，就能return什么。
+不是从后往前，而是从里到外。
+没有失败，只有尝试。
+15分钟休息一下，不要伤到大脑，休息有助于学得更快，更少沮丧。
+在bitbucket.org, github.com, or gitorious.org网站source文件夹找到.py代码，然后从头浏览一遍，做笔记，把你认为它">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学习笔记 | Getting Started With Python II & Random Forests">
-<meta property="og:url" content="http://yoursite.com/2016/11/01/学习笔记-Getting-Started-With-Python-II-Random-Forests/index.html">
+<meta property="og:title" content="Improving-a-little-everyday-016">
+<meta property="og:url" content="http://yoursite.com/2017/03/11/Improving-a-little-everyday-016/index.html">
 <meta property="og:site_name" content="ProgramLife">
-<meta property="og:description" content="今天学习开始得太高兴，结束得太沮丧。
-高兴得是发现使用pandas导入csv实在太方便了：
-import pandas as pd
-import numpy as np
-
-# For .read_csv, always use header=0 when you know row 0 is the header row
-df = pd.read_csv(&amp;apos;train.csv&amp;apos;,">
-<meta property="og:updated_time" content="2016-11-01T12:53:59.000Z">
+<meta property="og:description" content="Pythonlearnpythonthehardway lesson 21～30
+=右边能放什么，就能return什么。
+不是从后往前，而是从里到外。
+没有失败，只有尝试。
+15分钟休息一下，不要伤到大脑，休息有助于学得更快，更少沮丧。
+在bitbucket.org, github.com, or gitorious.org网站source文件夹找到.py代码，然后从头浏览一遍，做笔记，把你认为它">
+<meta property="og:updated_time" content="2017-03-11T08:02:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学习笔记 | Getting Started With Python II & Random Forests">
-<meta name="twitter:description" content="今天学习开始得太高兴，结束得太沮丧。
-高兴得是发现使用pandas导入csv实在太方便了：
-import pandas as pd
-import numpy as np
-
-# For .read_csv, always use header=0 when you know row 0 is the header row
-df = pd.read_csv(&amp;apos;train.csv&amp;apos;,">
+<meta name="twitter:title" content="Improving-a-little-everyday-016">
+<meta name="twitter:description" content="Pythonlearnpythonthehardway lesson 21～30
+=右边能放什么，就能return什么。
+不是从后往前，而是从里到外。
+没有失败，只有尝试。
+15分钟休息一下，不要伤到大脑，休息有助于学得更快，更少沮丧。
+在bitbucket.org, github.com, or gitorious.org网站source文件夹找到.py代码，然后从头浏览一遍，做笔记，把你认为它">
 
 
 
@@ -132,9 +129,9 @@ df = pd.read_csv(&amp;apos;train.csv&amp;apos;,">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/01/学习笔记-Getting-Started-With-Python-II-Random-Forests/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/11/Improving-a-little-everyday-016/"/>
 
-  <title> 学习笔记 | Getting Started With Python II & Random Forests | ProgramLife </title>
+  <title> Improving-a-little-everyday-016 | ProgramLife </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +251,7 @@ df = pd.read_csv(&amp;apos;train.csv&amp;apos;,">
             
             
               
-                学习笔记 | Getting Started With Python II & Random Forests
+                Improving-a-little-everyday-016
               
             
           </h1>
@@ -266,19 +263,38 @@ df = pd.read_csv(&amp;apos;train.csv&amp;apos;,">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-01T20:35:47+08:00" content="2016-11-01">
-              2016-11-01
+            <time itemprop="dateCreated" datetime="2017-03-11T16:02:36+08:00" content="2017-03-11">
+              2017-03-11
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/program-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">program notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/01/学习笔记-Getting-Started-With-Python-II-Random-Forests/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/学习笔记-Getting-Started-With-Python-II-Random-Forests/" itemprop="commentsCount"></span>
+                <a href="/2017/03/11/Improving-a-little-everyday-016/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/Improving-a-little-everyday-016/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -301,37 +317,55 @@ df = pd.read_csv(&amp;apos;train.csv&amp;apos;,">
       
 
       
-        <p>今天学习开始得太高兴，结束得太沮丧。</p>
-<p>高兴得是发现使用pandas导入csv实在太方便了：</p>
-<pre><code>import pandas as pd
-import numpy as np
+        <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>learnpythonthehardway lesson 21～30</p>
+<p>=右边能放什么，就能return什么。</p>
+<p>不是从后往前，而是从里到外。</p>
+<p>没有失败，只有尝试。</p>
+<p>15分钟休息一下，不要伤到大脑，休息有助于学得更快，更少沮丧。</p>
+<p>在bitbucket.org, github.com, or gitorious.org网站source文件夹找到.py代码，然后从头浏览一遍，做笔记，把你认为它要做的事和你看不懂的、有趣的符号、单词记下来，待会再研究。</p>
+<p>还有一些网站：<br>github.com<br>launchpad.net<br>gitorious.org<br>sourceforge.net</p>
+<p>ex25.py</p>
+<p>def break_words(stuff):<br>   “””This function will break up words for us.”””<br>   words = stuff.split(‘ ‘)<br>   return words</p>
+<p>import ex25<br>help(ex25)<br>helo(ex25.break_words)</p>
+<p>“”” 是documentation comments</p>
+<p>   break_words(stuff)<br>       This function will break up words for us.</p>
+<p>from ex25 import *  “Import everything from ex25.”</p>
+<p>words = stuff.split(‘ ‘)<br>   return sorted(words)<br>       word = words.pop(0)<br>           word = words.pop(-1)</p>
+<p>当你是程序员时，你就要应付别人的代码、还有他们的傲慢。程序员常常声称自己的代码是完美的。这些程序员很愚蠢，他们不关心别人。一个好的程序员常常会像科学家一样假设他们的代码可能有错误。</p>
+<p>不要寻找帮助，如果你卡住了，就休息一会再回来继续。</p>
+<p>Even if this takes days to do, bust through it and make it right.<br>即使这需要好几天完成，也要解决它。</p>
+<p>falter 减少，运转不畅</p>
+<p>只要每天尽力尝试，每天多学一点点。</p>
+<p>deprecate 反对</p>
+<p>+= “increment by” operator.</p>
+<p>Python期待你在：之后有缩进。</p>
+<h1 id="Trouble-Shooting"><a href="#Trouble-Shooting" class="headerlink" title="Trouble Shooting"></a>Trouble Shooting</h1><p>昨晚花了2个小时解决了2个问题：</p>
+<h2 id="1）java-安装库源文件和文档，"><a href="#1）java-安装库源文件和文档，" class="headerlink" title="1）java 安装库源文件和文档，"></a>1）java 安装库源文件和文档，</h2><p>是《JAVA核心技术（卷1）》上指导步骤，<br>它要求先找到jdk所在目录，在电脑上所有可能地方翻，没找到；</p>
+<p>搜索了以下关键词：</p>
+<ul>
+<li>jdk安装后需要重启电脑吗(我真的重启了，没用)</li>
+<li>mac jdk安装路径 （找到：——mac新手，怎么配置jdk路径segfaulment）</li>
+<li>mac 找不到jdk——（找到：mac安装jdk1.7找不到路径?）</li>
+<li>mac jdk1.8.0——（找到oracle官网文档：JDK 8 Installation for OS X，没有提及库文件的事）</li>
+</ul>
+<p>解决办法：忽略</p>
+<h2 id="2）启动shell报错“alias-invalid-option”"><a href="#2）启动shell报错“alias-invalid-option”" class="headerlink" title="2）启动shell报错“alias:  -= invalid option”"></a>2）启动shell报错“alias:  -= invalid option”</h2><p>搜索关键词：</p>
+<ul>
+<li>mac 搜索 文件内容</li>
+<li>查看 ./bash_profile</li>
+<li>查看 bash_profile</li>
+<li>bash_profile</li>
+<li><p>open bash_profile——（找到：How do I edit $PATH (.bash_profile) on OSX? stackoverflow，在那里搜“alias:  invalid option”）</p>
+</li>
+<li><p>alias在哪里</p>
+</li>
+<li>shell启动时会用到哪些文件——（找到：<a href="http://docs.linuxtone.org/ebooks/C&amp;CPP/c/ch31s04.html" target="_blank" rel="external">bash启动脚本</a>）</li>
+</ul>
+<p>然后在电脑下ls -a<br>发现有好多跟bash相关的文件，其中有个叫.aliases, nano aliases打开,看到确实有个 alias cd -= “cd -”的表达式，然后把这条表达式删掉了，再$ source .aliases,没有再报错，关掉terminal再开，也没有报错。说明问题解决了。</p>
+<p>中间改了好多次.bash_profile幸好没有出大错。</p>
+<p>通过之前在Codecademy和Learnpythonthehardway上对Command line的学习，加上这次的折腾，对shell算是彻底了解了。加上这几天的学习对python的运行方式也加深了理解。</p>
+<p>感觉今天开挂了。</p>
 
-# For .read_csv, always use header=0 when you know row 0 is the header row
-df = pd.read_csv(&apos;train.csv&apos;, header=0)
-</code></pre><h2 id="亮点是看到了怎么用直方图："><a href="#亮点是看到了怎么用直方图：" class="headerlink" title="亮点是看到了怎么用直方图："></a>亮点是看到了怎么用直方图：</h2><pre><code>import pylab as P
-df[&apos;Age&apos;].hist()
-P.show()
-</code></pre><p>沮丧的是，train.csv整好后，再跟randomforests结合使用，发现教程没讲的test_data处理和如何新建存储可以提交的结果csv文件，我都不会！那时距我要结束的时间已经很短了，又着急结束又着急把问题解决，于是焦虑。幸好有过学习的经验教训，所以知道这种心态是很自然的。到时间后就放下了。</p>
-<p>后来想到了解决方案：明天去看别人如何用randomforests来实现的。</p>
-<h2 id="今天常用的："><a href="#今天常用的：" class="headerlink" title="今天常用的："></a>今天常用的：</h2><pre><code>df.info()
-df.head()
-</code></pre><h2 id="数据填充："><a href="#数据填充：" class="headerlink" title="数据填充："></a>数据填充：</h2><pre><code>df[&apos;Gender&apos;] = df[&apos;Sex&apos;].map({&apos;female&apos;:0, &apos;male&apos;:1}).astype(int)
-
-median_ages = np.zeros((2,3))
-for i in range(0, 2):
-    for j in range(0, 3):
-        median_ages[i,j] = df[(df[&apos;Gender&apos;] == i) &amp; \
-                              (df[&apos;Pclass&apos;] == j+1)][&apos;Age&apos;].dropna().median()
-
-df[&apos;AgeFill&apos;] = df[&apos;Age&apos;]
-for i in range(0, 2):
-    for j in range(0, 3):
-        df.loc[ (df.Age.isnull()) &amp; (df.Gender == i) &amp; (df.Pclass == j+1),\
-                &apos;AgeFill&apos;] = median_ages[i,j]
-</code></pre><h2 id="数据列删除："><a href="#数据列删除：" class="headerlink" title="数据列删除："></a>数据列删除：</h2><pre><code>df.dtypes[df.dtypes.map(lambda x: x==&apos;object&apos;)]
-df = df.drop([&apos;PassengerId&apos;,&apos;Age&apos;,&apos;Name&apos;, &apos;Sex&apos;, &apos;Ticket&apos;, &apos;Cabin&apos;, &apos;Embarked&apos;], axis=1)
-df = df.dropna()
-</code></pre>
       
     </div>
 
@@ -356,22 +390,26 @@ df = df.dropna()
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/Trouble-Shooting/" rel="tag">#Trouble Shooting</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/31/用Excel和Python实现数据分析笔记之初体验/" rel="next" title="用Excel和Python实现数据分析笔记之初体验">
-                <i class="fa fa-chevron-left"></i> 用Excel和Python实现数据分析笔记之初体验
+              <a href="/2017/03/10/Improving-a-little-everyday-015/" rel="next" title="Improving-a-little-everyday-015">
+                <i class="fa fa-chevron-left"></i> Improving-a-little-everyday-015
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/04/Python复习难点记录01/" rel="prev" title="Python复习难点记录01">
-                Python复习难点记录01 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -397,8 +435,8 @@ df = df.dropna()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/01/学习笔记-Getting-Started-With-Python-II-Random-Forests/"
-           data-title="学习笔记 | Getting Started With Python II & Random Forests" data-url="http://yoursite.com/2016/11/01/学习笔记-Getting-Started-With-Python-II-Random-Forests/">
+      <div class="ds-thread" data-thread-key="2017/03/11/Improving-a-little-everyday-016/"
+           data-title="Improving-a-little-everyday-016" data-url="http://yoursite.com/2017/03/11/Improving-a-little-everyday-016/">
       </div>
     
   </div>
@@ -535,7 +573,7 @@ df = df.dropna()
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#亮点是看到了怎么用直方图："><span class="nav-number">1.</span> <span class="nav-text">亮点是看到了怎么用直方图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今天常用的："><span class="nav-number">2.</span> <span class="nav-text">今天常用的：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据填充："><span class="nav-number">3.</span> <span class="nav-text">数据填充：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据列删除："><span class="nav-number">4.</span> <span class="nav-text">数据列删除：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python"><span class="nav-number">1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Trouble-Shooting"><span class="nav-number">2.</span> <span class="nav-text">Trouble Shooting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1）java-安装库源文件和文档，"><span class="nav-number">2.1.</span> <span class="nav-text">1）java 安装库源文件和文档，</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2）启动shell报错“alias-invalid-option”"><span class="nav-number">2.2.</span> <span class="nav-text">2）启动shell报错“alias:  -= invalid option”</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
