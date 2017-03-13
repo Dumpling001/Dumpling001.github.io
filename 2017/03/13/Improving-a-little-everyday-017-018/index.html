@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SQL，Unix，Python，Java," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -84,28 +84,31 @@
 
 
 
-<meta name="description" content="SQL:选取某一列：SELECT 列名称 FROM 表名称
-选取所有列：SELECT * FROM 表名称
-选取某一列（去除重复的记录）：SELECT DISTINCT 列名称 FROM 表名称
-有条件地选取某列，条件用 “WHERE 列 运算符 值”表示SELECT 列名称 FROM 表名称 WHERE 列 运算符 值
-仅选取符合条件的记录：SELECT * FROM 表名称 WHERE 列 运">
+<meta name="description" content="Pythonlearnpythonthehardway ex31～41
+3-120 &amp;lt; x &amp;lt; 101 &amp;lt;= x &amp;lt; 10x in range(1, 10)以上三个表达式等价
+如果看到一个结构，发现不懂，拿出一支铅笔，一张纸，把它分解成一小段小段的，直到你能理解为止。
+apricots 杏子
+有的问题，可以打开python shell，然后尝试操作一下，看下交互结果。
+pe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每天掌握一点点（001）">
-<meta property="og:url" content="http://yoursite.com/2017/02/22/每天掌握一点点/index.html">
+<meta property="og:title" content="Improving-a-little-everyday-017-018">
+<meta property="og:url" content="http://yoursite.com/2017/03/13/Improving-a-little-everyday-017-018/index.html">
 <meta property="og:site_name" content="ProgramLife">
-<meta property="og:description" content="SQL:选取某一列：SELECT 列名称 FROM 表名称
-选取所有列：SELECT * FROM 表名称
-选取某一列（去除重复的记录）：SELECT DISTINCT 列名称 FROM 表名称
-有条件地选取某列，条件用 “WHERE 列 运算符 值”表示SELECT 列名称 FROM 表名称 WHERE 列 运算符 值
-仅选取符合条件的记录：SELECT * FROM 表名称 WHERE 列 运">
-<meta property="og:updated_time" content="2017-02-22T11:35:07.000Z">
+<meta property="og:description" content="Pythonlearnpythonthehardway ex31～41
+3-120 &amp;lt; x &amp;lt; 101 &amp;lt;= x &amp;lt; 10x in range(1, 10)以上三个表达式等价
+如果看到一个结构，发现不懂，拿出一支铅笔，一张纸，把它分解成一小段小段的，直到你能理解为止。
+apricots 杏子
+有的问题，可以打开python shell，然后尝试操作一下，看下交互结果。
+pe">
+<meta property="og:updated_time" content="2017-03-13T07:45:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每天掌握一点点（001）">
-<meta name="twitter:description" content="SQL:选取某一列：SELECT 列名称 FROM 表名称
-选取所有列：SELECT * FROM 表名称
-选取某一列（去除重复的记录）：SELECT DISTINCT 列名称 FROM 表名称
-有条件地选取某列，条件用 “WHERE 列 运算符 值”表示SELECT 列名称 FROM 表名称 WHERE 列 运算符 值
-仅选取符合条件的记录：SELECT * FROM 表名称 WHERE 列 运">
+<meta name="twitter:title" content="Improving-a-little-everyday-017-018">
+<meta name="twitter:description" content="Pythonlearnpythonthehardway ex31～41
+3-120 &amp;lt; x &amp;lt; 101 &amp;lt;= x &amp;lt; 10x in range(1, 10)以上三个表达式等价
+如果看到一个结构，发现不懂，拿出一支铅笔，一张纸，把它分解成一小段小段的，直到你能理解为止。
+apricots 杏子
+有的问题，可以打开python shell，然后尝试操作一下，看下交互结果。
+pe">
 
 
 
@@ -126,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/22/每天掌握一点点/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/13/Improving-a-little-everyday-017-018/"/>
 
-  <title> 每天掌握一点点（001） | ProgramLife </title>
+  <title> Improving-a-little-everyday-017-018 | ProgramLife </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -248,7 +251,7 @@
             
             
               
-                每天掌握一点点（001）
+                Improving-a-little-everyday-017-018
               
             
           </h1>
@@ -260,8 +263,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-22T19:35:07+08:00" content="2017-02-22">
-              2017-02-22
+            <time itemprop="dateCreated" datetime="2017-03-13T15:45:29+08:00" content="2017-03-13">
+              2017-03-13
             </time>
           </span>
 
@@ -290,8 +293,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/22/每天掌握一点点/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/22/每天掌握一点点/" itemprop="commentsCount"></span>
+                <a href="/2017/03/13/Improving-a-little-everyday-017-018/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/Improving-a-little-everyday-017-018/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -314,36 +317,42 @@
       
 
       
-        <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL:"></a>SQL:</h1><p>选取某一列：<br>SELECT 列名称 FROM 表名称</p>
-<p>选取所有列：<br>SELECT * FROM 表名称</p>
-<p>选取某一列（去除重复的记录）：<br>SELECT DISTINCT 列名称 FROM 表名称</p>
-<p>有条件地选取某列，条件用 “WHERE 列 运算符 值”表示<br>SELECT 列名称 FROM 表名称 WHERE 列 运算符 值</p>
-<p>仅选取符合条件的记录：<br>SELECT * FROM 表名称 WHERE 列 运算符 值</p>
-<h1 id="Unix"><a href="#Unix" class="headerlink" title="Unix:"></a>Unix:</h1><p>cd ../path1 切换到上一层目录路径<br>cd ./path2 切换到当前目录路径<br>cd ／path3 切换到路径</p>
-<p>ls 列出当前目录下的文件信息<br>ls -a 列出当前目录下全部文件，包括隐藏文件<br>ls -l 列出当前目录下文件的全部属性</p>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python:"></a>Python:</h1><p>优点：</p>
+        <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>learnpythonthehardway ex31～41</p>
+<h2 id="3-12"><a href="#3-12" class="headerlink" title="3-12"></a>3-12</h2><p>0 &lt; x &lt; 10<br>1 &lt;= x &lt; 10<br>x in range(1, 10)<br>以上三个表达式等价</p>
+<p>如果看到一个结构，发现不懂，拿出一支铅笔，一张纸，把它分解成一小段小段的，直到你能理解为止。</p>
+<p>apricots 杏子</p>
+<p>有的问题，可以打开python shell，然后尝试操作一下，看下交互结果。</p>
+<p>peacock 雄孔雀<br>kangaroo 袋鼠<br>platypus 鸭嘴兽<br>stumble 绊脚<br>taunt 奚落<br>bastard 杂种</p>
+<h2 id="3-13"><a href="#3-13" class="headerlink" title="3-13"></a>3-13</h2><p>如果else按道理不会运行，那就打印出一条错误报警信息，这样可以帮助你查找错误。</p>
+<p>调试程序的最好方法是在程序中打印变量值。</p>
+<p>确保程序按你所设想的运行。不要写了很多之后再运行，而是写一点，运行一点，解决一点。</p>
+<p>stuff[3:5] 切片，只包含stuff[3,4]</p>
+<p>In the case of the dictionary, the key is a string and the syntax is [key]. In the case of the module, the key is an identifier, and the syntax is .key. Other than that they are nearly the same thing.</p>
+<p>字典中，key是字符串，语法是[key];在模块中，key是标志符，语法是.key；除此以外，都一样。</p>
+<p>class MyStuff(object):</p>
+<pre><code>def __init__(self):
+    self.tangerine = &quot;And now a thousand years between&quot;
+
+def apple(self):
+    print &quot;I AM CLASSY APPLES!&quot;
+</code></pre><p>tangerine 橘子</p>
+<p>难理解的点：<br><strong>init</strong>()<br>self.tangerine</p>
+<p>Here’s why classes are used instead of modules: You can take this MyStuff class and use it to craft many of them, millions at a time if you want, and each one won’t interfere with each other. When you import a module there is only one for the entire program unless you do some monster hacks.<br>class可以制作很多个，同时调用很多次，相互之间不会干扰。但导入的模块，在整个程序中只有一个。</p>
+<p>instantiate<br>用具体例证说明<br>例示</p>
+<p>当你用具体例证演示一个class时，你得到一个对象。</p>
+<p>You instantiate (create) a class by calling the class like it’s a function, like this:<br>通过调用class，你得到一个由类创造的实例。</p>
 <ul>
-<li>可进行网站建设工作；</li>
-<li>可编写简短而粗糙的小程序；</li>
-<li>有一个巨大而活跃的科学计算社区；</li>
-<li>能够轻松集成C、C++、Fortran；</li>
-<li>适用于研究和原型构建，同时适用于生产系统的构建。</li>
+<li><p>dict style<br>mystuff[‘apples’]</p>
+</li>
+<li><p>module style<br>mystuff.apples()<br>print mystuff.tangerine</p>
+</li>
+<li><p>class style<br>thing = MyStuff()<br>thing.apples()<br>print thing.tangerine</p>
+</li>
 </ul>
-<p>不足：</p>
-<ul>
-<li>是一种解释型语言，大部分比编译型语言（Java和C++）运行慢得多；</li>
-<li>有一个全局解释器锁，防止解释器同时执行多条指令，所以不适用于高并发多线程场景；</li>
-</ul>
-<h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>优点：</p>
-<ul>
-<li>语法优美</li>
-<li>语义易懂</li>
-<li>可移植</li>
-<li>自动垃圾收集</li>
-<li>大型的库</li>
-</ul>
-<p>不足：</p>
-<p>由于相容性造成了累赘。</p>
+<p>. That code isn’t clear about whether you mean the instance’s cheese attribute, or a local variable named cheese. With self.cheese = ‘Frank’ it’s very clear you mean the instance attribute self.cheese.<br>. 如果不使用self.cheese,代码不知道你是指实例的属性，还是指一个局部变量叫cheese。用了self.cheese=‘Frank’代码就清楚了这是指实例的属性。</p>
+<p>class X(Y)<br>“Make a class named X that is-a Y.”<br>class X(object): def <strong>init</strong>(self, J)<br>“class X has-a <strong>init</strong> that takes self and J parameters.”<br>class X(object): def M(self, J)<br>“class X has-a function named M that takes self and J parameters.”<br>foo = X()<br>“Set foo to an instance of class X.”<br>foo.M(J)<br>“From foo get the M function, and call it with parameters self, J.”<br>foo.K = Q<br>“From foo get the K attribute and set it to Q.”</p>
+<p>继续尝试，直到你烦了就休息一下，然后再继续。</p>
+<p> 使用[:]表示整个list都切片下来。</p>
 
       
     </div>
@@ -371,7 +380,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SQL，Unix，Python，Java/" rel="tag">#SQL，Unix，Python，Java</a>
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
         </div>
       
@@ -380,17 +389,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/04/Python复习难点记录01/" rel="next" title="Python复习难点记录01">
-                <i class="fa fa-chevron-left"></i> Python复习难点记录01
+              <a href="/2017/03/11/Improving-a-little-everyday-016/" rel="next" title="Improving-a-little-everyday-016">
+                <i class="fa fa-chevron-left"></i> Improving-a-little-everyday-016
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/24/每天积累一点点（2）/" rel="prev" title="每天积累一点点（2）">
-                每天积累一点点（2） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -416,8 +421,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/22/每天掌握一点点/"
-           data-title="每天掌握一点点（001）" data-url="http://yoursite.com/2017/02/22/每天掌握一点点/">
+      <div class="ds-thread" data-thread-key="2017/03/13/Improving-a-little-everyday-017-018/"
+           data-title="Improving-a-little-everyday-017-018" data-url="http://yoursite.com/2017/03/13/Improving-a-little-everyday-017-018/">
       </div>
     
   </div>
@@ -554,7 +559,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unix"><span class="nav-number">2.</span> <span class="nav-text">Unix:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python"><span class="nav-number">3.</span> <span class="nav-text">Python:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA"><span class="nav-number">4.</span> <span class="nav-text">JAVA</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python"><span class="nav-number">1.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-12"><span class="nav-number">1.1.</span> <span class="nav-text">3-12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-13"><span class="nav-number">1.2.</span> <span class="nav-text">3-13</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

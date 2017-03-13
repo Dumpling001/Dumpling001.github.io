@@ -238,6 +238,161 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/13/Improving-a-little-everyday-017-018/" itemprop="url">
+                  Improving-a-little-everyday-017-018
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-13T15:45:29+08:00" content="2017-03-13">
+              2017-03-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/program-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">program notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/13/Improving-a-little-everyday-017-018/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/Improving-a-little-everyday-017-018/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>learnpythonthehardway ex31～41</p>
+<h2 id="3-12"><a href="#3-12" class="headerlink" title="3-12"></a>3-12</h2><p>0 &lt; x &lt; 10<br>1 &lt;= x &lt; 10<br>x in range(1, 10)<br>以上三个表达式等价</p>
+<p>如果看到一个结构，发现不懂，拿出一支铅笔，一张纸，把它分解成一小段小段的，直到你能理解为止。</p>
+<p>apricots 杏子</p>
+<p>有的问题，可以打开python shell，然后尝试操作一下，看下交互结果。</p>
+<p>peacock 雄孔雀<br>kangaroo 袋鼠<br>platypus 鸭嘴兽<br>stumble 绊脚<br>taunt 奚落<br>bastard 杂种</p>
+<h2 id="3-13"><a href="#3-13" class="headerlink" title="3-13"></a>3-13</h2><p>如果else按道理不会运行，那就打印出一条错误报警信息，这样可以帮助你查找错误。</p>
+<p>调试程序的最好方法是在程序中打印变量值。</p>
+<p>确保程序按你所设想的运行。不要写了很多之后再运行，而是写一点，运行一点，解决一点。</p>
+<p>stuff[3:5] 切片，只包含stuff[3,4]</p>
+<p>In the case of the dictionary, the key is a string and the syntax is [key]. In the case of the module, the key is an identifier, and the syntax is .key. Other than that they are nearly the same thing.</p>
+<p>字典中，key是字符串，语法是[key];在模块中，key是标志符，语法是.key；除此以外，都一样。</p>
+<p>class MyStuff(object):</p>
+<pre><code>def __init__(self):
+    self.tangerine = &quot;And now a thousand years between&quot;
+
+def apple(self):
+    print &quot;I AM CLASSY APPLES!&quot;
+</code></pre><p>tangerine 橘子</p>
+<p>难理解的点：<br><strong>init</strong>()<br>self.tangerine</p>
+<p>Here’s why classes are used instead of modules: You can take this MyStuff class and use it to craft many of them, millions at a time if you want, and each one won’t interfere with each other. When you import a module there is only one for the entire program unless you do some monster hacks.<br>class可以制作很多个，同时调用很多次，相互之间不会干扰。但导入的模块，在整个程序中只有一个。</p>
+<p>instantiate<br>用具体例证说明<br>例示</p>
+<p>当你用具体例证演示一个class时，你得到一个对象。</p>
+<p>You instantiate (create) a class by calling the class like it’s a function, like this:<br>通过调用class，你得到一个由类创造的实例。</p>
+<ul>
+<li><p>dict style<br>mystuff[‘apples’]</p>
+</li>
+<li><p>module style<br>mystuff.apples()<br>print mystuff.tangerine</p>
+</li>
+<li><p>class style<br>thing = MyStuff()<br>thing.apples()<br>print thing.tangerine</p>
+</li>
+</ul>
+<p>. That code isn’t clear about whether you mean the instance’s cheese attribute, or a local variable named cheese. With self.cheese = ‘Frank’ it’s very clear you mean the instance attribute self.cheese.<br>. 如果不使用self.cheese,代码不知道你是指实例的属性，还是指一个局部变量叫cheese。用了self.cheese=‘Frank’代码就清楚了这是指实例的属性。</p>
+<p>class X(Y)<br>“Make a class named X that is-a Y.”<br>class X(object): def <strong>init</strong>(self, J)<br>“class X has-a <strong>init</strong> that takes self and J parameters.”<br>class X(object): def M(self, J)<br>“class X has-a function named M that takes self and J parameters.”<br>foo = X()<br>“Set foo to an instance of class X.”<br>foo.M(J)<br>“From foo get the M function, and call it with parameters self, J.”<br>foo.K = Q<br>“From foo get the K attribute and set it to Q.”</p>
+<p>继续尝试，直到你烦了就休息一下，然后再继续。</p>
+<p> 使用[:]表示整个list都切片下来。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/11/Improving-a-little-everyday-016/" itemprop="url">
                   Improving-a-little-everyday-016
                 </a>
@@ -1434,150 +1589,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/02/每天积累一点点008/" itemprop="url">
-                  每天积累一点点007
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-02T16:37:30+08:00" content="2017-03-02">
-              2017-03-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/program-notes/" itemprop="url" rel="index">
-                    <span itemprop="name">program notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/03/02/每天积累一点点008/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/02/每天积累一点点008/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>SQL、JavaScript教程已经结束了，Java先放一边。最近想写个爬虫脚本。</p>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>重看了<a href="http://cuiqingcai.com/1052.html" target="_blank" rel="external">Python爬虫教程</a>的教程前3章，知道了：</p>
-<h3 id="用这个代码就可以将一个网页内容抓取下来："><a href="#用这个代码就可以将一个网页内容抓取下来：" class="headerlink" title="用这个代码就可以将一个网页内容抓取下来："></a>用这个代码就可以将一个网页内容抓取下来：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import urllib2</div><div class="line"></div><div class="line">response = urllib2.urlopen(&quot;http://www.baidu.com&quot;)</div><div class="line">print response.read()</div></pre></td></tr></table></figure>
-<p>网页数据传送有post和get方式。</p>
-<p>post方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">import urllib</div><div class="line">import urllib2</div><div class="line"></div><div class="line">values = &#123;&#125;</div><div class="line">values[&apos;username&apos;] = &apos;56788@qq.com&apos;</div><div class="line">values[&apos;password&apos;] = &apos;xxx&apos;</div><div class="line"></div><div class="line">data = urllib.urlencode(values)</div><div class="line"></div><div class="line">url = &quot;http://passport.csdn.net/account/login?from=http://my.csdn.net/my/mycsdn&quot;</div><div class="line"></div><div class="line">request = urllib2.Request(url,data)</div><div class="line">response = urllib2.urlopen(request)</div><div class="line"></div><div class="line">print response.read()</div></pre></td></tr></table></figure>
-<p>get方式：(使用过正确的用户名和密码，尝试失败。)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">import urllib</div><div class="line">import urllib2</div><div class="line"></div><div class="line">values = &#123;&#125;</div><div class="line">values[&apos;usename&apos;] = &quot;hua&quot;</div><div class="line">values[&apos;password&apos;] = &apos;***&apos;</div><div class="line"></div><div class="line">data = urllib.urlencode(values)</div><div class="line">url = &quot;http://passport.csdn.net/account/login&quot;</div><div class="line"></div><div class="line">geturl = url + &quot;?&quot; + data</div><div class="line">print geturl</div><div class="line">request = urllib2.Request(geturl)</div><div class="line">response = urllib2.urlopen(request)</div><div class="line">print response.read()</div></pre></td></tr></table></figure>
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>完整看了<a href="http://www.imooc.com/video/10674" target="_blank" rel="external">《Python开发简单爬虫》</a>，了解了爬虫的工作框架：</p>
-<ul>
-<li>网页管理器</li>
-<li>下载器</li>
-<li>分析器</li>
-<li>输出</li>
-</ul>
-<h3 id="得到一个网页所有链接的方法；"><a href="#得到一个网页所有链接的方法；" class="headerlink" title="得到一个网页所有链接的方法；"></a>得到一个网页所有链接的方法；</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">from bs4 import BeautifulSoup</div><div class="line"></div><div class="line">html_doc = &quot;&quot;&quot;</div><div class="line">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&apos;s story&lt;/title&gt;&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class=&quot;story&quot;&gt;Once upon a time there were three little sisters; and their names were</div><div class="line">&lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</div><div class="line">&lt;a href=&quot;http://example.com/lacie&quot; class=&quot;sister&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt; and</div><div class="line">&lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;;</div><div class="line">and they lived at the bottom of a well.&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;</div><div class="line">&quot;&quot;&quot;</div><div class="line"></div><div class="line">soup = BeautifulSoup(html_doc, &apos;html.parser&apos;, from_encoding=&apos;utf-8&apos;)</div><div class="line">print &apos;Get all links:&apos;</div><div class="line">links = soup.find_all(&apos;a&apos;)</div><div class="line"></div><div class="line">for link in links:</div><div class="line">    print link.name, link[&apos;href&apos;],link.get_text()</div></pre></td></tr></table></figure>
-<h3 id="得到链接中有特定单词的方法："><a href="#得到链接中有特定单词的方法：" class="headerlink" title="得到链接中有特定单词的方法："></a>得到链接中有特定单词的方法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">print &quot;Get link includs lacie&quot;</div><div class="line"></div><div class="line">link_node = soup.find(&apos;a&apos;,href = &apos;http://example.com/lacie&apos;)</div><div class="line">print link_node.name, link_node[&apos;href&apos;],link_node.get_text()</div></pre></td></tr></table></figure>
-<h3 id="使用正则表达式的方法："><a href="#使用正则表达式的方法：" class="headerlink" title="使用正则表达式的方法："></a>使用正则表达式的方法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">print &quot;Regular match&quot;</div><div class="line"></div><div class="line">import re</div><div class="line"></div><div class="line">link_node = soup.find(&apos;a&apos;,href = re.compile(r&quot;article_title_&quot;))</div><div class="line">print link_node.name, link_node[&apos;href&apos;],link_node.get_text()</div></pre></td></tr></table></figure>
-<h3 id="得到段落文本的方法："><a href="#得到段落文本的方法：" class="headerlink" title="得到段落文本的方法："></a>得到段落文本的方法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">print &quot;Get paragraph text&quot;</div><div class="line"></div><div class="line">import re</div><div class="line"></div><div class="line">link_node = soup.find(&apos;p&apos;,class_ = &quot;title&quot;)</div><div class="line">print link_node.name, link_node.get_text()</div></pre></td></tr></table></figure>
-<h3 id="结合这些内容，我写了这段代码搜索爬虫教程某网页的链接：（含微信的链接尝试失败，已注释掉。）"><a href="#结合这些内容，我写了这段代码搜索爬虫教程某网页的链接：（含微信的链接尝试失败，已注释掉。）" class="headerlink" title="结合这些内容，我写了这段代码搜索爬虫教程某网页的链接：（含微信的链接尝试失败，已注释掉。）"></a>结合这些内容，我写了这段代码搜索爬虫教程某网页的链接：（含微信的链接尝试失败，已注释掉。）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#http://weixin.sogou.com/weixin?usip=xiaolai-xuexi&amp;query=%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E5%86%8D%E5%AD%A6%E4%B9%A0&amp;from=tool&amp;ft=null&amp;tsn=0&amp;et=null&amp;interation=null&amp;type=2&amp;wxid=oIWsFt6EIlPo4HTI9rVCO4Qr60Hc&amp;page=1&amp;ie=utf8</div><div class="line"># -*- coding:utf-8 -*-</div><div class="line">import urllib</div><div class="line">import urllib2</div><div class="line"></div><div class="line">#page = 2</div><div class="line">#url = &apos;http://weixin.sogou.com/weixin?usip=xiaolai-xuexi&amp;query=\</div><div class="line">#%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E5%86%8D%E5%AD%A6%E4%B9%A0\</div><div class="line">#&amp;from=tool&amp;ft=null&amp;tsn=0&amp;et=null&amp;interation=null&amp;type=2)\</div><div class="line">#&amp;wxid=oIWsFt6EIlPo4HTI9rVCO4Qr60Hc&amp;page=&apos; + str(page) + &apos;&amp;ie=utf8&apos;</div><div class="line"></div><div class="line">#url = &quot;https://app.yinxiang.com/Home.action#n=490dab72-bca7-4961-a414-ce4ee53ab493&amp;ses=4&amp;sh=2&amp;sds=2&amp;&quot;</div><div class="line">url =&apos;http://cuiqingcai.com/1052.html&apos;</div><div class="line">response = urllib2.urlopen(url)  </div><div class="line">html = response.read()  </div><div class="line">#print html</div><div class="line"></div><div class="line">soup = BeautifulSoup(html, &apos;html.parser&apos;, from_encoding=&apos;utf-8&apos;)</div><div class="line">print &apos;Get all links:&apos;</div><div class="line">links = soup.find_all(&apos;a&apos;)</div><div class="line"></div><div class="line">for link in links:</div><div class="line">    print link.name, link[&apos;href&apos;], link.get_text()</div></pre></td></tr></table></figure>
-<p>看了下知乎上别人的回答，了解到BeatifulSoup和Scrapy，前者是Python的一个库，有导航、搜索、修改、分析文档的功能。</p>
-<p>维基百科上有个词条web crawler，是从stackflow的问答上追踪到了，有现成的爬虫框架，很多是java写的，只有Scrapy是Python写的。</p>
-<p>感受：想把微信公众号某账号所有文章链接都抓下来挺难的，传送门实现了，但传送门打开的链接不能被抓取。知乎上有人说用API实现了，有人在Git说明了基本思路，我还是没弄明白。很难很沮丧，但暂时不想放弃。明天继续，感觉Python基础薄弱了，要同步学习才好。</p>
-<p>数据分析的书，只是看了作者示范如何用pandas替换缺失值、未知值、绘图、分解、分组、构造间接索引数组、排序、绘制堆积条形图。也很难。</p>
-<p>今天是个打击，不过想想，当初搭建这个博客也遇到很多困难，尤其是心理障碍，后来发现其实很简单，最后也克服了。所以，还是继续吧。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1623,7 +1634,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
