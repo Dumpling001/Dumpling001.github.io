@@ -238,6 +238,136 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/01/学习笔记-Getting-Started-With-Python-II-Random-Forests/" itemprop="url">
+                  学习笔记 | Getting Started With Python II & Random Forests
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T20:35:47+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/01/学习笔记-Getting-Started-With-Python-II-Random-Forests/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/学习笔记-Getting-Started-With-Python-II-Random-Forests/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天学习开始得太高兴，结束得太沮丧。</p>
+<p>高兴得是发现使用pandas导入csv实在太方便了：</p>
+<pre><code>import pandas as pd
+import numpy as np
+
+# For .read_csv, always use header=0 when you know row 0 is the header row
+df = pd.read_csv(&apos;train.csv&apos;, header=0)
+</code></pre><h2 id="亮点是看到了怎么用直方图："><a href="#亮点是看到了怎么用直方图：" class="headerlink" title="亮点是看到了怎么用直方图："></a>亮点是看到了怎么用直方图：</h2><pre><code>import pylab as P
+df[&apos;Age&apos;].hist()
+P.show()
+</code></pre><p>沮丧的是，train.csv整好后，再跟randomforests结合使用，发现教程没讲的test_data处理和如何新建存储可以提交的结果csv文件，我都不会！那时距我要结束的时间已经很短了，又着急结束又着急把问题解决，于是焦虑。幸好有过学习的经验教训，所以知道这种心态是很自然的。到时间后就放下了。</p>
+<p>后来想到了解决方案：明天去看别人如何用randomforests来实现的。</p>
+<h2 id="今天常用的："><a href="#今天常用的：" class="headerlink" title="今天常用的："></a>今天常用的：</h2><pre><code>df.info()
+df.head()
+</code></pre><h2 id="数据填充："><a href="#数据填充：" class="headerlink" title="数据填充："></a>数据填充：</h2><pre><code>df[&apos;Gender&apos;] = df[&apos;Sex&apos;].map({&apos;female&apos;:0, &apos;male&apos;:1}).astype(int)
+
+median_ages = np.zeros((2,3))
+for i in range(0, 2):
+    for j in range(0, 3):
+        median_ages[i,j] = df[(df[&apos;Gender&apos;] == i) &amp; \
+                              (df[&apos;Pclass&apos;] == j+1)][&apos;Age&apos;].dropna().median()
+
+df[&apos;AgeFill&apos;] = df[&apos;Age&apos;]
+for i in range(0, 2):
+    for j in range(0, 3):
+        df.loc[ (df.Age.isnull()) &amp; (df.Gender == i) &amp; (df.Pclass == j+1),\
+                &apos;AgeFill&apos;] = median_ages[i,j]
+</code></pre><h2 id="数据列删除："><a href="#数据列删除：" class="headerlink" title="数据列删除："></a>数据列删除：</h2><pre><code>df.dtypes[df.dtypes.map(lambda x: x==&apos;object&apos;)]
+df = df.drop([&apos;PassengerId&apos;,&apos;Age&apos;,&apos;Name&apos;, &apos;Sex&apos;, &apos;Ticket&apos;, &apos;Cabin&apos;, &apos;Embarked&apos;], axis=1)
+df = df.dropna()
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/31/用Excel和Python实现数据分析笔记之初体验/" itemprop="url">
                   用Excel和Python实现数据分析笔记之初体验
                 </a>
@@ -1156,115 +1286,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/15/Python交互式编程导论Part1学习笔记（week 0b）/" itemprop="url">
-                  Python交互式编程导论Part1学习笔记（week 0b）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-15T21:00:06+08:00" content="2016-08-15">
-              2016-08-15
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/15/Python交互式编程导论Part1学习笔记（week 0b）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/Python交互式编程导论Part1学习笔记（week 0b）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天完成了一个重要决定，把Python课程的week0b也学完了，还剩Miniproject，看来完成一个week的功课需要3天。</p>
-<p><a href="https://www.coursera.org/learn/interactive-python-1/home/week/1" target="_blank" rel="external">https://www.coursera.org/learn/interactive-python-1/home/week/1</a></p>
-<p>另外，把Vamei的Java快速教程第一节复习了下，并在eclipse里做了实际练习。</p>
-<p><a href="http://www.cnblogs.com/vamei/archive/2013/03/14/2958654.html" target="_blank" rel="external">http://www.cnblogs.com/vamei/archive/2013/03/14/2958654.html</a></p>
-<p>在用简单的if，while等语句编写了1-999个数字的求和公式时，有种时空错乱、回到大学时代的感觉。在编程时，我体验到了那种在写作时熟悉的感觉：</p>
-<blockquote>
-<p>专注而宁静。</p>
-</blockquote>
-<p>我想我的选择是对的。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1310,7 +1331,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
