@@ -1,0 +1,744 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Python是一种编程语言，可以用来做网站、写自动化测试脚本、做数据分析，不过，我在2015年第一次决定在Mooc上莱斯大学的Python课程，只是因为一个在国内某知名企业做软件测试的朋友说她们用的是Python，那时我并不知道它还有那么多功能。
+后来工作中并未用到Python，但业余时间又重学了Mooc上莱斯大学的课程，然后看过静觅的爬虫教程，最近又花了八天时间学了Python教程“Learn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个编程语言（Python）资深初学者的经验分享">
+<meta property="og:url" content="http://yoursite.com/2017/03/18/一个编程语言（Python）资深初学者的经验分享/index.html">
+<meta property="og:site_name" content="ProgramLife">
+<meta property="og:description" content="Python是一种编程语言，可以用来做网站、写自动化测试脚本、做数据分析，不过，我在2015年第一次决定在Mooc上莱斯大学的Python课程，只是因为一个在国内某知名企业做软件测试的朋友说她们用的是Python，那时我并不知道它还有那么多功能。
+后来工作中并未用到Python，但业余时间又重学了Mooc上莱斯大学的课程，然后看过静觅的爬虫教程，最近又花了八天时间学了Python教程“Learn">
+<meta property="og:updated_time" content="2017-03-18T12:24:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个编程语言（Python）资深初学者的经验分享">
+<meta name="twitter:description" content="Python是一种编程语言，可以用来做网站、写自动化测试脚本、做数据分析，不过，我在2015年第一次决定在Mooc上莱斯大学的Python课程，只是因为一个在国内某知名企业做软件测试的朋友说她们用的是Python，那时我并不知道它还有那么多功能。
+后来工作中并未用到Python，但业余时间又重学了Mooc上莱斯大学的课程，然后看过静觅的爬虫教程，最近又花了八天时间学了Python教程“Learn">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/18/一个编程语言（Python）资深初学者的经验分享/"/>
+
+  <title> 一个编程语言（Python）资深初学者的经验分享 | ProgramLife </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cb10f5fafcabdf4c0137f311c0ecaf7b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ProgramLife</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                一个编程语言（Python）资深初学者的经验分享
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-18T20:24:58+08:00" content="2017-03-18">
+              2017-03-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/program-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">program notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/18/一个编程语言（Python）资深初学者的经验分享/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/18/一个编程语言（Python）资深初学者的经验分享/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Python是一种编程语言，可以用来做网站、写自动化测试脚本、做数据分析，不过，我在2015年第一次决定在Mooc上莱斯大学的Python课程，只是因为一个在国内某知名企业做软件测试的朋友说她们用的是Python，那时我并不知道它还有那么多功能。</p>
+<p>后来工作中并未用到Python，但业余时间又重学了Mooc上莱斯大学的课程，然后看过静觅的爬虫教程，最近又花了八天时间学了Python教程“Learn Python the Hard Way”。</p>
+<p>我学Python一开始是想用它来找工作，后来是想用来写脚本，汇总下一些微信公众号的文章。这些愿望现在也没全部实现，因为发现已经有像传送门这样的专门网站做这类事情了。</p>
+<p>但我对Python的兴趣却没有减退，因为通过这些学习，我实现了许多突破，比如对命令行的操作从无知排斥到理解喜爱，从完全看不懂别人的脚本到能够运行调试更改，从不知道爬虫到发现很多人已经写过了微信公众号的爬虫脚本；还从畏惧阅读全英文网页转变为现在更倾向于阅读像StackOverFlow这类国外高质量的程序设计问答网站、或者像Learn Python the Hard Way这种优秀的国外教程。</p>
+<p>所以，虽然在Python本身学习上，我进步甚微，但对它的学习，却为我推开了通往有更多更好资源世界的一扇门。这篇文章将分享我在这个学习过程中的一些经验，这些经验有：</p>
+<ul>
+<li>有个小目标</li>
+<li>一个教程多看几遍，多看几个教程</li>
+<li>尽量多看英文网站</li>
+<li>每天积累一点点</li>
+<li>持续写笔记记录</li>
+<li>练习英语口语、听力、翻译</li>
+</ul>
+<p>这些经验有什么用？我是如何获得的？下面将一一道来。</p>
+<h1 id="经验一：有个小目标"><a href="#经验一：有个小目标" class="headerlink" title="经验一：有个小目标"></a>经验一：有个小目标</h1><p>要有一个想做成的东西，学习才可能持续；也就是要为了用而学，而不是为了学而学。</p>
+<p>编程有时候轻松有趣，有时候则困难重重令人沮丧，这时如果没有一个特别想要达成的目标，就会很快轻易放弃。</p>
+<p>我就是因为一直有批量抓取公众号文章的心愿，所以才持续学到今天。</p>
+<h1 id="经验二：一个教程多看几遍，多看几个教程"><a href="#经验二：一个教程多看几遍，多看几个教程" class="headerlink" title="经验二：一个教程多看几遍，多看几个教程"></a>经验二：一个教程多看几遍，多看几个教程</h1><p>如果想学一门编程语言，不要妄想仅看一个教程就能学会（已经有一门编程语言基础的人则另当别论）；一个教程看不懂，就多看几个教程。每个教程作者的侧重角度不一样，多看几个，就意味着获得多个角度，也多些理解。</p>
+<p>我最初看别人的爬虫教程看不懂，然后看着网上那些博客里热热闹闹的排满了各种编程语言教程，Java、Android、Python、PHP……等等，心里异常崩溃，沮丧为何别人能学那么多语言，还能写出这么多教程来，而我，却连个简单的爬虫脚本都搞不定？</p>
+<p>原本以为学过MOOC上的课程、能完成作业写出小游戏程序就算是会了，可为什么还有那么多代码看不懂呢？我开始注意到有个博主介绍python 基础时罗列了4个教程，忽然想到，连博主这么厉害的都要看好几个教程，那我这样的初学者，怎么能幻想连一个正儿八经的教程都没看过、就啥都能懂呢？</p>
+<p>正是这个念头把我带到了一个好教程那里。</p>
+<h1 id="经验三：尽量多看英文网站"><a href="#经验三：尽量多看英文网站" class="headerlink" title="经验三：尽量多看英文网站"></a>经验三：尽量多看英文网站</h1><p>动了多看几个教程的念头后，又想起自己写过，有人在知识领域开心地赚取差价，有人则因为懒惰、心甘情愿地花钱买质量存疑的二手知识。我想，那些知名博主会那么多编程语言，他们是怎么学会的呢？我们在看他们写的教程，可是他们看谁的教程？他们很少透露过。</p>
+<p>这些编程语言首先兴起于国外，那国外的信息资源更多吧？他们是不是直接看国外教程，然后转化成中文教程呢？（后来觉得他们也可能是直接看官方文档，然后写出教程。）</p>
+<p>又想到了英语的学习。忽然冒起个念头：为何不直接看外国人写的教程呢？国内有免费的中文教程，国外开源精神更甚，很可能有呢。</p>
+<p>就这样搜索了下“Python Tutorial”，真的找到了个“Learn Python the hard way”教程，随着后续阅读了解，发现它的确很好：它几乎能让一个完全不会python、不会命令行的人相当清晰透彻的理解python和命令行。</p>
+<p>这也很容易理解，编程语言以英语为基础，而且起源于国外。国外那些从小就熟练掌握英语的程序员，他们的编程基础通常比国内的扎实得多，计算机知识范围也宽得多，所以讲起来也更加透彻些，我们看起来也就更容易理解些。</p>
+<p>而国内的教程，有些地方作者自己本身就不太懂，所以讲起来就生硬、难以理解，要靠死记硬背，所以就人为地给读者额外增加了难度。（想象一下你本来要拆一座墙，别人说我帮你拆，结果给你又多树一堵墙。）</p>
+<p>我从看不懂到看懂脚本的突破，全是拜这个教程所赐；再回过头去看爬虫教程，理解起来也轻松多了；而且它还教会了我如何提问、如何利用官方文档，总之，它让我从一个面对问题束手无策的小白，转变为学会独立地利用搜索引擎和网络解决问题的小白。</p>
+<h1 id="经验四：每天积累一点点"><a href="#经验四：每天积累一点点" class="headerlink" title="经验四：每天积累一点点"></a>经验四：每天积累一点点</h1><p>慢慢学，每天学一点点，哪怕一页、一段、甚至一句话都行；累了或者受到挫折了，休息一下再继续学。甚至干脆暂时停下，等到第二天再看。</p>
+<h1 id="经验五：持续写笔记记录"><a href="#经验五：持续写笔记记录" class="headerlink" title="经验五：持续写笔记记录"></a>经验五：持续写笔记记录</h1><p>我从2月23号开始，几乎每天都写笔记总结，在技术博客上更新。笔记很零散，但只要写，就相当于复习巩固了当天所学内容。</p>
+<p>同样内容也不在多，哪怕一句话都行。有时候只要开始写第一句话，就会接着写第二句、第三句……第N句。</p>
+<h1 id="经验六：练习英语口语、听力、翻译"><a href="#经验六：练习英语口语、听力、翻译" class="headerlink" title="经验六：练习英语口语、听力、翻译"></a>经验六：练习英语口语、听力、翻译</h1><p>我每天在扇贝听力练习十几句听力，在扇贝口语上练习3-4句口语。有段时间把某公众号的语音素材当朗读材料，每天跟读10篇，累计跟读190篇，现在能够做到跟读流畅（除非遇到生单词），跟读时没懂材料意思，但重播录音时发现能够听懂，也挺有意思的。</p>
+<p>这样做的一个收获就是，在阅读全英文内容时，忽然没有了以前那种畏惧感。这说明听力和口语促进了阅读，让我对英语的感觉变得熟悉起来。这也是从心理学的学习中得到的启示，才转变策略（原先是狂刷单词，侧重练习阅读）。事实证明了，这个转变是正确的。</p>
+<p>另外一个策略转变就是每天做一道翻译题，现在已经累计做了69道题。做翻译题的好处就是，能在github上用有那么一点点地道的英文提问题了。当看到在调试程序过程中遇到的棘手问题有人认真回答、并且回答能够增进对编程语言的理解时，瞬间成就感爆棚。</p>
+<p>六条经验都分别讲述完了，再总结一下吧：</p>
+<ul>
+<li>有个小目标</li>
+<li>一个教程多看几遍，多看几个教程</li>
+<li>尽量多看英文网站</li>
+<li>每天积累一点点</li>
+<li>持续写笔记记录</li>
+<li>练习英语口语、听力、翻译</li>
+</ul>
+<p>去年有段时间热衷于早起，开始关注太阳出来的时间。</p>
+<p>一年当中太阳出来最早的时间大约是凌晨5点，最晚时间大约在早上7点。两者之间的差别，均来源于半年当中每天都比前一天早或者晚一分钟，有时候还不到一分钟。这样每天难以察觉的细微变化，持续180天左右，就造成了夏至和冬至的日出时间有两小时的显著差别。</p>
+<p>这就是积累的力量。学习编程，或者其他任何东西，亦是如此。</p>
+<h1 id="助我脱离苦海的快捷键"><a href="#助我脱离苦海的快捷键" class="headerlink" title="助我脱离苦海的快捷键"></a>助我脱离苦海的快捷键</h1><p>看累了吧，给大家介绍一个Mac上很好用的快捷键。有两周时间，我要经常选择一段文字做标记或者复制，频繁点按拖拉，弄得手指关节很痛，十只手指都快废掉了。为了减少痛苦，我无意摸索出了shift这个快捷键。</p>
+<p>选中某一段文字时，通常做法是：光标放置到目标区域起始位置，然后手或者鼠标拖住不放，拖到终止位置，松开。</p>
+<p>用快捷键的做法是：</p>
+<blockquote>
+<p>光标放置在目标区域起始位置，然后按住shift键不放，再单击终止位置，即可选中目标区域。</p>
+</blockquote>
+<p>这个方法可帮我减少了不少人生痛苦，我想也许有人还不知道，所以分享出来，希望能普度众生。</p>
+<p>再就是建议不会用命令行的人都学下用命令行，它使我少了很多手指点按的工作。苦海无边，学会命令行就是岸。codecademy和learnpythonthehardway上都有资源。</p>
+<h1 id="资源列表"><a href="#资源列表" class="headerlink" title="资源列表"></a>资源列表</h1><p>最后汇总下本文提到的资源列表：</p>
+<h2 id="编程相关"><a href="#编程相关" class="headerlink" title="编程相关"></a>编程相关</h2><p>交互式教程网站：</p>
+<p><a href="https://www.codecademy.com/" target="_blank" rel="external">https://www.codecademy.com/</a><br>（我在这个网站上学了HTML + CSS+ Javascript + Command Line + Git，虽然不是为了爬虫学的，但后来发现对爬虫学习有不可或缺的帮助。）</p>
+<p>Web技术教程网站：<br><a href="http://www.w3school.com.cn/" target="_blank" rel="external">http://www.w3school.com.cn/</a><br>（在这个网站上学了SQL，有时候查阅资料也会使用这个网站。）</p>
+<p>MOOC上的Python课程：<br><a href="https://www.coursera.org/learn/interactive-python-1/" target="_blank" rel="external">https://www.coursera.org/learn/interactive-python-1/</a></p>
+<p>静觅的爬虫教程：<br><a href="http://cuiqingcai.com/1052.html" target="_blank" rel="external">http://cuiqingcai.com/1052.html</a></p>
+<p>Python英文教程：<br><a href="https://learnpythonthehardway.org/book/" target="_blank" rel="external">https://learnpythonthehardway.org/book/</a></p>
+<p>国外问答网站：<br><a href="http://stackoverflow.com/" target="_blank" rel="external">http://stackoverflow.com/</a></p>
+<p>另一个可以提问的网站：<br><a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
+<p>微信爬虫专门网站：<br><a href="http://chuansong.me/" target="_blank" rel="external">http://chuansong.me/</a><br>(我觉得这个网站作者很厉害，网站是用Python做的)</p>
+<p>帮过我的一位程序员公众号：<br>赤兔金马奖（lijinma3）</p>
+<p>我的公众号：<br>LotusBloomsQuietly</p>
+<h2 id="英语相关"><a href="#英语相关" class="headerlink" title="英语相关"></a>英语相关</h2><p>跟读材料的公众号：<br>清晨朗读会</p>
+<p>练习听力口语的app：<br>扇贝听力、扇贝口语</p>
+<p>翻译所用材料：<br>《通过翻译学英语——150实例使你迅速提高汉译英能力》，李学平编著，南开大学出版社</p>
+<h2 id="心理学相关"><a href="#心理学相关" class="headerlink" title="心理学相关"></a>心理学相关</h2><p>发展心理学（第6版）<br>罗伯特.费尔德曼著</p>
+<p>语言本能<br>史蒂芬.平克著</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="dumpling001 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>我的微信公众号二维码，写点滴思考，与编程无关。</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/18/Improving-a-little-everyday-022/" rel="next" title="Improving-a-little-everyday-022">
+                <i class="fa fa-chevron-left"></i> Improving-a-little-everyday-022
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/18/一个编程语言（Python）资深初学者的经验分享/"
+           data-title="一个编程语言（Python）资深初学者的经验分享" data-url="http://yoursite.com/2017/03/18/一个编程语言（Python）资深初学者的经验分享/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="dumpling001" />
+          <p class="site-author-name" itemprop="name">dumpling001</p>
+          <p class="site-description motion-element" itemprop="description">Java, Python, 编写未来新生活</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/zh-cn/docs/" title="Hexo" target="_blank">Hexo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.youtube.com/watch?v=SFas42HBtMg" title="Python Crawler Tutorial" target="_blank">Python Crawler Tutorial</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/TankXiao/" title="资深软件测试员" target="_blank">资深软件测试员</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://cuiqingcai.com/1052.html" title="python爬虫教程" target="_blank">python爬虫教程</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://blueseach.github.io/" title="游遍星辰" target="_blank">游遍星辰</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://chayangge.com/" title="插秧哥" target="_blank">插秧哥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaolai.li/" title="Reborn" target="_blank">Reborn</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://qixinbo.info/" title="亓欣波" target="_blank">亓欣波</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sunwhut.com/2015/10/30/buildBlog/" title="Sunwhut" target="_blank">Sunwhut</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#经验一：有个小目标"><span class="nav-number">1.</span> <span class="nav-text">经验一：有个小目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经验二：一个教程多看几遍，多看几个教程"><span class="nav-number">2.</span> <span class="nav-text">经验二：一个教程多看几遍，多看几个教程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经验三：尽量多看英文网站"><span class="nav-number">3.</span> <span class="nav-text">经验三：尽量多看英文网站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经验四：每天积累一点点"><span class="nav-number">4.</span> <span class="nav-text">经验四：每天积累一点点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经验五：持续写笔记记录"><span class="nav-number">5.</span> <span class="nav-text">经验五：持续写笔记记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经验六：练习英语口语、听力、翻译"><span class="nav-number">6.</span> <span class="nav-text">经验六：练习英语口语、听力、翻译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#助我脱离苦海的快捷键"><span class="nav-number">7.</span> <span class="nav-text">助我脱离苦海的快捷键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#资源列表"><span class="nav-number">8.</span> <span class="nav-text">资源列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编程相关"><span class="nav-number">8.1.</span> <span class="nav-text">编程相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#英语相关"><span class="nav-number">8.2.</span> <span class="nav-text">英语相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#心理学相关"><span class="nav-number">8.3.</span> <span class="nav-text">心理学相关</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dumpling001</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"programlife"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

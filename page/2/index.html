@@ -238,6 +238,281 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/05/Improving-a-little-everyday-011/" itemprop="url">
+                  Improving-a-little-everyday 011
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-05T17:08:55+08:00" content="2017-03-05">
+              2017-03-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/program-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">program notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/05/Improving-a-little-everyday-011/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/05/Improving-a-little-everyday-011/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>git clone remote_location clone_name 把远程地址的文件下载到本地，并命名<br>git fetch 获取<br>git merge origin/master 本地与主干合并<br>git push origin your_branch_name 把你的分支存放上去(没理解清除)<br>git remoute -v 查看远程？<br>没完全弄明白，想以后边用边弄清楚。</p>
+<h1 id="Command-Line"><a href="#Command-Line" class="headerlink" title="Command Line"></a>Command Line</h1><p>cd ../dir<br>mkdir dir<br>cd ../../dir<br>touch filename</p>
+<h1 id="Python-Crawler"><a href="#Python-Crawler" class="headerlink" title="Python Crawler"></a>Python Crawler</h1><h3 id="解决了一个大问题：jQuery过滤条件过期"><a href="#解决了一个大问题：jQuery过滤条件过期" class="headerlink" title="解决了一个大问题：jQuery过滤条件过期"></a>解决了一个大问题：jQuery过滤条件过期</h3><p>问题记录：<br>The reason is that, an url function is out of date, like this:</p>
+<blockquote>
+<p>return doc(‘div[class=”wx-rb bg-blue wx-rb_v1 _item”]’).attr(‘href’)      </p>
+</blockquote>
+<p>and there is no problem after updating it by:</p>
+<blockquote>
+<p>return doc(‘a[uigs=”account_name_0”]’).attr(‘href’)</p>
+</blockquote>
+<p><a href="https://github.com/ipython/ipython/issues/10379" target="_blank" rel="external">https://github.com/ipython/ipython/issues/10379</a></p>
+<p>自己报错信息，一步步看程序调用发现的。先是发现把一个url屏蔽后，程序可以跑通，只是什么都没抓到。所以推测问题就出在网址解析上。接着分析了代码，猜测是过滤条件更新，通过关键词pq().attr()查找发现是pyquery的问题，在pyquery的帮助文档关于<a href="http://www.geoinformatics.cn/lab/pyquery/" target="_blank" rel="external">绝对链接部分</a>找到对应语法，然后查找了<a href="http://www.w3school.com.cn/jquery/jquery_selectors.asp" target="_blank" rel="external">W3C School上jQuery的语法</a>，参考以上信息和自己的猜测（直觉像正则表达式一样），改了下过滤条件，整个代码就跑通了。</p>
+<p>不过出现新的问题：</p>
+<p>代码把抓取到的文章内容转变成jason格式保存起来，我却不知道为什么要这样做，保存的文件名是什么？所以今天有很大进步，但同时还有很多问题待解决。</p>
+<p>本来说今天休息不看python可是没忍住还是看代码去了～……～</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/04/Improving-a-little-everyday-010/" itemprop="url">
+                  Improving a little everyday 010
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-04T18:04:11+08:00" content="2017-03-04">
+              2017-03-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/program-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">program notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/04/Improving-a-little-everyday-010/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/04/Improving-a-little-everyday-010/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>progress: 75%<br>place: Codecademy</p>
+<p>git branch 查看分支？<br>git branch new_branch_name 新建分支<br>git checkout branch_name 切换到某分支<br>git checkout master 切换到主干<br>git merge branch_name 将分支合并到主干<br>git branch -d branch_name 删除分支</p>
+<h1 id="Python-Crawler"><a href="#Python-Crawler" class="headerlink" title="Python Crawler"></a>Python Crawler</h1><p>解决的问题有：</p>
+<h3 id="PhantomJS下载不成功"><a href="#PhantomJS下载不成功" class="headerlink" title="PhantomJS下载不成功"></a>PhantomJS下载不成功</h3><p>在新生大学社群，静觅的交流群、朋友圈发了求助，后来是朋友圈的群友帮忙下载了。</p>
+<p>但收到下载文件后按网上指导的安装方法，不行，又找群友帮忙，解决了：</p>
+<p>无意中，下载shadowsocks时，PhantomJS的安装突然正常运行起来，所以判断是网络链接问题导致卡住。</p>
+<p>Command-line Client<br>    ▪    pip install shadowsocks<br>    ▪    brew install shadowsocks-libev<br>    ▪    cpan Net::Shadowsocks</p>
+<h3 id="Webdriver存放路径问题"><a href="#Webdriver存放路径问题" class="headerlink" title="Webdriver存放路径问题"></a>Webdriver存放路径问题</h3><p>先是看到报错：</p>
+<p>WebDriverException: Message: ‘chromedriver’ executable needs to be in PATH. Please see <a href="https://sites.google.com/a/chromium.org/chromedriver/home" target="_blank" rel="external">https://sites.google.com/a/chromium.org/chromedriver/home</a></p>
+<p>chromedriver下载也是奇慢无比。我把插件打开，网速几乎为0，插件关掉，有3M，估计chromedriver也是个被屏蔽的网站。</p>
+<p>网上找到别人的解决方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">比如我的是 Mac OS，就把下载好的文件放在 /usr/bin 目录下就可以了。</div><div class="line"></div><div class="line">$ sudo copy /Users/***/Downloads/chromedriver /usr/bin</div><div class="line">$ sudo cp /Users/***/Downloads/chromedriver /usr/bin</div><div class="line">cp: /usr/bin/chromedriver: Operation not permitted</div><div class="line">http://forums.appleinsider.com/discussion/189702/cant-copy-file-to-usr-bin-even-when-logged-in-as-root</div><div class="line"></div><div class="line"> I think that the /usr/bin directory is only writable by &quot;system&quot;.   I ended up putting it in /usr/local/bin instead.   Thanks!</div></pre></td></tr></table></figure>
+<p>Done!</p>
+<p>我开始也是想把下载的文件拖到/usr/bin里去，死活拖不过去。后来用上面的方法，拖到/usr/local/bin去就ok了。他们还提供了一种方法，我没试过：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">open ~/.bash_profile</div><div class="line">export PATH=/Applications/spiffy:$PATH</div></pre></td></tr></table></figure></p>
+<p>弄好之后，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">from selenium import webdriver</div><div class="line"></div><div class="line">browser = webdriver.Chrome()</div><div class="line">browser.get(&apos;http://www.baidu.com/</div></pre></td></tr></table></figure></p>
+<p>这段代码就可以正常运行了。</p>
+<h3 id="未解决问题"><a href="#未解决问题" class="headerlink" title="未解决问题"></a>未解决问题</h3><h5 id="Shadowsocks-GUI方式未学会。"><a href="#Shadowsocks-GUI方式未学会。" class="headerlink" title="Shadowsocks GUI方式未学会。"></a>Shadowsocks GUI方式未学会。</h5><p>因为Git上代码下载不了。又是网络问题。死循环。</p>
+<h6 id="WebDriverException-Message-Missing-Command-Parameter"><a href="#WebDriverException-Message-Missing-Command-Parameter" class="headerlink" title="WebDriverException: Message: Missing Command Parameter"></a>WebDriverException: Message: Missing Command Parameter</h6><p>一个爬虫代码，运行后报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">WebDriverException: Message: Missing Command Parameter - &#123;&quot;headers&quot;:&#123;&quot;Accept&quot;:&quot;application/json&quot;,&quot;Accept-Encoding&quot;:&quot;identity&quot;,&quot;Connection&quot;:&quot;close&quot;,&quot;Content-Length&quot;:&quot;66&quot;,&quot;Content-Type&quot;:&quot;application/json;charset=UTF-8&quot;,&quot;Host&quot;:&quot;127.0.0.1:49303&quot;,&quot;User-Agent&quot;:&quot;Python-urllib/2.7&quot;&#125;,&quot;httpVersion&quot;:&quot;1.1&quot;,&quot;method&quot;:&quot;POST&quot;,&quot;post&quot;:&quot;&#123;\&quot;url\&quot;: null, \&quot;sessionId\&quot;: \&quot;558135d0-00a3-11e7-a785-757ad963f5f7\&quot;&#125;&quot;,&quot;url&quot;:&quot;/url&quot;,&quot;urlParsed&quot;:&#123;&quot;anchor&quot;:&quot;&quot;,&quot;query&quot;:&quot;&quot;,&quot;file&quot;:&quot;url&quot;,&quot;directory&quot;:&quot;/&quot;,&quot;path&quot;:&quot;/url&quot;,&quot;relative&quot;:&quot;/url&quot;,&quot;port&quot;:&quot;&quot;,&quot;host&quot;:&quot;&quot;,&quot;password&quot;:&quot;&quot;,&quot;user&quot;:&quot;&quot;,&quot;userInfo&quot;:&quot;&quot;,&quot;authority&quot;:&quot;&quot;,&quot;protocol&quot;:&quot;&quot;,&quot;source&quot;:&quot;/url&quot;,&quot;queryKey&quot;:&#123;&#125;,&quot;chunks&quot;:[&quot;url&quot;]&#125;,&quot;urlOriginal&quot;:&quot;/session/558135d0-00a3-11e7-a785-757ad963f5f7/url&quot;&#125;</div></pre></td></tr></table></figure></p>
+<h6 id="AttributeError-‘module’-object-has-no-attribute"><a href="#AttributeError-‘module’-object-has-no-attribute" class="headerlink" title="AttributeError: ‘module’ object has no attribute"></a>AttributeError: ‘module’ object has no attribute</h6><p>报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">---------------------------------------------------------------------------</div><div class="line">AttributeError                            Traceback (most recent call last)</div><div class="line">&lt;ipython-input-1-c8a312bf3cca&gt; in &lt;module&gt;()</div><div class="line">     22</div><div class="line">     23 if __name__ == &quot;__main__&quot;:</div><div class="line">---&gt; 24     unittest.main()</div><div class="line"></div><div class="line">/Users/***/anaconda2/lib/python2.7/unittest/main.pyc in __init__(self, module, defaultTest, argv, testRunner, testLoader, exit, verbosity, failfast, catchbreak, buffer)</div><div class="line">     92         self.testLoader = testLoader</div><div class="line">     93         self.progName = os.path.basename(argv[0])</div><div class="line">---&gt; 94         self.parseArgs(argv)</div><div class="line">     95         self.runTests()</div><div class="line">     96</div><div class="line"></div><div class="line">/Users/***/anaconda2/lib/python2.7/unittest/main.pyc in parseArgs(self, argv)</div><div class="line">    147             else:</div><div class="line">    148                 self.testNames = (self.defaultTest,)</div><div class="line">--&gt; 149             self.createTests()</div><div class="line">    150         except getopt.error, msg:</div><div class="line">    151             self.usageExit(msg)</div><div class="line"></div><div class="line">/Users/***/anaconda2/lib/python2.7/unittest/main.pyc in createTests(self)</div><div class="line">    156         else:</div><div class="line">    157             self.test = self.testLoader.loadTestsFromNames(self.testNames,</div><div class="line">--&gt; 158                                                            self.module)</div><div class="line">    159</div><div class="line">    160     def _do_discovery(self, argv, Loader=None):</div><div class="line"></div><div class="line">/Users/***/anaconda2/lib/python2.7/unittest/loader.pyc in loadTestsFromNames(self, names, module)</div><div class="line">    128         of string specifiers. See &apos;loadTestsFromName()&apos;.</div><div class="line">    129         &quot;&quot;&quot;</div><div class="line">--&gt; 130         suites = [self.loadTestsFromName(name, module) for name in names]</div><div class="line">    131         return self.suiteClass(suites)</div><div class="line">    132</div><div class="line"></div><div class="line">/Users//anaconda2/lib/python2.7/unittest/loader.pyc in loadTestsFromName(self, name, module)</div><div class="line">     98         obj = module</div><div class="line">     99         for part in parts:</div><div class="line">--&gt; 100             parent, obj = obj, getattr(obj, part)</div><div class="line">    101</div><div class="line">    102         if isinstance(obj, types.ModuleType):</div><div class="line"></div><div class="line">AttributeError: &apos;module&apos; object has no attribute &apos;/Users/***/Library/Jupyter/runtime/kernel-baa6b16a-5f36-4e08-961e-1ba8da591b54&apos;</div></pre></td></tr></table></figure></p>
+<p>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">import unittest</div><div class="line">import urllib2</div><div class="line">from selenium import webdriver</div><div class="line">from selenium.webdriver.common.keys import Keys</div><div class="line"></div><div class="line">class PythonOrgSearch(unittest.TestCase):</div><div class="line"></div><div class="line">    def setUp(self):</div><div class="line">        self.driver = webdriver.Chrome()</div><div class="line"></div><div class="line">    def test_search_in_python_org(self):        </div><div class="line">        driver = self.driver</div><div class="line">        driver.get(&quot;http://www.python.org&quot;)</div><div class="line">        self.assertIn(&quot;Python&quot;, driver.title)</div><div class="line">        elem = driver.find_element_by_name(&quot;q&quot;)</div><div class="line">        elem.send_keys(&quot;pycon&quot;)</div><div class="line">        elem.send_keys(Keys.RETURN)</div><div class="line">        assert &quot;No results found.&quot; not in driver.page_source</div><div class="line"></div><div class="line">    def tearDown(self):</div><div class="line">        self.driver.close()</div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    unittest.main()</div></pre></td></tr></table></figure></p>
+<p>代码来源：<a href="http://cuiqingcai.com/2599.html" target="_blank" rel="external">静觅 » Python爬虫利器五之Selenium的用法</a></p>
+<p>网上查了，有的说是pyc的问题，但我把pyc文件删了仍存在。后来请别人远程协助仍未解决。最后在Git上提了这个问题，没想到竟然有IPython专栏。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/03/Improving-a-little-everyday-009/" itemprop="url">
                   Improving a little everyday 009
                 </a>
@@ -1327,283 +1602,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/25/每天积累一点点（003）/" itemprop="url">
-                  每天积累一点点（003）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-25T16:15:22+08:00" content="2017-02-25">
-              2017-02-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/program-notes/" itemprop="url" rel="index">
-                    <span itemprop="name">program notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/25/每天积累一点点（003）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/25/每天积累一点点（003）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL:"></a>SQL:</h1><p><code>DELETE FROM TableName WHERE ColumnsName = value</code><br>删除某表中列名称为某值的记录（行）</p>
-<p><code>DELETE FROM TableName</code><br><code>DELETE * FROM TableName</code><br>删除表中所有记录（行）</p>
-<h1 id="Mac-Terminal"><a href="#Mac-Terminal" class="headerlink" title="Mac Terminal:"></a>Mac Terminal:</h1><p>mkdir [foldername]<br>新建文件夹</p>
-<p>rmdir [foldername]<br>删除空文件夹</p>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python:"></a>Python:</h1><p>NumPy有多维数组对象ndarray；<br>Pandas有二维表结构DataFrame；<br>IPython主要用于交互式数据处理和利用matplotlib对数据进行可视化处理；<br>SciPy是一组专门解决科学计算中各种标准问题域的包的集合；<br>其中scipy。stats 标准连续和离散概率分布，各种统计检验方法，以及更好的描述统计方法。</p>
-<p>计算机已经安装过pyhon，Anacanda下载的，</p>
-<blockquote>
-<p>Both Canopy and Anaconda provide you a basic Python distribution with commonly used packages like NumPy, SciPy, Pandas, matplotlib, etc. already installed.(<a href="https://www.quora.com/How-does-Enthought-Canopy-compare-to-Anaconda" target="_blank" rel="external">https://www.quora.com/How-does-Enthought-Canopy-compare-to-Anaconda</a>)</p>
-</blockquote>
-<p>用Pylab模式启动IPython，然后尝试加载pandas并绘制一张图片：</p>
-<p>ipython –pylab<br>import pandas<br>plot(arange(10))</p>
-<p>成功打印出一张显示直线的图片。</p>
-<p>作者放在GitHub上的数据已下载。</p>
-<h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>1）简单性</p>
-<p>简单性是与C++对比得出的特性。它没有C++的头文件、指针运算、结构、联合、操作符重载、虚基类等。<br>Java还能支持开发能够在小型机器上独立运行的软件。</p>
-<p>2）面向对象<br>面向对象特性与C++相当，不同点在于多继承。Java使用的是简单的接口概念和元类模型。</p>
-<p>3）网络技能<br>能够通过URL很方便地打开访问网络上的对象。</p>
-<p>4）健壮性<br>与C++的不同在于，Java采用的指针模型可以消除重写内存和损坏数据的可能，不会出现内存分配错误，也不必防范内存泄漏。<br>Java编译器能够检测其他语言在运行时才能发现的问题。</p>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>数据有数值型、字符型、布尔型；<br>运算符有+ - <em> / % ;<br>用函数console.log()打印；<br>Math.random()随机<br>Math.floor()取整<br>M要大写<br>／／单行注释符<br>／</em>   *／ 多行注释符</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/24/每天积累一点点（2）/" itemprop="url">
-                  每天积累一点点（2）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-24T18:00:45+08:00" content="2017-02-24">
-              2017-02-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/program-notes/" itemprop="url" rel="index">
-                    <span itemprop="name">program notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/24/每天积累一点点（2）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/24/每天积累一点点（2）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL:"></a>SQL:</h1><p><code>SELECT 列名称1, 列名称2 FROM 表名称 ORDER BY 列名称1或列名称2</code><br>根据制定列对结果排序</p>
-<p>默认为升序，如果要降序排列，加上DESC</p>
-<p><code>SELECT 列名称1, 列名称2 FROM 表名称 ORDER BY 列名称1 DESC</code></p>
-<h1 id="Unix"><a href="#Unix" class="headerlink" title="Unix:"></a>Unix:</h1><p>在OS系统上测试的。</p>
-<p>cd foldername<br>可以用tab健联想</p>
-<p>pwd<br>显示当前所在目录路径</p>
-<p>rm filename<br>删除文件，不可恢复</p>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python:"></a>Python:</h1><p>重要的python库有3个：</p>
-<ul>
-<li>NumPy：科学计算的基础包</li>
-<li>Pandas：提供大量数据结构和函数，方便快速处理结构化数据</li>
-<li>matplotlib：用于绘制数据图表</li>
-</ul>
-<h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>分别解释了白皮书的11个关键术语。</p>
-<p>1）简单性<br>2）面向对象<br>3）网络技能<br>4）健壮性<br>5）安全性<br>6）体系结构中立<br>7）可移植性<br>8）解释型<br>9）高性能<br>10）多线程<br>11）动态性</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1644,7 +1647,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1661,7 +1664,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
